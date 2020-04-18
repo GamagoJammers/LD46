@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Campfire : MonoBehaviour
 {
+	public struct MinMaxFloat
+	{
+		public float min;
+		public float max;
+	}
 
 	[Range(0.0f,100.0f)]
 	[SerializeField]
@@ -19,10 +24,8 @@ public class Campfire : MonoBehaviour
 	[Header("Fire Light")]
 
 	public Light fireLight;
-	public float minLightSpotAngle;
-	public float maxLightSpotAngle;
-	public float minLightIntensity;
-	public float maxLightIntensity;
+	public MinMaxFloat lightSpotAngle;
+	public MinMaxFloat lightIntensity;
 
 	private void Awake()
 	{
@@ -39,8 +42,8 @@ public class Campfire : MonoBehaviour
 	/// </summary>
 	public void UpdateLight()
 	{
-		fireLight.spotAngle = Mathf.Lerp(minLightSpotAngle, maxLightSpotAngle, vivacity / 100.0f);
-		fireLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, vivacity / 100.0f);
+		fireLight.spotAngle = Mathf.Lerp(lightSpotAngle.min, lightSpotAngle.max, vivacity / 100.0f);
+		fireLight.intensity = Mathf.Lerp(lightIntensity.min, lightIntensity.max, vivacity / 100.0f);
 	}
 
 	/// <summary>
