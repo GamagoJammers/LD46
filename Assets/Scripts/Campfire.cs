@@ -78,7 +78,11 @@ public class Campfire : MonoBehaviour
 		float currentLerpTime = 0.0f;
 		float lerpTime = 0.5f;
 
-		StopCoroutine(actualNaturalExtinguishingCoroutine);
+		if(actualNaturalExtinguishingCoroutine != null)
+		{
+			StopCoroutine(actualNaturalExtinguishingCoroutine);
+			actualNaturalExtinguishingCoroutine = null;
+		}
 		while(currentLerpTime < lerpTime)
 		{
 			float completion = currentLerpTime / lerpTime;
@@ -86,7 +90,8 @@ public class Campfire : MonoBehaviour
 			currentLerpTime += Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
-		actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
+		if(actualNaturalExtinguishingCoroutine == null)
+			actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
 
 		yield return null;
 	}
