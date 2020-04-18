@@ -28,6 +28,14 @@ public class UI : MonoBehaviour
         }
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
         PauseMenu();
+        if (pauseMenu.activeSelf)
+        {
+            isPaused = true;
+        }
+        else if (!pauseMenu.activeSelf)
+        {
+            isPaused = false;
+        }
     }
 
     private void PauseMenu()
@@ -35,13 +43,11 @@ public class UI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
             pauseMenu.SetActive(false);
-            isPaused = false;
         }
 
         else if (!isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
-            isPaused = true;
         }
 
     }
