@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - player
+  - enemy
+  - tree
+  - ram
+  - log
+  - stone
+  - food
+  - camera
   layers:
   - Default
   - TransparentFX
@@ -14,11 +22,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bonfire
+  - Character
+  - Enemy
+  - Tree
+  - Item
   - 
   - 
   - 
