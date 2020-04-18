@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Damageable : MonoBehaviour
 
     public bool m_canBeStunned;
     public float m_maxStunnedTime;
+
+    // Event
+    public UnityEvent m_deathEvent;
 
     // State
     public int m_healthPoints;
@@ -28,7 +32,7 @@ public class Damageable : MonoBehaviour
 
             if (!IsAlive())
             {
-                OnDeath();
+                m_deathEvent.Invoke();
             }
         }
 
@@ -63,11 +67,13 @@ public class Damageable : MonoBehaviour
 
 
     //Internal methods
-    void OnDeath()
+    private void Awake()
     {
-        // TODO ! Maybe fx?
+        if (m_deathEvent == null)
+        {
+            m_deathEvent = new UnityEvent();
+        }
     }
-
     void Start()
     {
         m_healthPoints = m_maxHealth;
