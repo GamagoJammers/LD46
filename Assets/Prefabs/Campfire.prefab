@@ -142,10 +142,12 @@ MonoBehaviour:
   naturalEstinguishingRate: 0.1
   naturalEstinguishingAmount: 0.5
   fireLight: {fileID: 4809194146267016078}
-  minLightSpotAngle: 40
-  maxLightSpotAngle: 60
-  minLightIntensity: 0
-  maxLightIntensity: 8
+  lightSpotAngle:
+    min: 50
+    max: 60
+  lightIntensity:
+    min: 0
+    max: 8
 --- !u!1 &4809194147293161667
 GameObject:
   m_ObjectHideFlags: 0

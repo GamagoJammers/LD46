@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Campfire : MonoBehaviour
 {
+	[System.Serializable]
 	public struct MinMaxFloat
 	{
 		public float min;
@@ -78,6 +80,7 @@ public class Campfire : MonoBehaviour
 	{
 		float vivacityBefore = vivacity;
 		float vivacityAfter = vivacity + regain;
+		vivacityAfter = Mathf.Clamp(vivacityAfter, 0.0f, 100.0f);
 		float currentLerpTime = 0.0f;
 		float lerpTime = 0.5f;
 
