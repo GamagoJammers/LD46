@@ -34,14 +34,19 @@ public class Campfire : MonoBehaviour
 		UpdateLight();
 	}
 
+	/// <summary>
+	/// update the spot light parameters
+	/// </summary>
 	public void UpdateLight()
 	{
-		float normalizedVivacityValue = Mathf.InverseLerp(0.0f, 100.0f, vivacity);
-
-		fireLight.spotAngle = Mathf.Lerp(minLightSpotAngle, maxLightSpotAngle, normalizedVivacityValue);
-		fireLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, normalizedVivacityValue);
+		fireLight.spotAngle = Mathf.Lerp(minLightSpotAngle, maxLightSpotAngle, vivacity / 100.0f);
+		fireLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, vivacity / 100.0f);
 	}
 
+	/// <summary>
+	/// coroutine that extinguish
+	/// </summary>
+	/// <returns></returns>
 	private IEnumerator NaturalEstinguishingCoroutine()
 	{
 		while(vivacity > 0.0f)
@@ -52,6 +57,20 @@ public class Campfire : MonoBehaviour
 		//gameover
 	}
 
+	/// <summary>
+	/// make the fire regain some vivacity (called when wood is thrown at it for example)
+	/// </summary>
+	/// <param name="amount"></param>
+	public void RegainVivacity(float amount)
+	{
+		StartCoroutine(SmoothRegainVivacity(amount));
+	}
+
+	/// <summary>
+	/// coroutine that make the fire regain vivacity
+	/// </summary>
+	/// <param name="regain"></param>
+	/// <returns></returns>
 	private IEnumerator SmoothRegainVivacity(float regain)
 	{
 		float vivacityBefore = vivacity;
