@@ -51,10 +51,4 @@ public class UI : MonoBehaviour
         }
 
     }
-
-    void doExit()
-    {
-        Application.Quit();
-    }
-
 }

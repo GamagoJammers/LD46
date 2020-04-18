@@ -26,4 +26,8 @@ public class ChangeSceneFromUI : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void doExit()
+    {
+        Application.Quit();
+    }
 }
