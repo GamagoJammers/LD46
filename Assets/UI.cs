@@ -52,7 +52,7 @@ public class UI : MonoBehaviour
 
     }
 
-    public void doExit()
+    void doExit()
     {
         Application.Quit();
     }
