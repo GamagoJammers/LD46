@@ -3,19 +3,22 @@ using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
+    // Status
     public bool m_modeGamepad;
-
     public Vector3 m_movementVector;
     public Vector3 m_aimVector;
     public bool m_interact;
     public bool m_drop;
 
+    // Helper
     public Vector3 m_cameraForward;
 
+    //Events
     public UnityEvent m_interactDownEvent;
     public UnityEvent m_interactReleaseEvent;
     public UnityEvent m_dropEvent;
 
+    // Components
     private GameObject m_player;
     private GameObject m_camera;
 
@@ -40,7 +43,8 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         m_modeGamepad = false;
-        m_aimVector = Vector2.down;
+        m_aimVector = Vector3.down;
+        m_movementVector = Vector3.zero;
         m_player = GameObject.FindGameObjectWithTag("player");
         m_camera = GameObject.FindGameObjectWithTag("MainCamera");
     }
@@ -88,6 +92,11 @@ public class PlayerInput : MonoBehaviour
 
         m_movementVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         m_movementVector = Quaternion.FromToRotation(Vector3.forward, m_cameraForward) * m_movementVector;
+
+        if (m_movementVector != Vector3.zero)
+        {
+            m_movementVector = m_movementVector.normalized;
+        }
 
         if (direction != Vector3.zero)
         {
