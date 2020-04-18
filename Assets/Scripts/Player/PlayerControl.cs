@@ -29,7 +29,13 @@ public class PlayerControl : MonoBehaviour
             float speedFactor = Mathf.Sqrt(Mathf.Pow(forward * maxForwardSpeed, 2) + Mathf.Pow(right * m_maxSideSpeed, 2));
             m_rb.AddForce(m_input.m_movementVector * speedFactor - m_rb.velocity, ForceMode.VelocityChange);
 
-            m_rb.transform.LookAt(transform.position + m_input.m_aimVector);
+            if (m_input.m_interact)
+            {
+                m_rb.transform.LookAt(transform.position + m_input.m_aimVector);
+            } else
+            {
+                m_rb.transform.LookAt(transform.position + m_input.m_movementVector);
+            }
         }
         else
         {
