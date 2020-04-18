@@ -43,7 +43,7 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         m_modeGamepad = false;
-        m_aimVector = Vector3.down;
+        m_aimVector = -Vector3.forward;
         m_movementVector = Vector3.zero;
         m_player = GameObject.FindGameObjectWithTag("player");
         m_camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -102,6 +102,9 @@ public class PlayerInput : MonoBehaviour
         {
             // If null vector, keep the previous one
             m_aimVector = direction.normalized;
+        } else
+        {
+            m_aimVector = m_player.transform.forward;
         }
 
         if (!m_interact && interact)
