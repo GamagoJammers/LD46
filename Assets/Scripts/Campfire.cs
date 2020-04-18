@@ -34,12 +34,9 @@ public class Campfire : MonoBehaviour
 	private ParticleSystem.EmissionModule fireEmitter;
 	private ParticleSystem.MainModule mainFire;
 
-	public float minFireEmission;
-	public float maxFireEmission;
-	public float minFireSize;
-	public float maxFireSize;
-	public float minGravity;
-	public float maxGravity;
+	public MinMaxFloat fireEmission;
+	public MinMaxFloat fireSize;
+	public MinMaxFloat gravity;
 	
 	[Space]
 
@@ -91,10 +88,10 @@ public class Campfire : MonoBehaviour
 
 	public void UpdateVFX()
 	{
-		mainFire.startSize = Mathf.Lerp(minFireSize, maxFireSize, vivacity / 100.0f);
-		mainFire.gravityModifier = Mathf.Lerp(minGravity, maxGravity, vivacity / 100.0f);
+		mainFire.startSize = Mathf.Lerp(fireSize.min, fireSize.max, vivacity / 100.0f);
+		mainFire.gravityModifier = Mathf.Lerp(gravity.min, gravity.max, vivacity / 100.0f);
 
-		fireEmitter.rateOverTime = Mathf.Lerp(minFireEmission, maxFireEmission, vivacity / 100.0f);
+		fireEmitter.rateOverTime = Mathf.Lerp(fireEmission.min, fireEmission.max, vivacity / 100.0f);
 		cindersEmitter.rateOverTime = Mathf.Lerp(minCindersEmission, maxCindersEmission, vivacity / 100.0f);
 	}
 	

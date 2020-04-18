@@ -9693,18 +9693,21 @@ MonoBehaviour:
   naturalEstinguishingAmount: 0.5
   fireLight: {fileID: 4809194146267016078}
   lightSpotAngle:
-    min: 50
+    min: 40
     max: 60
   lightIntensity:
     min: 0
     max: 8
   fireParticles: {fileID: 957479654}
-  minFireEmission: 0
-  maxFireEmission: 50
-  minFireSize: 0
-  maxFireSize: 0.5
-  minGravity: -0.05
-  maxGravity: -0.25
+  fireEmission:
+    min: 0
+    max: 50
+  fireSize:
+    min: 0
+    max: 0.5
+  gravity:
+    min: -0.05
+    max: -0.25
   cindersParticles: {fileID: 1934407132}
   minCindersEmission: 0
   maxCindersEmission: 2
