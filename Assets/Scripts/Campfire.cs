@@ -9,6 +9,8 @@ public class Campfire : MonoBehaviour
 	[SerializeField]
 	private float vivacity = 100.0f;
 
+	private Coroutine actualNaturalExtinguishingCoroutine;
+
 	[Header("Natural estinguishing")]
 
 	public float naturalEstinguishingRate = 0.1f;
@@ -24,7 +26,7 @@ public class Campfire : MonoBehaviour
 
 	private void Awake()
 	{
-		StartCoroutine(NaturalEstinguishingCoroutine());
+		actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
 	}
 
 	private void Update()
@@ -47,7 +49,26 @@ public class Campfire : MonoBehaviour
 			yield return new WaitForSeconds(naturalEstinguishingRate);
 			vivacity -= naturalEstinguishingAmount;
 		}
-
 		//gameover
+	}
+
+	private IEnumerator SmoothRegainVivacity(float regain)
+	{
+		float vivacityBefore = vivacity;
+		float vivacityAfter = vivacity + regain;
+		float currentLerpTime = 0.0f;
+		float lerpTime = 0.5f;
+
+		StopCoroutine(actualNaturalExtinguishingCoroutine);
+		while(currentLerpTime < lerpTime)
+		{
+			float completion = currentLerpTime / lerpTime;
+			vivacity = Mathf.Lerp(vivacityBefore, vivacityAfter, completion);
+			currentLerpTime += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
+
+		yield return null;
 	}
 }
