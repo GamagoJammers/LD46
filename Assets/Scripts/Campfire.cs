@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Campfire : MonoBehaviour
 {
+	[System.Serializable]
+	public struct MinMaxFloat
+	{
+		public float min;
+		public float max;
+	}
 
 	[Range(0.0f,100.0f)]
 	[SerializeField]
@@ -19,10 +26,8 @@ public class Campfire : MonoBehaviour
 	[Header("Fire Light")]
 
 	public Light fireLight;
-	public float minLightSpotAngle;
-	public float maxLightSpotAngle;
-	public float minLightIntensity;
-	public float maxLightIntensity;
+	public MinMaxFloat lightSpotAngle;
+	public MinMaxFloat lightIntensity;
 
 	[Header("Fire VFX")]
 	public ParticleSystem fireParticles;
@@ -66,8 +71,8 @@ public class Campfire : MonoBehaviour
 	/// </summary>
 	public void UpdateLight()
 	{
-		fireLight.spotAngle = Mathf.Lerp(minLightSpotAngle, maxLightSpotAngle, vivacity / 100.0f);
-		fireLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, vivacity / 100.0f);
+		fireLight.spotAngle = Mathf.Lerp(lightSpotAngle.min, lightSpotAngle.max, vivacity / 100.0f);
+		fireLight.intensity = Mathf.Lerp(lightIntensity.min, lightIntensity.max, vivacity / 100.0f);
 	}
 
 	/// <summary>
@@ -111,6 +116,7 @@ public class Campfire : MonoBehaviour
 	{
 		float vivacityBefore = vivacity;
 		float vivacityAfter = vivacity + regain;
+		vivacityAfter = Mathf.Clamp(vivacityAfter, 0.0f, 100.0f);
 		float currentLerpTime = 0.0f;
 		float lerpTime = 0.5f;
 
