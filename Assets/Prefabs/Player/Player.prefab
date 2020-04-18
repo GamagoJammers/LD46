@@ -66,7 +66,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &1798347766615011113
 MonoBehaviour:
@@ -110,11 +110,10 @@ MonoBehaviour:
   m_maxForwardSpeed: 10
   m_maxBackwardSpeed: 5
   m_maxSideSpeed: 5
-  m_maxAngularSpeed: 20
-  m_deltaAngleRegulation: 5
   m_damageable: {fileID: 1798347766615011116}
   m_rb: {fileID: 1798347766615011112}
   m_input: {fileID: 1798347766615011113}
+  m_picker: {fileID: 2806937598916228413}
 --- !u!114 &1798347766615011116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +129,7 @@ MonoBehaviour:
   m_canBeKilled: 0
   m_maxHealth: 20
   m_canBeStunned: 1
+  m_additiveStun: 0
   m_maxStunnedTime: 3
   m_deathEvent:
     m_PersistentCalls:
@@ -224,9 +224,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1798347767371775522}
-  - component: {fileID: 1798347767371775549}
   - component: {fileID: 4068803310227603777}
-  m_Layer: 13
+  - component: {fileID: 2806937598916228413}
+  m_Layer: 14
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,18 +247,6 @@ Transform:
   m_Father: {fileID: 1798347766615011118}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1798347767371775549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798347767371775523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb4b85722b714f4e9c5ac1b545d8acf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &4068803310227603777
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -272,6 +260,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 1, z: 1}
+--- !u!114 &2806937598916228413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798347767371775523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7784167e1921a409bc5de8b9da3576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pickableTags:
+  - log
+  - stone
+  - food
+  m_carryingTag: {fileID: 1798347767560499809}
+  m_canThrow: 1
+  m_shouldFlagOutline: 1
 --- !u!1 &1798347767560499809
 GameObject:
   m_ObjectHideFlags: 0

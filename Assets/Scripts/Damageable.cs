@@ -8,6 +8,7 @@ public class Damageable : MonoBehaviour
     public int m_maxHealth;
 
     public bool m_canBeStunned;
+    public bool m_additiveStun;
     public float m_maxStunnedTime;
 
     // Event
@@ -38,7 +39,10 @@ public class Damageable : MonoBehaviour
 
         if (m_canBeStunned)
         {
-            m_stunTimer = Mathf.Min(m_stunTimer + _stunDamage, m_maxStunnedTime);
+            if (!IsStunned() || m_additiveStun)
+            {
+                m_stunTimer = Mathf.Min(m_stunTimer + _stunDamage, m_maxStunnedTime);
+            }
         }
     }
 
