@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3674473295999981794}
   - component: {fileID: 397314561}
   m_Layer: 12
-  m_Name: Tree
+  m_Name: WoodenTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,23 +45,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeStates:
   - growthStatus: 0
-    stateModelPrefab: {fileID: 5145511564891426136, guid: d3af251875a97de44b87f9e796445a7c,
+    stateModelPrefab: {fileID: 6218103943169981380, guid: cef4f3c97b9a7754895813f733b25fac,
       type: 3}
     logAmount: -1
     timeToGrow: 2
   - growthStatus: 1
-    stateModelPrefab: {fileID: 5145511564891426136, guid: d3af251875a97de44b87f9e796445a7c,
+    stateModelPrefab: {fileID: 1242087650894536163, guid: 38c22fddc4c46fe4c9d55912ded2fa74,
       type: 3}
     logAmount: 1
     timeToGrow: 2
   - growthStatus: 2
-    stateModelPrefab: {fileID: 5145511564891426136, guid: d3af251875a97de44b87f9e796445a7c,
+    stateModelPrefab: {fileID: 6411266450115311697, guid: 12f7b88322a522e41974a568aaa2a83f,
       type: 3}
     logAmount: 3
     timeToGrow: -1
   actualState:
     growthStatus: 0
-    stateModelPrefab: {fileID: 5145511564891426136, guid: d3af251875a97de44b87f9e796445a7c,
+    stateModelPrefab: {fileID: 6218103943169981380, guid: cef4f3c97b9a7754895813f733b25fac,
       type: 3}
     logAmount: -1
     timeToGrow: 2
