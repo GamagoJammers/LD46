@@ -18,11 +18,11 @@ public class ChangeSceneFromUI : MonoBehaviour
         
     }
 
-    void goPlay()
+    public void goPlay()
     {
         SceneManager.LoadScene("PauseMenu");
     }
-    void goMenu()
+    public void goMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
