@@ -72,7 +72,7 @@ public class PickerSensor : MonoBehaviour
                 continue;
             }
 
-            if (m_sensedPickables[i].m_pickedUp)
+            if (m_sensedPickables[i].IsPickedUp())
             {
                 continue;
             }

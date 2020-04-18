@@ -516,12 +516,7 @@ PrefabInstance:
     - target: {fileID: 998490890366728722, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
       propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 998490890366728722, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1485774659517102581, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
@@ -601,12 +596,12 @@ PrefabInstance:
     - target: {fileID: 8944061748835492581, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
       propertyPath: m_throwImpulse
-      value: 40
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8944061748835492581, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
       propertyPath: m_dropImpulse
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cf667d0ce184614fbd8736bcafe0bf3, type: 3}

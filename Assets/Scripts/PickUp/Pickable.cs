@@ -7,8 +7,13 @@ public class Pickable : MonoBehaviour
     public Rigidbody m_rb;
     public GameObject m_outline;
 
-    public bool m_pickedUp { get; private set; }
+    private bool m_pickedUp;
     private bool m_flagOutline;
+
+    public bool IsPickedUp()
+    {
+        return m_pickedUp;
+    }
 
     public void PickUp(GameObject _picker)
     {
@@ -17,6 +22,8 @@ public class Pickable : MonoBehaviour
             m_pickedUp = true;
             m_rb.detectCollisions = false;
             m_rb.isKinematic = true;
+            m_rb.velocity = Vector3.zero;
+            m_rb.angularVelocity = Vector3.zero;
             gameObject.transform.SetPositionAndRotation(_picker.transform.position, _picker.transform.rotation);
             gameObject.transform.SetParent(_picker.transform);
         }
@@ -41,7 +48,8 @@ public class Pickable : MonoBehaviour
     {
         if (m_pickedUp)
         {
-            m_rb.detectCollisions = false;
+            m_pickedUp = false;
+            m_rb.detectCollisions = true;
             m_rb.isKinematic = false;
             gameObject.transform.parent = null;
 
