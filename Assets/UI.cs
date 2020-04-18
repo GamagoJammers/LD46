@@ -50,4 +50,5 @@ public class UI : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
