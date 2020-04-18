@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour
         else
         {
             m_rb.AddForce(-m_rb.velocity, ForceMode.VelocityChange);
-            m_rb.AddTorque(-m_rb.angularVelocity, ForceMode.VelocityChange);
+            m_rb.transform.LookAt(transform.position + transform.forward);
         }
 
     }
