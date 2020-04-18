@@ -7,36 +7,50 @@ public class PlayerInput : MonoBehaviour
     public bool m_modeGamepad;
     public Vector3 m_movementVector;
     public Vector3 m_aimVector;
-    public bool m_interact;
-    public bool m_drop;
+    public bool m_mainAction;
+    public bool m_secoundaryAction;
 
     // Helper
     public Vector3 m_cameraForward;
 
     //Events
-    public UnityEvent m_interactDownEvent;
-    public UnityEvent m_interactReleaseEvent;
-    public UnityEvent m_dropEvent;
+    public UnityEvent m_mainActionDownEvent;
+    public UnityEvent m_mainActionReleaseEvent;
+    public UnityEvent m_secoundaryActionDownEvent;
+    public UnityEvent m_secoundaryActionReleaseEvent;
 
     // Components
     private GameObject m_player;
     private GameObject m_camera;
 
+    private void OnDisable()
+    {
+        m_mainActionDownEvent.RemoveAllListeners();
+        m_mainActionReleaseEvent.RemoveAllListeners();
+        m_secoundaryActionDownEvent.RemoveAllListeners();
+        m_secoundaryActionReleaseEvent.RemoveAllListeners();
+    }
+
     void Awake()
     {
-        if (m_interactDownEvent == null)
+        if (m_mainActionDownEvent == null)
         {
-            m_interactDownEvent = new UnityEvent();
-        }        
-        
-        if (m_interactReleaseEvent == null)
-        {
-            m_interactReleaseEvent = new UnityEvent();
-        }        
+            m_mainActionDownEvent = new UnityEvent();
+        }
 
-        if (m_dropEvent == null)
+        if (m_mainActionReleaseEvent == null)
         {
-            m_dropEvent = new UnityEvent();
+            m_mainActionReleaseEvent = new UnityEvent();
+        }
+
+        if (m_secoundaryActionReleaseEvent == null)
+        {
+            m_secoundaryActionDownEvent = new UnityEvent();
+        }
+
+        if (m_secoundaryActionDownEvent == null)
+        {
+            m_secoundaryActionDownEvent = new UnityEvent();
         }
     }
 
@@ -60,16 +74,16 @@ public class PlayerInput : MonoBehaviour
         bool interactGamepad = Input.GetKey(KeyCode.JoystickButton5) || Input.GetAxis("JoystickRightTrigger") != 0; // Right Bumper or Right Trigger
         bool dropGamepad = Input.GetKey(KeyCode.JoystickButton4) || Input.GetAxis("JoystickLeftTrigger") != 0; // Left Bumper or Left Trigger
 
-        bool interact = interactKeypad || interactGamepad;
-        bool drop = dropKeypad || dropGamepad;
+        bool mainAction = interactKeypad || interactGamepad;
+        bool secoundaryAction = dropKeypad || dropGamepad;
 
         if (m_modeGamepad)
         {
-            m_modeGamepad = !(Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space) || interactKeypad || dropKeypad);// Button Enter / Space or any interact/drop keypad button
+            m_modeGamepad = !(Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space) || interactKeypad || dropKeypad);// Button Enter / Space or any action keypad button
         }
         else
         {
-            m_modeGamepad = Input.GetKey(KeyCode.JoystickButton0) || interactGamepad || dropGamepad; // Button A or any interact/drop gamepad button
+            m_modeGamepad = Input.GetKey(KeyCode.JoystickButton0) || interactGamepad || dropGamepad; // Button A or any action gamepad button
         }
 
 
@@ -102,25 +116,32 @@ public class PlayerInput : MonoBehaviour
         {
             // If null vector, keep the previous one
             m_aimVector = direction.normalized;
-        } else
+        }
+        else
         {
             m_aimVector = m_player.transform.forward;
         }
 
-        if (!m_interact && interact)
+        if (!m_mainAction && mainAction)
         {
-            m_interact = true;
-            m_interactDownEvent.Invoke();
-        } else if (m_interact && !interact)
+            m_mainAction = true;
+            m_mainActionDownEvent.Invoke();
+        }
+        else if (m_mainAction && !mainAction)
         {
-            m_interact = false;
-            m_interactReleaseEvent.Invoke();
+            m_mainAction = false;
+            m_mainActionReleaseEvent.Invoke();
         }
 
-        if (!m_drop && drop)
+        if (!m_secoundaryAction && secoundaryAction)
         {
-            m_dropEvent.Invoke();
+            m_secoundaryAction = true;
+            m_secoundaryActionDownEvent.Invoke();
         }
-        m_drop = drop;
+        else if (m_secoundaryAction && !secoundaryAction)
+        {
+            m_secoundaryAction = false;
+            m_secoundaryActionReleaseEvent.Invoke();
+        }
     }
 }
