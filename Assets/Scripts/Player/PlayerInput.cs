@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -9,14 +8,36 @@ public class PlayerInput : MonoBehaviour
     public Vector3 m_movementVector;
     public Vector3 m_aimVector;
     public bool m_interact;
+    public bool m_drop;
 
     public Vector3 m_cameraForward;
+
+    public UnityEvent m_interactDownEvent;
+    public UnityEvent m_interactReleaseEvent;
+    public UnityEvent m_dropEvent;
 
     private GameObject m_player;
     private GameObject m_camera;
 
+    void Awake()
+    {
+        if (m_interactDownEvent == null)
+        {
+            m_interactDownEvent = new UnityEvent();
+        }        
+        
+        if (m_interactReleaseEvent == null)
+        {
+            m_interactReleaseEvent = new UnityEvent();
+        }        
 
-    private void Start()
+        if (m_dropEvent == null)
+        {
+            m_dropEvent = new UnityEvent();
+        }
+    }
+
+    void Start()
     {
         m_modeGamepad = false;
         m_aimVector = Vector2.down;
@@ -30,19 +51,23 @@ public class PlayerInput : MonoBehaviour
         m_cameraForward.y = 0;
         m_cameraForward.Normalize();
 
-        bool interactKeypad = Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1);  // Left or Right Click
-        bool interactGamepad = Input.GetKey(KeyCode.JoystickButton5) || Input.GetAxis("JoystickRightTrigger") != 0; // RightBumper or Right Trigger
+        bool interactKeypad = Input.GetKey(KeyCode.Mouse0);  // Left Click
+        bool dropKeypad = Input.GetKey(KeyCode.Mouse1);  // Right Click
+        bool interactGamepad = Input.GetKey(KeyCode.JoystickButton5) || Input.GetAxis("JoystickRightTrigger") != 0; // Right Bumper or Right Trigger
+        bool dropGamepad = Input.GetKey(KeyCode.JoystickButton4) || Input.GetAxis("JoystickLeftTrigger") != 0; // Left Bumper or Left Trigger
+
+        bool interact = interactKeypad || interactGamepad;
+        bool drop = dropKeypad || dropGamepad;
 
         if (m_modeGamepad)
         {
-            m_modeGamepad = !(Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space) || interactKeypad);// Button Enter / Space or any interact keypad button
+            m_modeGamepad = !(Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space) || interactKeypad || dropKeypad);// Button Enter / Space or any interact/drop keypad button
         }
         else
         {
-            m_modeGamepad = Input.GetKey(KeyCode.JoystickButton0) || interactGamepad; // Button A or any interact gamepad button
+            m_modeGamepad = Input.GetKey(KeyCode.JoystickButton0) || interactGamepad || dropGamepad; // Button A or any interact/drop gamepad button
         }
 
-        m_interact = interactGamepad || interactKeypad;
 
         Vector3 direction = Vector3.zero;
         if (m_modeGamepad)
@@ -69,5 +94,21 @@ public class PlayerInput : MonoBehaviour
             // If null vector, keep the previous one
             m_aimVector = direction.normalized;
         }
+
+        if (!m_interact && interact)
+        {
+            m_interact = true;
+            m_interactDownEvent.Invoke();
+        } else if (m_interact && !interact)
+        {
+            m_interact = false;
+            m_interactReleaseEvent.Invoke();
+        }
+
+        if (!m_drop && drop)
+        {
+            m_dropEvent.Invoke();
+        }
+        m_drop = drop;
     }
 }

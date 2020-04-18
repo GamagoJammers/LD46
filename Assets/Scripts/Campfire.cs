@@ -9,6 +9,8 @@ public class Campfire : MonoBehaviour
 	[SerializeField]
 	private float vivacity = 100.0f;
 
+	private Coroutine actualNaturalExtinguishingCoroutine;
+
 	[Header("Natural estinguishing")]
 
 	public float naturalEstinguishingRate = 0.1f;
@@ -44,11 +46,13 @@ public class Campfire : MonoBehaviour
 
 	private void Awake()
 	{
-		StartCoroutine(NaturalEstinguishingCoroutine());
+		actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
+		
 		fireEmitter = fireParticles.emission;
 		mainFire = fireParticles.main;
 
 		cindersEmitter = cindersParticles.emission;
+		
 	}
 
 	private void Update()
@@ -57,14 +61,19 @@ public class Campfire : MonoBehaviour
 		UpdateVFX();
 	}
 
+	/// <summary>
+	/// update the spot light parameters
+	/// </summary>
 	public void UpdateLight()
 	{
-		float normalizedVivacityValue = Mathf.InverseLerp(0.0f, 100.0f, vivacity);
-
-		fireLight.spotAngle = Mathf.Lerp(minLightSpotAngle, maxLightSpotAngle, normalizedVivacityValue);
-		fireLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, normalizedVivacityValue);
+		fireLight.spotAngle = Mathf.Lerp(minLightSpotAngle, maxLightSpotAngle, vivacity / 100.0f);
+		fireLight.intensity = Mathf.Lerp(minLightIntensity, maxLightIntensity, vivacity / 100.0f);
 	}
 
+	/// <summary>
+	/// coroutine that extinguish
+	/// </summary>
+	/// <returns></returns>
 	private IEnumerator NaturalEstinguishingCoroutine()
 	{
 		while(vivacity > 0.0f)
@@ -72,7 +81,6 @@ public class Campfire : MonoBehaviour
 			yield return new WaitForSeconds(naturalEstinguishingRate);
 			vivacity -= naturalEstinguishingAmount;
 		}
-
 		//gameover
 	}
 
@@ -83,6 +91,44 @@ public class Campfire : MonoBehaviour
 
 		fireEmitter.rateOverTime = Mathf.Lerp(minFireEmission, maxFireEmission, vivacity / 100.0f);
 		cindersEmitter.rateOverTime = Mathf.Lerp(minCindersEmission, maxCindersEmission, vivacity / 100.0f);
+	}
+	
+	/// <summary>
+	/// make the fire regain some vivacity (called when wood is thrown at it for example)
+	/// </summary>
+	/// <param name="amount"></param>
+	public void RegainVivacity(float amount)
+	{
+		StartCoroutine(SmoothRegainVivacity(amount));
+	}
 
+	/// <summary>
+	/// coroutine that make the fire regain vivacity
+	/// </summary>
+	/// <param name="regain"></param>
+	/// <returns></returns>
+	private IEnumerator SmoothRegainVivacity(float regain)
+	{
+		float vivacityBefore = vivacity;
+		float vivacityAfter = vivacity + regain;
+		float currentLerpTime = 0.0f;
+		float lerpTime = 0.5f;
+
+		if(actualNaturalExtinguishingCoroutine != null)
+		{
+			StopCoroutine(actualNaturalExtinguishingCoroutine);
+			actualNaturalExtinguishingCoroutine = null;
+		}
+		while(currentLerpTime < lerpTime)
+		{
+			float completion = currentLerpTime / lerpTime;
+			vivacity = Mathf.Lerp(vivacityBefore, vivacityAfter, completion);
+			currentLerpTime += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		if(actualNaturalExtinguishingCoroutine == null)
+			actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
+
+		yield return null;
 	}
 }
