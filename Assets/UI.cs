@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     public Text timerText;
     private bool isPaused = false;
     public GameObject pauseMenu;
+    public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,5 +51,14 @@ public class UI : MonoBehaviour
             pauseMenu.SetActive(true);
         }
 
+    }
+    public void setMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+    }
+    public void setHealth(int health)
+    {
+        slider.value = health;
     }
 }
