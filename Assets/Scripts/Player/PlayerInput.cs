@@ -24,7 +24,6 @@ public class PlayerInput : MonoBehaviour
         m_camera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
-    // Update is called once per frame
     void Update()
     {
         m_cameraForward = m_camera.transform.forward;

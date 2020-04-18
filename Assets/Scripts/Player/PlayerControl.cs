@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public Damageable m_damageable;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (m_damageable.CanMove())
+        {
+
+        }
     }
 }
