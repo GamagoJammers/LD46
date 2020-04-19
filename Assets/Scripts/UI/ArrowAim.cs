@@ -5,8 +5,7 @@ using UnityEngine;
 public class ArrowAim : MonoBehaviour
 {
 
-    public GameObject arrow;
-    public GameObject circle;
+    public GameObject aim;
     public PickerSensor m_picker;
     // Start is called before the first frame update
     void Start()
@@ -19,13 +18,11 @@ public class ArrowAim : MonoBehaviour
     {
         if (m_picker.IsCarryingPickable())
         {
-            arrow.SetActive(true);
-            circle.SetActive(true);
+            aim.SetActive(true);
         }
         else if (!m_picker.IsCarryingPickable())
         {
-            arrow.SetActive(false);
-            circle.SetActive(false);
+            aim.SetActive(false);
         }
     }
 
