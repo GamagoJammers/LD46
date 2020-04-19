@@ -34,7 +34,7 @@ public class WoodenTree : MonoBehaviour
 		StartCoroutine(GrowCoroutine());
 	}
 
-	void Die()
+	public void Die()
 	{
 		float actualAngle = 360.0f;
 		float anglePart = actualAngle / actualState.logAmount;

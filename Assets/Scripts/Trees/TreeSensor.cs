@@ -25,6 +25,7 @@ public class TreeSensor : MonoBehaviour
     {
         if (m_selectedTree != null)
         {
+            m_selectedTree.Chop();
             m_isChoppingFlag = true;
         }
     }
@@ -44,10 +45,10 @@ public class TreeSensor : MonoBehaviour
                 continue;
             }
 
-            //if (m_sensedTrees[i].IsPickedUp())
-            //{
-            //    continue;
-            //}
+            if (!m_sensedTrees[i].CanBeChopped())
+            {
+                continue;
+            }
 
             Vector3 position = m_sensedTrees[i].gameObject.transform.position;
 
@@ -80,7 +81,6 @@ public class TreeSensor : MonoBehaviour
     {
         if (m_isChoppingFlag)
         {
-            //m_selectedTree -> Chop
             m_isChoppingFlag = false;
         }
     }

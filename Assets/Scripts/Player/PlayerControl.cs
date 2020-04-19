@@ -101,7 +101,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (CanChopTree())
         {
-            TryChop();
+            m_chopper.ChopTree();
         }
     }
 

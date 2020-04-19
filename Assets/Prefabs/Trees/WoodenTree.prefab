@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 397314561}
   m_Layer: 12
   m_Name: WoodenTree
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,3 +66,5 @@ MonoBehaviour:
     logAmount: -1
     timeToGrow: 2
   actualModel: {fileID: 0}
+  logDropPoint: {fileID: 0}
+  logPrefab: {fileID: 0}
