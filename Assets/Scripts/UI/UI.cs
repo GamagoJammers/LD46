@@ -40,12 +40,12 @@ public class UI : MonoBehaviour
 
     private void PauseMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instance.isPaused)
+        if (GameManager.instance.isPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)))
         {
             pauseMenu.SetActive(false);
         }
 
-        else if (!GameManager.instance.isPaused && Input.GetKeyDown(KeyCode.Escape))
+        else if (!GameManager.instance.isPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)))
         {
             pauseMenu.SetActive(true);
         }
