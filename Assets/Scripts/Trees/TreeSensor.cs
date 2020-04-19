@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeSensor : MonoBehaviour
@@ -7,14 +6,27 @@ public class TreeSensor : MonoBehaviour
     // Parameters
     public string m_treeTag;
     public GameObject m_choppedTree;
-    public bool m_isChopping;
+    public bool m_isChoppingFlag;
 
     private List<ChoppableTree> m_sensedTrees;
     private ChoppableTree m_selectedTree;
 
+    public bool CanChopTree()
+    {
+        return m_selectedTree != null;
+    }
+
     public bool IsChoppingTree()
     {
-        return m_isChopping && m_selectedTree != null;
+        return m_isChoppingFlag && m_selectedTree != null;
+    }
+
+    public void ChopTree()
+    {
+        if (m_selectedTree != null)
+        {
+            m_isChoppingFlag = true;
+        }
     }
 
     private void SelectTree()
@@ -64,15 +76,24 @@ public class TreeSensor : MonoBehaviour
         m_selectedTree = null;
     }
 
+    private void Update()
+    {
+        if (m_isChoppingFlag)
+        {
+            //m_selectedTree -> Chop
+            m_isChoppingFlag = false;
+        }
+    }
+
     private void FixedUpdate()
     {
         // Fix state
-        if (m_isChopping && m_selectedTree == null)
+        if (m_isChoppingFlag && m_selectedTree == null)
         {
-            m_isChopping = false;
+            m_isChoppingFlag = false;
         }
 
-        if (m_isChopping)
+        if (m_isChoppingFlag)
         {
             SelectTree();
         }
