@@ -9,9 +9,12 @@ public class PickerSensor : MonoBehaviour
     public bool m_canThrow;
     public bool m_shouldFlagOutline;
 
+    public Damageable m_damageable;
+
     private List<Pickable> m_sensedPickables;
     private Pickable m_selectedPickable;
     private bool m_isCarrying;
+
 
     public bool CanPickUp()
     {
@@ -97,11 +100,20 @@ public class PickerSensor : MonoBehaviour
         m_selectedPickable = returnedPickable;
     }
 
-
     void Start()
     {
         m_sensedPickables = new List<Pickable>();
         m_selectedPickable = null;
+
+        m_damageable.m_startStunEvent.AddListener(Drop);
+    }
+
+    private void OnDisable()
+    {
+        if(m_damageable != null)
+        {
+            m_damageable.m_startStunEvent.RemoveListener(Drop);
+        }
     }
 
     private void FixedUpdate()

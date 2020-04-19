@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     public Rigidbody m_rb;
     public PlayerInput m_input;
     public PickerSensor m_picker;
+    public TreeSensor m_chopper;
 
     public bool m_flagInteractAction;
 
@@ -38,12 +39,17 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         Movement();
+        if (m_input.m_mainAction)
+        {
+            TryChop();
+        }
         m_flagInteractAction = false;
+
     }
 
     void Movement()
     {
-        if (!m_damageable.CanMove())
+        if (!CanMove())
         {
             m_rb.AddForce(-m_rb.velocity, ForceMode.VelocityChange);
             m_rb.transform.LookAt(transform.position + transform.forward);
@@ -71,9 +77,34 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    bool CanMove()
+    {
+        return m_damageable.CanPerformActions() && !m_chopper.IsChoppingTree();
+    }
+
+    bool CanPickupItem()
+    {
+        return m_damageable.CanPerformActions() && m_picker.CanPickUp() && !m_chopper.IsChoppingTree();
+    }
+
+    bool CanDrop()
+    {
+        return m_damageable.CanPerformActions() && m_picker.IsCarryingPickable();
+    }
+
+    bool CanChopTree()
+    {
+        return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable();
+    }
+
+    public void TryChop()
+    {
+        // TODO
+    }
+
     public void TryPickUp()
     {
-        if (!m_flagInteractAction && m_damageable.CanMove() && m_picker.CanPickUp())
+        if (!m_flagInteractAction && CanPickupItem())
         {
             m_flagInteractAction = true;
             m_picker.PickUp();
@@ -82,7 +113,7 @@ public class PlayerControl : MonoBehaviour
 
     public void TryDrop()
     {
-        if (!m_flagInteractAction && m_damageable.CanMove() && m_picker.IsCarryingPickable())
+        if (!m_flagInteractAction && CanDrop())
         {
             m_flagInteractAction = true;
             m_picker.Drop();
@@ -91,7 +122,7 @@ public class PlayerControl : MonoBehaviour
     
     public void TryThrow()
     {
-        if (!m_flagInteractAction && m_damageable.CanMove() && m_picker.IsCarryingPickable())
+        if (!m_flagInteractAction && CanDrop())
         {
             m_flagInteractAction = true;
             m_picker.Throw();
