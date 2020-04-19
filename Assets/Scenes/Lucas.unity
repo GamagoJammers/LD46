@@ -285,7 +285,7 @@ PrefabInstance:
     - target: {fileID: 4809194147143832362, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
         type: 3}
       propertyPath: naturalEstinguishingRate
-      value: 100
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62, type: 3}
@@ -451,6 +451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UInGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3470786512925298720, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
