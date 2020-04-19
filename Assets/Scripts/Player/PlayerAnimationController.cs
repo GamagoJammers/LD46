@@ -45,6 +45,7 @@ public class PlayerAnimationController : MonoBehaviour
         m_animator.SetBool("IsSawing", m_treeSensor.IsChoppingTree());
         m_animator.SetBool("IsStun", m_damageable.IsStunned());
         m_animator.SetBool("IsThrowing", m_throwTimer >0);
+        m_animator.SetBool("IsDown", m_animator.GetCurrentAnimatorStateInfo(0).IsName("Stun"));
         if (m_throwTimer>0)
         {
             m_throwTimer -= Time.deltaTime;
@@ -62,7 +63,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Stun()
     {
-        m_animator.SetTrigger("TStun");
+        m_animator.SetTrigger("THit");
+        m_animator.SetBool("IsStun", true);
     }
 
     void Throw()
