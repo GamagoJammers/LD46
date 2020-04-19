@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dropImpulse: 1
-  m_throwImpulse: 80
+  m_throwImpulse: 70
   m_rb: {fileID: 2569925374640915974}
   m_outline: {fileID: 2725775994346277668}
 --- !u!114 &8052114352479561121
