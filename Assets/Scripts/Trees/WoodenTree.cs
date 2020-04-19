@@ -47,7 +47,7 @@ public class WoodenTree : MonoBehaviour
 			Pickable log = Instantiate(logPrefab, logPosition, Quaternion.LookRotation(logPosition-logDropPoint.position)).GetComponent<Pickable>();
 			log.Drop(true);
 
-			GameManager.instance.consummables.Add(log.GetComponent<Consummable>());
+			GameManager.instance.logs.Add(log.gameObject);
 		}
 
 		Instantiate(dedTreeVFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), new Quaternion(0, 0, 0, 0));

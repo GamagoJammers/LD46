@@ -9,10 +9,11 @@ public class PickerSensor : MonoBehaviour
     public bool m_canThrow;
     public bool m_shouldFlagOutline;
 
-    public Damageable m_damageable;
+	public Pickable m_selectedPickable;
+
+	public Damageable m_damageable;
 
     private List<Pickable> m_sensedPickables;
-    private Pickable m_selectedPickable;
     private bool m_isCarrying;
 
 
