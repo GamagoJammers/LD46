@@ -43,7 +43,7 @@ public class WoodenTree : MonoBehaviour
 		{
 			actualAngle = actualAngle - anglePart;
 			Pickable log = Instantiate(logPrefab, logDropPoint.position, Quaternion.Euler(new Vector3(0.0f, actualAngle, 0.0f))).GetComponent<Pickable>();
-			log.Drop();
+			log.Drop(true);
 		}
 
 		//VFX TREE DIYING
