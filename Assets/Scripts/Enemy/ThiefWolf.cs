@@ -76,6 +76,7 @@ public class ThiefWolf : MonoBehaviour
 		{
 			GameManager.instance.logs.Remove(targetLog);
 			Destroy(targetLog.gameObject);
+			GameManager.instance.enemyGenerator.enemies.Remove(this.gameObject);
 			Destroy(this.gameObject);
 		}
 	}
