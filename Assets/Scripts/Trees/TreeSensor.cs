@@ -8,11 +8,13 @@ public class TreeSensor : MonoBehaviour
     public string m_treeTag;
 
     public Damageable m_damageable;
+    public ProgressBar m_progressBar;
 
     public UnityEvent m_chopEvent;
 
     private List<ChoppableTree> m_sensedTrees;
     private ChoppableTree m_selectedTree;
+
 
     public bool IsChoppingTree()
     {
@@ -33,6 +35,7 @@ public class TreeSensor : MonoBehaviour
         if (m_selectedTree != null)
         {
             m_selectedTree.StartChop();
+            m_progressBar.Show(m_selectedTree.gameObject);
             m_chopEvent.Invoke();
         }
     }
@@ -41,6 +44,7 @@ public class TreeSensor : MonoBehaviour
     {
         if (m_selectedTree != null)
         {
+            m_progressBar.Hide();
             m_selectedTree.StopChop();
         }
     }
@@ -107,6 +111,14 @@ public class TreeSensor : MonoBehaviour
             m_damageable.m_deathEvent.RemoveListener(StopChop);
         }
         m_chopEvent.RemoveAllListeners();
+    }
+
+    private void Update()
+    {
+        if (m_selectedTree != null && m_selectedTree.IsBeingChopped())
+        {
+            m_progressBar.SetFillAmount(m_selectedTree.GetChopInversionPregression());
+        }
     }
 
     private void FixedUpdate()
