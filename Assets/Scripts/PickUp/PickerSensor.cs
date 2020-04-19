@@ -32,7 +32,7 @@ public class PickerSensor : MonoBehaviour
         if (CanPickUp())
         {
             m_isCarrying = true;
-            m_selectedPickable.PickUp(m_carryingTag);
+            m_selectedPickable.PickUp(m_carryingTag, true);
         }
     }
 

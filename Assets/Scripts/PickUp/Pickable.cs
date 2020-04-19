@@ -8,6 +8,7 @@ public class Pickable : MonoBehaviour
     public GameObject m_outline;
 
     private bool m_pickedUp;
+    private bool m_playerPickedUp;
     private bool m_flagOutline;
 
     public bool IsPickedUp()
@@ -15,7 +16,12 @@ public class Pickable : MonoBehaviour
         return m_pickedUp;
     }
 
-    public void PickUp(GameObject _picker)
+    public bool IsPickedButNotByPlayer()
+    {
+        return m_pickedUp && !m_playerPickedUp;
+    }
+
+    public void PickUp(GameObject _picker, bool _byPlayer = false)
     {
         if (!m_pickedUp)
         {
@@ -26,6 +32,8 @@ public class Pickable : MonoBehaviour
             m_rb.angularVelocity = Vector3.zero;
             gameObject.transform.SetPositionAndRotation(_picker.transform.position, _picker.transform.rotation);
             gameObject.transform.SetParent(_picker.transform);
+
+            m_playerPickedUp = _byPlayer;
         }
     }
 
@@ -53,6 +61,8 @@ public class Pickable : MonoBehaviour
             m_rb.isKinematic = false;
             gameObject.transform.parent = null;
 
+            m_playerPickedUp = false;
+
             m_rb.AddForce(transform.forward * _impulse, ForceMode.Impulse);
         }
     }
@@ -61,6 +71,7 @@ public class Pickable : MonoBehaviour
     {
         m_pickedUp = false;
         m_flagOutline = false;
+        m_playerPickedUp = false;
     }
 
     void Update()
