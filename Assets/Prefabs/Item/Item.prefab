@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 998490890366728722}
   - component: {fileID: 8944061748835492581}
   - component: {fileID: 4742207913230588341}
+  - component: {fileID: 8013083875873417125}
   m_Layer: 13
   m_Name: Item
   m_TagString: log
@@ -206,6 +207,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fakeGravity: 100
   m_rb: {fileID: 998490890366728722}
+--- !u!114 &8013083875873417125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485774659546562106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e50bab3061cfc146a97bbbe0c251252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rb: {fileID: 998490890366728722}
+  m_pickable: {fileID: 8944061748835492581}
+  m_attack: {fileID: 3645834221581388226}
+  m_minHitVelocity: 10
 --- !u!1 &1485774659787612829
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,10 +294,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2593455698041029848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.55
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3645834221581388226
 MonoBehaviour:
@@ -297,7 +314,7 @@ MonoBehaviour:
   m_attackableTags:
   - enemy
   m_enableAttack: 1
-  m_stunDamages: 3
+  m_stunDamages: 2
   m_healthDamages: 0
   m_attackEvent:
     m_PersistentCalls:
