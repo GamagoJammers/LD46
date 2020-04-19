@@ -8,7 +8,7 @@ public enum WoodenTreeGrowthStatus { SPROUT=0, SHRUB=1, TREE=2};
 public struct WoodenTreeState
 {
 	public WoodenTreeGrowthStatus growthStatus;
-	public GameObject stateModelPrefab;
+	public GameObject stateModel;
 	//-1 if not possible to cut
 	public int logAmount;
 	//-1.0f if not possible to grow more
@@ -21,33 +21,38 @@ public class WoodenTree : MonoBehaviour
 
 	public WoodenTreeState actualState;
 
-	public GameObject actualModel;
-
 	public Transform logDropPoint;
 	public GameObject logPrefab;
+	public GameObject dedTreeVFX;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		actualState = treeStates[0];
-		actualModel = Instantiate(actualState.stateModelPrefab, this.transform);
+		actualState.stateModel.SetActive(true);
 		StartCoroutine(GrowCoroutine());
 	}
 
-	void Die()
+	public void Die()
 	{
-		float actualAngle = 360.0f;
-		float anglePart = actualAngle / actualState.logAmount;
-
 		for(int i=0; i<actualState.logAmount; i++)
 		{
-			actualAngle = actualAngle - anglePart;
-			Pickable log = Instantiate(logPrefab, logDropPoint.position, Quaternion.Euler(new Vector3(0.0f, actualAngle, 0.0f))).GetComponent<Pickable>();
+			Vector2 originPos = new Vector2(logDropPoint.position.x, logDropPoint.position.z);
+			Vector2 logPos = originPos + Vector2.right;
+			float angle = Random.Range(0.0f, 360.0f);
+			logPos = Tools.RotatePosAroundPoint(originPos, logPos, angle);
+
+			Vector3 logPosition = new Vector3(logPos.x, logDropPoint.position.y, logPos.y);
+
+			Pickable log = Instantiate(logPrefab, logPosition, Quaternion.LookRotation(logPosition-logDropPoint.position)).GetComponent<Pickable>();
 			log.Drop(true);
+
+			GameManager.instance.logs.Add(log.gameObject);
 		}
 
-		//VFX TREE DIYING
+		Instantiate(dedTreeVFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), new Quaternion(0, 0, 0, 0));
 
+		GameManager.instance.treeGenerator.trees.Remove(this);
 		Destroy(this.gameObject);
 	}
 
@@ -56,9 +61,9 @@ public class WoodenTree : MonoBehaviour
 		while(actualState.growthStatus != WoodenTreeGrowthStatus.TREE)
 		{
 			yield return new WaitForSeconds(actualState.timeToGrow);
+			actualState.stateModel.SetActive(false);
 			actualState = treeStates[(int)actualState.growthStatus + 1];
-			Destroy(actualModel.gameObject);
-			actualModel = Instantiate(actualState.stateModelPrefab, this.transform);
+			actualState.stateModel.SetActive(true);
 		}
 	}
 }

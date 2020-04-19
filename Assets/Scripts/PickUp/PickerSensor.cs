@@ -9,10 +9,11 @@ public class PickerSensor : MonoBehaviour
     public bool m_canThrow;
     public bool m_shouldFlagOutline;
 
-    public Damageable m_damageable;
+	public Pickable m_selectedPickable;
+
+	public Damageable m_damageable;
 
     private List<Pickable> m_sensedPickables;
-    private Pickable m_selectedPickable;
     private bool m_isCarrying;
 
 
@@ -106,6 +107,7 @@ public class PickerSensor : MonoBehaviour
         m_selectedPickable = null;
 
         m_damageable.m_startStunEvent.AddListener(Drop);
+        m_damageable.m_deathEvent.AddListener(Drop);
     }
 
     private void OnDisable()
@@ -113,6 +115,7 @@ public class PickerSensor : MonoBehaviour
         if(m_damageable != null)
         {
             m_damageable.m_startStunEvent.RemoveListener(Drop);
+            m_damageable.m_deathEvent.RemoveListener(Drop);
         }
     }
 

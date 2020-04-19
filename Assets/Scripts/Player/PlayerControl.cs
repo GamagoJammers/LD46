@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour
     public float m_maxBackwardSpeed;
     public float m_maxSideSpeed;
 
+    public float m_distanceMinFromOuterwild;
+
     // Components
     public Damageable m_damageable;
     public Rigidbody m_rb;
@@ -18,18 +20,24 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        m_input.m_secoundaryActionDownEvent.AddListener(TryStartChop);
+        m_input.m_secoundaryActionReleaseEvent.AddListener(StopChop);
+
         m_input.m_mainActionDownEvent.AddListener(TryPickUp);
-        m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
+        //m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
 
         m_input.m_mainActionDownEvent.AddListener(TryThrow);
         m_input.m_secoundaryActionDownEvent.AddListener(TryDrop);
     }
     private void OnDisable()
     {
-        if(m_input != null)
+        if (m_input != null)
         {
+            m_input.m_secoundaryActionDownEvent.RemoveListener(TryStartChop);
+            m_input.m_secoundaryActionReleaseEvent.RemoveListener(StopChop);
+
             m_input.m_mainActionDownEvent.RemoveListener(TryPickUp);
-            m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
+            //m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
 
             m_input.m_mainActionDownEvent.RemoveListener(TryThrow);
             m_input.m_secoundaryActionDownEvent.RemoveListener(TryDrop);
@@ -38,16 +46,12 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        if (m_input.m_mainAction)
-        {
-            TryChop();
-        }
+        ProcessMovement();
+        
         m_flagInteractAction = false;
-
     }
 
-    void Movement()
+    void ProcessMovement()
     {
         if (!CanMove())
         {
@@ -64,6 +68,17 @@ public class PlayerControl : MonoBehaviour
 
             float speedFactor = Mathf.Sqrt(Mathf.Pow(forward * maxForwardSpeed, 2) + Mathf.Pow(right * m_maxSideSpeed, 2));
             m_rb.AddForce(m_input.m_movementVector * speedFactor - m_rb.velocity, ForceMode.VelocityChange);
+
+            // Bonfire en Vector.zero
+            if( transform.position.magnitude > (GameManager.instance.zoneRadius - m_distanceMinFromOuterwild))
+            {
+                Vector3 outerVector = transform.position.normalized;
+                float outerVelocity = Vector3.Dot(outerVector, m_input.m_movementVector * speedFactor);
+                if (outerVelocity > 0)
+                {
+                    m_rb.AddForce(- outerVelocity * outerVector, ForceMode.VelocityChange);
+                }
+            }
 
             if (m_input.m_mainAction || m_picker.IsCarryingPickable())
             {
@@ -94,12 +109,17 @@ public class PlayerControl : MonoBehaviour
 
     bool CanChopTree()
     {
-        return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable();
+        return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable() && m_chopper.CanChopTree();
     }
 
-    public void TryChop()
+    public void TryStartChop()
     {
-        // TODO
+        m_chopper.TryStartChop();
+    }
+
+    public void StopChop()
+    {
+        m_chopper.StopChop();
     }
 
     public void TryPickUp()
@@ -118,8 +138,8 @@ public class PlayerControl : MonoBehaviour
             m_flagInteractAction = true;
             m_picker.Drop();
         }
-    }    
-    
+    }
+
     public void TryThrow()
     {
         if (!m_flagInteractAction && CanDrop())

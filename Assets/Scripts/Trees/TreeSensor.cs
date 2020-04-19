@@ -1,20 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeSensor : MonoBehaviour
 {
     // Parameters
     public string m_treeTag;
-    public GameObject m_choppedTree;
-    public bool m_isChopping;
+
+    public Damageable m_damageable;
 
     private List<ChoppableTree> m_sensedTrees;
     private ChoppableTree m_selectedTree;
 
     public bool IsChoppingTree()
     {
-        return m_isChopping && m_selectedTree != null;
+        return m_selectedTree != null && m_selectedTree.IsBeingChopped();
+    }
+
+    public bool CanChopTree()
+    {
+        return m_selectedTree != null && m_selectedTree.CanBeChopped();
+    }
+
+    public void TryStartChop()
+    {
+        if (m_selectedTree != null)
+        {
+            m_selectedTree.StartChop();
+        }
+    }
+
+    public void StopChop()
+    {
+        if (m_selectedTree != null)
+        {
+            m_selectedTree.StopChop();
+        }
     }
 
     private void SelectTree()
@@ -32,10 +52,10 @@ public class TreeSensor : MonoBehaviour
                 continue;
             }
 
-            //if (m_sensedTrees[i].IsPickedUp())
-            //{
-            //    continue;
-            //}
+            if (!m_sensedTrees[i].CanBeChopped())
+            {
+                continue;
+            }
 
             Vector3 position = m_sensedTrees[i].gameObject.transform.position;
 
@@ -62,20 +82,24 @@ public class TreeSensor : MonoBehaviour
     {
         m_sensedTrees = new List<ChoppableTree>();
         m_selectedTree = null;
+
+        m_damageable.m_startStunEvent.AddListener(StopChop);
+        m_damageable.m_deathEvent.AddListener(StopChop);
+    }
+
+
+    private void OnDisable()
+    {
+        if (m_damageable != null)
+        {
+            m_damageable.m_startStunEvent.RemoveListener(StopChop);
+            m_damageable.m_deathEvent.RemoveListener(StopChop);
+        }
     }
 
     private void FixedUpdate()
     {
-        // Fix state
-        if (m_isChopping && m_selectedTree == null)
-        {
-            m_isChopping = false;
-        }
-
-        if (m_isChopping)
-        {
-            SelectTree();
-        }
+         SelectTree();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,6 +120,7 @@ public class TreeSensor : MonoBehaviour
         if (tree != null)
         {
             m_sensedTrees.Remove(tree);
+            tree.StopChop();
         }
     }
 }
