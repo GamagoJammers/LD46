@@ -9,7 +9,6 @@ public class UI : MonoBehaviour
     float minutes;
     float seconds;
     public Text timerText;
-    private bool isPaused = false;
     public GameObject pauseMenu;
     public Slider slider;
     // Start is called before the first frame update
@@ -21,7 +20,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isPaused)
+        if (!GameManager.instance.isPaused)
         {
             Timer += Time.deltaTime;
             seconds = Timer % 60;
@@ -31,22 +30,22 @@ public class UI : MonoBehaviour
         PauseMenu();
         if (pauseMenu.activeSelf)
         {
-            isPaused = true;
+            GameManager.instance.isPaused = true;
         }
         else if (!pauseMenu.activeSelf)
         {
-            isPaused = false;
+            GameManager.instance.isPaused = false;
         }
     }
 
     private void PauseMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instance.isPaused)
         {
             pauseMenu.SetActive(false);
         }
 
-        else if (!isPaused && Input.GetKeyDown(KeyCode.Escape))
+        else if (!GameManager.instance.isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
         }
