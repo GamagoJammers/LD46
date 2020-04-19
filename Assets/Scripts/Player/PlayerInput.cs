@@ -97,7 +97,7 @@ public class PlayerInput : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, float.MaxValue,LayerMask.GetMask("Default")))
             {
                 direction = hit.point - m_player.transform.position;
                 direction.y = 0;
