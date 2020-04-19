@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1126084921358475039}
   - component: {fileID: 3773926956793777414}
   - component: {fileID: 6096271536387475904}
+  - component: {fileID: 3076497246026124777}
   m_Layer: 12
   m_Name: sproutModel
   m_TagString: tree
@@ -89,8 +90,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 6218103943169981380}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.04
   m_Height: 0.050800007
   m_Direction: 2
   m_Center: {x: -0.000000004656613, y: 0.000000002793968, z: 0.028201422}
+--- !u!111 &3076497246026124777
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218103943169981380}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5c73ac80ac668164fa7ab7dd89205949, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 5c73ac80ac668164fa7ab7dd89205949, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
