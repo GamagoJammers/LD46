@@ -49,7 +49,7 @@ public class RainManager : MonoBehaviour
         raining = true;
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
-        campfire.naturalEstinguishingRate = 0.05f;
+        campfire.naturalEstinguishingRate = rate/2;
         RainTime = Random.Range(minRainTime, maxRainTime);
         //Debug.Log(RainTime);
         yield return new WaitForSeconds(RainTime);
