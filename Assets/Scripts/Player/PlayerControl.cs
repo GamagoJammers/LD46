@@ -18,6 +18,9 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        m_input.m_mainActionDownEvent.AddListener(TryStartChop);
+        m_input.m_mainActionReleaseEvent.AddListener(StopChop);
+
         m_input.m_mainActionDownEvent.AddListener(TryPickUp);
         m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
 
@@ -26,8 +29,11 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnDisable()
     {
-        if(m_input != null)
+        if (m_input != null)
         {
+            m_input.m_mainActionDownEvent.RemoveListener(TryStartChop);
+            m_input.m_mainActionReleaseEvent.RemoveListener(StopChop);
+
             m_input.m_mainActionDownEvent.RemoveListener(TryPickUp);
             m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
 
@@ -38,16 +44,12 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        if (m_input.m_mainAction)
-        {
-            TryChop();
-        }
+        ProcessMovement();
+        
         m_flagInteractAction = false;
-
     }
 
-    void Movement()
+    void ProcessMovement()
     {
         if (!CanMove())
         {
@@ -97,12 +99,14 @@ public class PlayerControl : MonoBehaviour
         return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable() && m_chopper.CanChopTree();
     }
 
-    public void TryChop()
+    public void TryStartChop()
     {
-        if (CanChopTree())
-        {
-            m_chopper.ChopTree();
-        }
+        m_chopper.TryStartChop();
+    }
+
+    public void StopChop()
+    {
+        m_chopper.StopChop();
     }
 
     public void TryPickUp()
@@ -121,8 +125,8 @@ public class PlayerControl : MonoBehaviour
             m_flagInteractAction = true;
             m_picker.Drop();
         }
-    }    
-    
+    }
+
     public void TryThrow()
     {
         if (!m_flagInteractAction && CanDrop())
