@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 1798347766615011117, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1798347766615011118, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
@@ -277,12 +277,17 @@ PrefabInstance:
     - target: {fileID: 1798347766615011119, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
       propertyPath: m_maxBackwardSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1798347766615011119, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
       propertyPath: m_maxSideSpeed
-      value: 9
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798347766615011119, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
+        type: 3}
+      propertyPath: m_maxForwardSpeed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1798347767371775523, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
