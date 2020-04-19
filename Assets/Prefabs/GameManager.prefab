@@ -95,11 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7c51baa83af54ead0598d17cff8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 5
+  minTime: 20
+  maxTime: 50
   minRainTime: 2
   maxRainTime: 5
-  rain: {fileID: 0}
+  rain: {fileID: 8816990616258050759}
   campfire: {fileID: 0}
 --- !u!1001 &1877677593465408105
 PrefabInstance:
@@ -173,6 +173,12 @@ PrefabInstance:
 --- !u!4 &8816990616258050776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6940864593995772081, guid: a2631ab3480cb1d4685e47f213621ac2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877677593465408105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8816990616258050759 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6940864593995772078, guid: a2631ab3480cb1d4685e47f213621ac2,
     type: 3}
   m_PrefabInstance: {fileID: 1877677593465408105}
   m_PrefabAsset: {fileID: 0}

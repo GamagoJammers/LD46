@@ -814,6 +814,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: campfire
+      value: 
+      objectReference: {fileID: 4809194147195276385}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b09af4859463a4a950c6a2545d8d30, type: 3}
 --- !u!1001 &4809194147195276384
@@ -885,3 +890,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62, type: 3}
+--- !u!114 &4809194147195276385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4809194147143832362, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
+    type: 3}
+  m_PrefabInstance: {fileID: 4809194147195276384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5cf63553451bde41ae5059f959cf142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
