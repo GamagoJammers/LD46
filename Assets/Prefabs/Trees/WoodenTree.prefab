@@ -57,7 +57,7 @@ MonoBehaviour:
   - growthStatus: 1
     stateModel: {fileID: 5993380614565193464}
     logAmount: 1
-    timeToGrow: 2
+    timeToGrow: 4
   - growthStatus: 2
     stateModel: {fileID: 1939203260922115260}
     logAmount: 3
@@ -70,7 +70,6 @@ MonoBehaviour:
   logDropPoint: {fileID: 4760317764351430060}
   logPrefab: {fileID: 4246867519164711470, guid: 5e800f75e6ab2934e8f9d2630662b0d5,
     type: 3}
-  makeItDie: 0
 --- !u!114 &370701954104771489
 MonoBehaviour:
   m_ObjectHideFlags: 0
