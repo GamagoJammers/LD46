@@ -4961,6 +4961,22 @@ Transform:
   m_Father: {fileID: 3674473295999981794}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1658758909
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5993380614565193464}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 430376e7af0bb3d42a72dc138ef78d29, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 430376e7af0bb3d42a72dc138ef78d29, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7214537943632562423
 GameObject:
   m_ObjectHideFlags: 0

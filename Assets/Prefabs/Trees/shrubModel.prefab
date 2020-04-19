@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5254494002608396829}
   - component: {fileID: 60020293467967230}
   - component: {fileID: 7736856688042993296}
+  - component: {fileID: 521855443757327011}
   m_Layer: 12
   m_Name: shrubModel
   m_TagString: tree
@@ -89,8 +90,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 1242087650894536163}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.04
   m_Height: 0.16
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.04}
+--- !u!111 &521855443757327011
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242087650894536163}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 430376e7af0bb3d42a72dc138ef78d29, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 430376e7af0bb3d42a72dc138ef78d29, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
