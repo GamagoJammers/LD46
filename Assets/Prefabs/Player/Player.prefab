@@ -384,6 +384,7 @@ MonoBehaviour:
   - log
   - stone
   - food
+  m_picker: {fileID: 1798347766615011117}
   m_carryingTag: {fileID: 1798347767560499809}
   m_canThrow: 1
   m_shouldFlagOutline: 1
@@ -412,14 +413,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798347767560499809}
-  m_LocalRotation: {x: -0.0000000051222746, y: -0.00000008940698, z: -0.0000000060535976,
-    w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.099999994, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 428865571179405708}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1798347767920961491
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +566,8 @@ MonoBehaviour:
   m_animator: {fileID: 4114275652410800698}
   m_control: {fileID: 1798347766615011119}
   m_rb: {fileID: 1798347766615011112}
+  m_treeSensor: {fileID: 1833750130983202417}
+  m_damageable: {fileID: 1798347766615011116}
 --- !u!1 &8163104160002171280
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_treeTag: tree
   m_damageable: {fileID: 1798347766615011116}
+  m_chopEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6093402670414292883
 PrefabInstance:
   m_ObjectHideFlags: 0
