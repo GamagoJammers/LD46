@@ -51,7 +51,7 @@ MonoBehaviour:
     max: 2
   maxTreeNb: 10
   distanceFromCampfire:
-    min: 10
+    min: 6
     max: 25
   minDistanceBetweenTrees: 10
   treeMask:

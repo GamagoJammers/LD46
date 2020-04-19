@@ -11,6 +11,7 @@ public class Consummable : MonoBehaviour
 		if (other.CompareTag("Campfire"))
 		{
 			other.gameObject.GetComponentInParent<Campfire>().RegainVivacity(energy);
+			GameManager.instance.consummables.Remove(this);
 			Destroy(this.gameObject);
 		}
 	}
