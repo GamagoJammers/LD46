@@ -24,9 +24,6 @@ public class WoodenTree : MonoBehaviour
 	public Transform logDropPoint;
 	public GameObject logPrefab;
 
-	//TEST
-	public bool makeItDie;
-
 	// Start is called before the first frame update
 	void Start()
     {
@@ -35,14 +32,6 @@ public class WoodenTree : MonoBehaviour
 		actualState.stateModel.SetActive(true);
 		StartCoroutine(GrowCoroutine());
 	}
-
-	//TEST
-	private void Update()
-	{
-		if (makeItDie)
-			Die();
-	}
-	//TEST
 
 	public void Die()
 	{
@@ -57,10 +46,13 @@ public class WoodenTree : MonoBehaviour
 
 			Pickable log = Instantiate(logPrefab, logPosition, Quaternion.LookRotation(logPosition-logDropPoint.position)).GetComponent<Pickable>();
 			log.Drop(true);
+
+			GameManager.instance.consummables.Add(log.GetComponent<Consummable>());
 		}
 
 		//VFX TREE DIYING
 
+		GameManager.instance.treeGenerator.trees.Remove(this);
 		Destroy(this.gameObject);
 	}
 
