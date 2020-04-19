@@ -16,7 +16,12 @@ public class Campfire : MonoBehaviour
 	public float naturalEstinguishingRate = 0.1f;
 	public float naturalEstinguishingAmount = 0.5f;
 
-	[Header("Fire Light")]
+    [Header("Camp Fire Light")]
+
+    public Light campFireLight;
+    public MinMaxFloat campFireLightRange;
+
+    [Header("Fire Light")]
 
 	public Light fireLight;
 	public MinMaxFloat lightSpotAngle;
@@ -89,7 +94,9 @@ public class Campfire : MonoBehaviour
 
 		fireEmitter.rateOverTime = Mathf.Lerp(fireEmission.min, fireEmission.max, vivacity / 100.0f);
 		cindersEmitter.rateOverTime = Mathf.Lerp(minCindersEmission, maxCindersEmission, vivacity / 100.0f);
-	}
+
+        campFireLight.range = Mathf.Lerp(campFireLightRange.min, campFireLightRange.max, vivacity / 100.0f);
+    }
 	
 	/// <summary>
 	/// make the fire regain some vivacity (called when wood is thrown at it for example)
