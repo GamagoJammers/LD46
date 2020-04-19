@@ -23,6 +23,10 @@ public class TreeSensor : MonoBehaviour
     {
         return m_selectedTree != null && m_selectedTree.CanBeChopped();
     }
+    public Vector3 GetSelectedTreePosition()
+    {
+        return m_selectedTree != null ? m_selectedTree.transform.position : transform.position;
+    }
 
     public void TryStartChop()
     {
