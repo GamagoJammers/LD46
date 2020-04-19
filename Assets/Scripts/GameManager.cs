@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 	public float zoneRadius = 0.0f;
 
 	public WoodenTreeGenerator treeGenerator;
-	public List<Consummable> consummables;
+	public List<GameObject> logs;
 
 	private void OnDrawGizmosSelected()
 	{
