@@ -29,11 +29,11 @@ public class WoodenTreeGenerator : MonoBehaviour
 
 	private void TryToInstantiateTree()
 	{
-		if(trees.Count < maxTreeNb)
+		if (trees.Count < maxTreeNb)
 		{
 			Vector3 treePosition = GetPossibleTreePosition();
 
-			if(treePosition != Vector3.zero)
+			if (treePosition != Vector3.zero)
 			{
 				trees.Add(Instantiate(treePrefab, treePosition, Quaternion.Euler(new Vector3(0.0f, Random.Range(0.0f, 360.0f), 0.0f)), this.transform).GetComponent<WoodenTree>());
 			}
@@ -44,7 +44,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 	{
 		int maximumTries = 10;
 
-		for(int i = 0; i < maximumTries; i++)
+		for (int i = 0; i < maximumTries; i++)
 		{
 			Vector2 pos2d = Tools.RotatePosAroundPoint(Vector2.zero,
 													   new Vector2(0.0f, Random.Range(distanceFromCampfire.min, distanceFromCampfire.max)),
@@ -52,7 +52,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 
 			Vector3 position = new Vector3(pos2d.x, 0.0f, pos2d.y);
 
-			if(Physics.OverlapSphere(position, minDistanceBetweenTrees, treeMask).Length == 0)
+			if (Physics.OverlapSphere(position, minDistanceBetweenTrees, treeMask).Length == 0)
 			{
 				return position;
 			}
@@ -63,7 +63,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 
 	private IEnumerator WoodenTreeGenerationCoroutine()
 	{
-		while(isActive)
+		while (isActive)
 		{
 			yield return new WaitForSeconds(Random.Range(timeBetweenInstantiation.min, timeBetweenInstantiation.max));
 			TryToInstantiateTree();

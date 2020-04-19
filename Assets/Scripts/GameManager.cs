@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 	public WoodenTreeGenerator treeGenerator;
 	public List<GameObject> logs;
 
+	public EnemyGenerator enemyGenerator;
+
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
