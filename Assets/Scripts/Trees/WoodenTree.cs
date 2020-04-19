@@ -23,12 +23,32 @@ public class WoodenTree : MonoBehaviour
 
 	public GameObject actualModel;
 
-    // Start is called before the first frame update
-    void Start()
+	public Transform logDropPoint;
+	public GameObject logPrefab;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		actualState = treeStates[0];
 		actualModel = Instantiate(actualState.stateModelPrefab, this.transform);
 		StartCoroutine(GrowCoroutine());
+	}
+
+	void Die()
+	{
+		float actualAngle = 360.0f;
+		float anglePart = actualAngle / actualState.logAmount;
+
+		for(int i=0; i<actualState.logAmount; i++)
+		{
+			actualAngle = actualAngle - anglePart;
+			Pickable log = Instantiate(logPrefab, logDropPoint.position, Quaternion.Euler(new Vector3(0.0f, actualAngle, 0.0f))).GetComponent<Pickable>();
+			log.Drop();
+		}
+
+		//VFX TREE DIYING
+
+		Destroy(this.gameObject);
 	}
 
 	IEnumerator GrowCoroutine()
