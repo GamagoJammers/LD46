@@ -20,34 +20,30 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.instance.isPaused)
-        {
-            Timer += Time.deltaTime;
-            seconds = Timer % 60;
-            minutes = Timer / 60;
-        }
+
+        Timer += Time.deltaTime;
+        seconds = Timer % 60;
+        minutes = Timer / 60;
+
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+
         PauseMenu();
-        if (pauseMenu.activeSelf)
-        {
-            GameManager.instance.isPaused = true;
-        }
-        else if (!pauseMenu.activeSelf)
-        {
-            GameManager.instance.isPaused = false;
-        }
     }
 
     private void PauseMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instance.isPaused)
+        if (GameManager.instance.isPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)))
         {
             pauseMenu.SetActive(false);
+            GameManager.instance.isPaused = false;
+            Time.timeScale = 1;
         }
 
-        else if (!GameManager.instance.isPaused && Input.GetKeyDown(KeyCode.Escape))
+        else if (!GameManager.instance.isPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)))
         {
             pauseMenu.SetActive(true);
+            GameManager.instance.isPaused = true;
+            Time.timeScale = 0;
         }
 
     }
