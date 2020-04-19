@@ -30,6 +30,7 @@ public class WoodenTree : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		makeItDie = false;
 		actualState = treeStates[0];
 		actualState.stateModel.SetActive(true);
 		StartCoroutine(GrowCoroutine());

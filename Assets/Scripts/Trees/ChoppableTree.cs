@@ -40,7 +40,7 @@ public class ChoppableTree : MonoBehaviour
         }
         m_flagIsChopped = false;
 
-        if (!CanBeChopped())
+        if (GetChopInversionPregression()<=0)
         {
             m_tree.Die();
         }

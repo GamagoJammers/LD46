@@ -5,7 +5,6 @@ public class TreeSensor : MonoBehaviour
 {
     // Parameters
     public string m_treeTag;
-    public GameObject m_choppedTree;
     public bool m_isChoppingFlag;
 
     private List<ChoppableTree> m_sensedTrees;
@@ -13,7 +12,7 @@ public class TreeSensor : MonoBehaviour
 
     public bool CanChopTree()
     {
-        return m_selectedTree != null;
+        return m_selectedTree != null && m_selectedTree.CanBeChopped();
     }
 
     public bool IsChoppingTree()
@@ -93,10 +92,7 @@ public class TreeSensor : MonoBehaviour
             m_isChoppingFlag = false;
         }
 
-        if (m_isChoppingFlag)
-        {
-            SelectTree();
-        }
+         SelectTree();
     }
 
     private void OnTriggerEnter(Collider other)

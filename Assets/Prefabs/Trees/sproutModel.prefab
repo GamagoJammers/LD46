@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6096271536387475904}
   m_Layer: 12
   m_Name: sproutModel
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
