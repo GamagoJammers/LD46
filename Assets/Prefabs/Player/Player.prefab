@@ -114,6 +114,7 @@ MonoBehaviour:
   m_maxForwardSpeed: 10
   m_maxBackwardSpeed: 5
   m_maxSideSpeed: 5
+  m_distanceMinFromOuterwild: 2
   m_damageable: {fileID: 1798347766615011116}
   m_rb: {fileID: 1798347766615011112}
   m_input: {fileID: 1798347766615011113}

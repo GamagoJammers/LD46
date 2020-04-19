@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour
     public float m_maxBackwardSpeed;
     public float m_maxSideSpeed;
 
+    public float m_distanceMinFromOuterwild;
+
     // Components
     public Damageable m_damageable;
     public Rigidbody m_rb;
@@ -66,6 +68,17 @@ public class PlayerControl : MonoBehaviour
 
             float speedFactor = Mathf.Sqrt(Mathf.Pow(forward * maxForwardSpeed, 2) + Mathf.Pow(right * m_maxSideSpeed, 2));
             m_rb.AddForce(m_input.m_movementVector * speedFactor - m_rb.velocity, ForceMode.VelocityChange);
+
+            // Bonfire en Vector.zero
+            if( transform.position.magnitude > (GameManager.instance.zoneRadius - m_distanceMinFromOuterwild))
+            {
+                Vector3 outerVector = transform.position.normalized;
+                float outerVelocity = Vector3.Dot(outerVector, m_input.m_movementVector * speedFactor);
+                if (outerVelocity > 0)
+                {
+                    m_rb.AddForce(- outerVelocity * outerVector, ForceMode.VelocityChange);
+                }
+            }
 
             if (m_input.m_mainAction || m_picker.IsCarryingPickable())
             {
