@@ -6,27 +6,17 @@ using UnityEngine;
 
 public class ChangeSceneFromUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void LoadGame()
     {
-        
+        SceneManager.LoadScene("GameScene");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void goPlay()
-    {
-        SceneManager.LoadScene("PauseMenu");
-    }
-    public void goMenu()
+    public void LoadMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
-    public void doExit()
+
+    public void QuitGame()
     {
         Application.Quit();
     }

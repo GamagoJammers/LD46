@@ -500,28 +500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 56971158, guid: adc42a2e03539ed4691b6a44b2ff95fd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2052989755, guid: adc42a2e03539ed4691b6a44b2ff95fd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
       propertyPath: m_Name
       value: UInGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3470786512925298720, guid: adc42a2e03539ed4691b6a44b2ff95fd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3470786512925298723, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
@@ -581,11 +563,6 @@ PrefabInstance:
     - target: {fileID: 7557090692765405716, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8199846234805938946, guid: adc42a2e03539ed4691b6a44b2ff95fd,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

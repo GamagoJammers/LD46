@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1578401982503740291}
   - component: {fileID: 1578401982503740288}
   - component: {fileID: 1578401982503740289}
+  - component: {fileID: 7838691677533652984}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -133,6 +134,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7838691677533652984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578401982503740318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8605600dbb2d434abe8199850586cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1578401982697036973
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,8 +338,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1578401983634872994}
-        m_MethodName: goPlay
+      - m_Target: {fileID: 7838691677533652984}
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -424,8 +437,6 @@ GameObject:
   - component: {fileID: 1578401983634872999}
   - component: {fileID: 1578401983634872996}
   - component: {fileID: 1578401983634872997}
-  - component: {fileID: 1578401983634872998}
-  - component: {fileID: 1578401983634872994}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -481,32 +492,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &1578401983634872998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578401983634872995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72133026e79b6234dbba58e3d77d3bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  pauseMenu: {fileID: 0}
---- !u!114 &1578401983634872994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578401983634872995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8605600dbb2d434abe8199850586cd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1578401984080455672
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,8 +611,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1578401983634872995}
-        m_MethodName: 
+      - m_Target: {fileID: 7838691677533652984}
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

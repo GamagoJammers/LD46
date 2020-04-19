@@ -48,11 +48,11 @@ MonoBehaviour:
     type: 3}
   timeBetweenInstantiation:
     min: 3
-    max: 6
+    max: 10
   maxTreeNb: 14
   distanceFromCampfire:
     min: 4
-    max: 40
+    max: 35
   minDistanceBetweenTrees: 10
   treeMask:
     serializedVersion: 2

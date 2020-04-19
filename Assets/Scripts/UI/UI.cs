@@ -27,26 +27,37 @@ public class UI : MonoBehaviour
 
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 
-        PauseMenu();
+        CheckPause();
     }
 
-    private void PauseMenu()
+    private void CheckPause()
     {
-        if (GameManager.instance.isPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)))
-        {
-            pauseMenu.SetActive(false);
-            GameManager.instance.isPaused = false;
-            Time.timeScale = 1;
-        }
 
-        else if (!GameManager.instance.isPaused && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7)))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
-            pauseMenu.SetActive(true);
-            GameManager.instance.isPaused = true;
-            Time.timeScale = 0;
+            if (GameManager.instance.isPaused)
+                ResumeGame();
+            else 
+                PauseGame();
         }
-
+       
     }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        GameManager.instance.isPaused = false;
+        Time.timeScale = 1;
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        GameManager.instance.isPaused = true;
+        Time.timeScale = 0;
+    }
+
+
     public void setMaxHealth(int health)
     {
         slider.maxValue = health;
