@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dropImpulse: 1
-  m_throwImpulse: 25
+  m_throwImpulse: 20
   m_rb: {fileID: 2569925374640915974}
   m_outline: {fileID: 2725775994346277668}
 --- !u!114 &8052114352479561121
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8985fe5ce75a9b049a30e68e3241cd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fakeGravity: 20
+  m_fakeGravity: 15
   m_rb: {fileID: 2569925374640915974}
 --- !u!114 &4246867519164711456
 MonoBehaviour:
@@ -328,4 +328,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279176bef8cde464d97a902febae196d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 15
+  energy: 10
