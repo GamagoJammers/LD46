@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 1798347766615011118, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 1798347766615011118, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
         type: 3}
@@ -127,6 +127,11 @@ PrefabInstance:
       propertyPath: circle
       value: 
       objectReference: {fileID: 4375560451603113455}
+    - target: {fileID: 5899562315106245770, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8178eb1e25e98d34abb2c2dd9c1a7841, type: 3}
 --- !u!1 &4375560451603113455 stripped
