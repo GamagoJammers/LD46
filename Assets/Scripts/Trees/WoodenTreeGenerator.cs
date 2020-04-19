@@ -9,6 +9,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 
 	public GameObject treePrefab;
 
+	public int startingTreeNb;
 	public MinMaxFloat timeBetweenInstantiation;
 	public int maxTreeNb;
 	public MinMaxFloat distanceFromCampfire;
@@ -22,6 +23,13 @@ public class WoodenTreeGenerator : MonoBehaviour
 	{
 		trees = new List<WoodenTree>();
 		distanceFromCampfire.max = GameManager.instance.zoneRadius - 2.0f;
+
+		treePrefab.GetComponent<WoodenTree>().baseState = 2;
+		for(int i=0; i<startingTreeNb; i++)
+		{
+			TryToInstantiateTree();
+		}
+		treePrefab.GetComponent<WoodenTree>().baseState = 0;
 
 		isActive = true;
 		StartCoroutine(WoodenTreeGenerationCoroutine());
