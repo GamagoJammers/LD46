@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TreeSensor : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class TreeSensor : MonoBehaviour
     public string m_treeTag;
 
     public Damageable m_damageable;
+
+    public UnityEvent m_chopEvent;
 
     private List<ChoppableTree> m_sensedTrees;
     private ChoppableTree m_selectedTree;
@@ -77,7 +80,10 @@ public class TreeSensor : MonoBehaviour
         m_selectedTree = returnedTree;
     }
 
-
+    void Awake()
+    {
+        m_chopEvent = new UnityEvent();
+    }
     void Start()
     {
         m_sensedTrees = new List<ChoppableTree>();
@@ -95,6 +101,7 @@ public class TreeSensor : MonoBehaviour
             m_damageable.m_startStunEvent.RemoveListener(StopChop);
             m_damageable.m_deathEvent.RemoveListener(StopChop);
         }
+        m_chopEvent.RemoveAllListeners();
     }
 
     private void FixedUpdate()
