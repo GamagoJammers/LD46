@@ -513,11 +513,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 998490890366728722, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
-        type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1485774659517102581, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
       propertyPath: m_Layer
@@ -531,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 1485774659546562104, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1485774659546562104, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
         type: 3}
@@ -592,16 +587,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8944061748835492581, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
-        type: 3}
-      propertyPath: m_throwImpulse
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 8944061748835492581, guid: 7cf667d0ce184614fbd8736bcafe0bf3,
-        type: 3}
-      propertyPath: m_dropImpulse
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cf667d0ce184614fbd8736bcafe0bf3, type: 3}

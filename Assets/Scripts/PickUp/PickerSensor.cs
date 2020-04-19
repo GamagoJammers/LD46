@@ -45,7 +45,7 @@ public class PickerSensor : MonoBehaviour
     {
         if (IsCarryingPickable() && m_canThrow)
         {
-            m_isCarrying = true;
+            m_isCarrying = false;
             if (m_canThrow)
             {
                 m_selectedPickable.Throw();

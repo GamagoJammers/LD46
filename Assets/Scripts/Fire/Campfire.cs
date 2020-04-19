@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class Campfire : MonoBehaviour
 {
-	[System.Serializable]
-	public struct MinMaxFloat
-	{
-		public float min;
-		public float max;
-	}
-
 	[Range(0.0f,100.0f)]
 	[SerializeField]
 	private float vivacity = 100.0f;
@@ -46,7 +39,7 @@ public class Campfire : MonoBehaviour
 	public float minCindersEmission;
 	public float maxCindersEmission;
 
-	private void Awake()
+	private void Start()
 	{
 		actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
 		
@@ -59,8 +52,11 @@ public class Campfire : MonoBehaviour
 
 	private void Update()
 	{
-		UpdateLight();
-		UpdateVFX();
+		if(!GameManager.instance.isPaused)
+		{
+			UpdateLight();
+			UpdateVFX();
+		}
 	}
 
 	/// <summary>
