@@ -19,6 +19,9 @@ public class WoodenTree : MonoBehaviour
 {
 	public WoodenTreeState[] treeStates;
 
+	[HideInInspector]
+	public int baseState = 0;
+	[HideInInspector]
 	public WoodenTreeState actualState;
 
 	public Transform logDropPoint;
@@ -28,7 +31,7 @@ public class WoodenTree : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		actualState = treeStates[0];
+		actualState = treeStates[baseState];
 		actualState.stateModel.SetActive(true);
 		StartCoroutine(GrowCoroutine());
 	}
