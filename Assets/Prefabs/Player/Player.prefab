@@ -566,15 +566,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590490e3a595a984ca7b8ff9b70c1771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_timeToGetUp: 0
   m_throwAnimationClip: {fileID: -3732140633364967302, guid: 557fa1028ec360c4a95cbaec0c1dc37c,
+    type: 3}
+  m_getUpAnimationClip: {fileID: 3989299462627358070, guid: 557fa1028ec360c4a95cbaec0c1dc37c,
     type: 3}
   m_animator: {fileID: 4114275652410800698}
   m_rb: {fileID: 1798347766615011112}
   m_treeSensor: {fileID: 1833750130983202417}
   m_pickerSensor: {fileID: 2806937598916228413}
   m_damageable: {fileID: 1798347766615011116}
-  m_throwTimer: 0
 --- !u!1 &8163104160002171280
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,8 @@
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    public float m_timeToGetUp;
-
     public AnimationClip m_throwAnimationClip;
+    public AnimationClip m_getUpAnimationClip;
 
     public Animator m_animator;
     public Rigidbody m_rb;
@@ -49,6 +48,10 @@ public class PlayerAnimationController : MonoBehaviour
         if (m_throwTimer>0)
         {
             m_throwTimer -= Time.deltaTime;
+        }
+        if (m_damageable.IsStunned() && m_damageable.GetStunnedTimer() < m_getUpAnimationClip.averageDuration)
+        {
+            m_animator.SetTrigger("TGetUp");
         }
     }
 
