@@ -488,5 +488,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_treeTag: tree
-  m_choppedTree: {fileID: 0}
-  m_isChopping: 0
+  m_damageable: {fileID: 1798347766615011116}

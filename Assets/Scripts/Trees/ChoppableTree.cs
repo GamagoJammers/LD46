@@ -10,19 +10,29 @@ public class ChoppableTree : MonoBehaviour
     private float m_chopTimer;
     private bool m_flagIsChopped;
 
-    public void Chop()
-    {
-        m_flagIsChopped = true;
-    }
-
     public float GetChopInversionPregression()
     {
-        return m_chopTimer / m_maxChopTimer;
+        return Mathf.Max(m_chopTimer / m_maxChopTimer, 0);
     }
 
     public bool CanBeChopped()
     {
-       return GetChopInversionPregression() > 0 && m_tree.actualState.growthStatus != WoodenTreeGrowthStatus.SPROUT;
+       return m_chopTimer > 0 && m_tree.actualState.growthStatus != WoodenTreeGrowthStatus.SPROUT;
+    }
+
+    public bool IsBeingChopped()
+    {
+        return m_flagIsChopped;
+    }
+
+    public void StartChop()
+    {
+        m_flagIsChopped = true;
+    }
+
+    public void StopChop()
+    {
+        m_flagIsChopped = false;
     }
     
     void Start()
@@ -38,9 +48,8 @@ public class ChoppableTree : MonoBehaviour
         {
             m_chopTimer -= Time.deltaTime;
         }
-        m_flagIsChopped = false;
 
-        if (GetChopInversionPregression()<=0)
+        if (m_chopTimer <= 0)
         {
             m_tree.Die();
         }
