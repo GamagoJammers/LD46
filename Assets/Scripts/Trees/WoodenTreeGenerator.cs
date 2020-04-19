@@ -35,7 +35,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 
 			if(treePosition != Vector3.zero)
 			{
-				trees.Add(Instantiate(treePrefab, treePosition, Quaternion.Euler(new Vector3(0.0f, Random.Range(0.0f, 360.0f), 0.0f))).GetComponent<WoodenTree>());
+				trees.Add(Instantiate(treePrefab, treePosition, Quaternion.Euler(new Vector3(0.0f, Random.Range(0.0f, 360.0f), 0.0f)), this.transform).GetComponent<WoodenTree>());
 			}
 		}
 	}
