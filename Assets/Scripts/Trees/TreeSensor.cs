@@ -5,7 +5,6 @@ public class TreeSensor : MonoBehaviour
 {
     // Parameters
     public string m_treeTag;
-    public bool m_isChoppingFlag;
 
     private List<ChoppableTree> m_sensedTrees;
     private ChoppableTree m_selectedTree;
@@ -15,17 +14,11 @@ public class TreeSensor : MonoBehaviour
         return m_selectedTree != null && m_selectedTree.CanBeChopped();
     }
 
-    public bool IsChoppingTree()
-    {
-        return m_isChoppingFlag && m_selectedTree != null;
-    }
-
     public void ChopTree()
     {
         if (m_selectedTree != null)
         {
             m_selectedTree.Chop();
-            m_isChoppingFlag = true;
         }
     }
 
@@ -76,22 +69,8 @@ public class TreeSensor : MonoBehaviour
         m_selectedTree = null;
     }
 
-    private void Update()
-    {
-        if (m_isChoppingFlag)
-        {
-            m_isChoppingFlag = false;
-        }
-    }
-
     private void FixedUpdate()
     {
-        // Fix state
-        if (m_isChoppingFlag && m_selectedTree == null)
-        {
-            m_isChoppingFlag = false;
-        }
-
          SelectTree();
     }
 

@@ -15,9 +15,13 @@ public class PlayerControl : MonoBehaviour
     public TreeSensor m_chopper;
 
     public bool m_flagInteractAction;
+    public bool m_flagChopAction;
 
     void Start()
     {
+        m_input.m_mainActionDownEvent.AddListener(TryStartChop);
+        m_input.m_mainActionReleaseEvent.AddListener(StopChop);
+
         m_input.m_mainActionDownEvent.AddListener(TryPickUp);
         m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
 
@@ -26,8 +30,11 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnDisable()
     {
-        if(m_input != null)
+        if (m_input != null)
         {
+            m_input.m_mainActionDownEvent.RemoveListener(TryStartChop);
+            m_input.m_mainActionReleaseEvent.RemoveListener(StopChop);
+
             m_input.m_mainActionDownEvent.RemoveListener(TryPickUp);
             m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
 
@@ -38,16 +45,14 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        if (m_input.m_mainAction)
-        {
-            TryChop();
-        }
+        ProcessMovement();
+        ProcessChop();
+        
         m_flagInteractAction = false;
 
     }
 
-    void Movement()
+    void ProcessMovement()
     {
         if (!CanMove())
         {
@@ -77,14 +82,25 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void ProcessChop()
+    {
+        if (IsChoppingTree())
+        {
+            m_chopper.ChopTree();
+        } else
+        {
+            m_flagChopAction = false;
+        }
+    }
+
     bool CanMove()
     {
-        return m_damageable.CanPerformActions() && !m_chopper.IsChoppingTree();
+        return m_damageable.CanPerformActions() && !IsChoppingTree();
     }
 
     bool CanPickupItem()
     {
-        return m_damageable.CanPerformActions() && m_picker.CanPickUp() && !m_chopper.IsChoppingTree();
+        return m_damageable.CanPerformActions() && m_picker.CanPickUp() && !IsChoppingTree();
     }
 
     bool CanDrop()
@@ -92,17 +108,24 @@ public class PlayerControl : MonoBehaviour
         return m_damageable.CanPerformActions() && m_picker.IsCarryingPickable();
     }
 
+    bool IsChoppingTree()
+    {
+        return m_flagChopAction && CanChopTree();
+    }
+
     bool CanChopTree()
     {
         return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable() && m_chopper.CanChopTree();
     }
 
-    public void TryChop()
+    public void TryStartChop()
     {
-        if (CanChopTree())
-        {
-            m_chopper.ChopTree();
-        }
+        m_flagChopAction = true;
+    }
+
+    public void StopChop()
+    {
+        m_flagChopAction = false;
     }
 
     public void TryPickUp()
@@ -121,8 +144,8 @@ public class PlayerControl : MonoBehaviour
             m_flagInteractAction = true;
             m_picker.Drop();
         }
-    }    
-    
+    }
+
     public void TryThrow()
     {
         if (!m_flagInteractAction && CanDrop())
