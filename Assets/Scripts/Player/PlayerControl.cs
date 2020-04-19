@@ -18,8 +18,8 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        m_input.m_mainActionDownEvent.AddListener(TryStartChop);
-        m_input.m_mainActionReleaseEvent.AddListener(StopChop);
+        m_input.m_secoundaryActionDownEvent.AddListener(TryStartChop);
+        m_input.m_secoundaryActionReleaseEvent.AddListener(StopChop);
 
         m_input.m_mainActionDownEvent.AddListener(TryPickUp);
         //m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
@@ -31,8 +31,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (m_input != null)
         {
-            m_input.m_mainActionDownEvent.RemoveListener(TryStartChop);
-            m_input.m_mainActionReleaseEvent.RemoveListener(StopChop);
+            m_input.m_secoundaryActionDownEvent.RemoveListener(TryStartChop);
+            m_input.m_secoundaryActionReleaseEvent.RemoveListener(StopChop);
 
             m_input.m_mainActionDownEvent.RemoveListener(TryPickUp);
             //m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
