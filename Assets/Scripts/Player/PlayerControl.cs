@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
         m_input.m_mainActionReleaseEvent.AddListener(StopChop);
 
         m_input.m_mainActionDownEvent.AddListener(TryPickUp);
-        m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
+        //m_input.m_mainActionReleaseEvent.AddListener(TryPickUp);
 
         m_input.m_mainActionDownEvent.AddListener(TryThrow);
         m_input.m_secoundaryActionDownEvent.AddListener(TryDrop);
@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour
             m_input.m_mainActionReleaseEvent.RemoveListener(StopChop);
 
             m_input.m_mainActionDownEvent.RemoveListener(TryPickUp);
-            m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
+            //m_input.m_mainActionReleaseEvent.RemoveListener(TryPickUp);
 
             m_input.m_mainActionDownEvent.RemoveListener(TryThrow);
             m_input.m_secoundaryActionDownEvent.RemoveListener(TryDrop);
