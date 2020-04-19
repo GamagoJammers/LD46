@@ -47,12 +47,12 @@ MonoBehaviour:
   treePrefab: {fileID: 3674473295999981795, guid: 581671c86dc767741aa8c87df3e08c58,
     type: 3}
   timeBetweenInstantiation:
-    min: 1
-    max: 3
-  maxTreeNb: 10
+    min: 3
+    max: 6
+  maxTreeNb: 14
   distanceFromCampfire:
-    min: 7
-    max: 23
+    min: 4
+    max: 40
   minDistanceBetweenTrees: 10
   treeMask:
     serializedVersion: 2
