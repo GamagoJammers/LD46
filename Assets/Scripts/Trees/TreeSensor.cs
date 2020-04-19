@@ -29,6 +29,7 @@ public class TreeSensor : MonoBehaviour
         if (m_selectedTree != null)
         {
             m_selectedTree.StartChop();
+            m_chopEvent.Invoke();
         }
     }
 

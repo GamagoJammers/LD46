@@ -16,7 +16,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Update()
     {
-        m_animator.SetBool("IsWalking", m_rb.velocity.sqrMagnitude > 0);
+        m_animator.SetBool("IsWalking", m_rb.velocity.sqrMagnitude <= 0);
         m_animator.SetBool("IsSawing", m_treeSensor.IsChoppingTree());
         m_animator.SetBool("IsStun", m_damageable.IsStunned());
     }
