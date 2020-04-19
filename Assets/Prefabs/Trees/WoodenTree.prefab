@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb278d649ed76947b428ddace5866eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxChopTimer: 3
+  m_maxChopTimer: 1
   m_tree: {fileID: 397314561}
 --- !u!136 &6750584787857987338
 CapsuleCollider:
