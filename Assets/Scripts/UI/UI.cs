@@ -6,8 +6,8 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     private float Timer = 0.0f;
-    float minutes;
-    float seconds;
+    int minutes;
+    int seconds;
     public Text timerText;
     public GameObject pauseMenu;
     public Slider slider;
@@ -22,8 +22,8 @@ public class UI : MonoBehaviour
     {
 
         Timer += Time.deltaTime;
-        seconds = Timer % 60;
-        minutes = Timer / 60;
+        seconds = (int)(Timer % 60);
+        minutes = (int)(Timer / 60);
 
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 

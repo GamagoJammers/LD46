@@ -9591,14 +9591,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9109636, b: 0.7216981, a: 1}
-  m_Intensity: 8
+  m_Color: {r: 0.637908, g: 0.6, b: 1, a: 1}
+  m_Intensity: 5
   m_Range: 100
-  m_SpotAngle: 60
+  m_SpotAngle: 70
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
@@ -9693,22 +9693,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vivacity: 100
-  naturalEstinguishingRate: 0.2
-  naturalEstinguishingAmount: 0.25
+  naturalEstinguishingRate: 0.1
+  naturalEstinguishingAmount: 0.3
+  campFireLight: {fileID: 2336035329020976562}
+  campFireLightRange:
+    min: 10
+    max: 30
   fireLight: {fileID: 4809194146267016078}
   lightSpotAngle:
-    min: 40
-    max: 60
+    min: 10
+    max: 80
   lightIntensity:
-    min: 0
+    min: 1
     max: 8
   fireParticles: {fileID: 957479654}
   fireEmission:
     min: 30
-    max: 60
+    max: 70
   fireSize:
     min: 0.3
-    max: 0.5
+    max: 0.6
   gravity:
     min: -0.05
     max: -0.25
@@ -9874,7 +9878,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.23917264, b: 0.06132078, a: 1}
+  m_Color: {r: 1, g: 0.4589096, b: 0.033018887, a: 1}
   m_Intensity: 5
   m_Range: 30
   m_SpotAngle: 30
