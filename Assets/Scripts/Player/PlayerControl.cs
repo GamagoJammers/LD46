@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         ProcessMovement();
-        
+
         m_flagInteractAction = false;
     }
 
@@ -57,7 +57,11 @@ public class PlayerControl : MonoBehaviour
         {
             m_rb.AddForce(-m_rb.velocity, ForceMode.VelocityChange);
             m_rb.transform.LookAt(transform.position + transform.forward);
-
+        }
+        else if (m_chopper.IsChoppingTree())
+        {
+            m_rb.AddForce(-m_rb.velocity, ForceMode.VelocityChange);
+            m_rb.transform.LookAt(m_chopper.GetSelectedTreePosition());
         }
         else
         {
@@ -70,13 +74,13 @@ public class PlayerControl : MonoBehaviour
             m_rb.AddForce(m_input.m_movementVector * speedFactor - m_rb.velocity, ForceMode.VelocityChange);
 
             // Bonfire en Vector.zero
-            if( transform.position.magnitude > (GameManager.instance.zoneRadius - m_distanceMinFromOuterwild))
+            if (transform.position.magnitude > (GameManager.instance.zoneRadius - m_distanceMinFromOuterwild))
             {
                 Vector3 outerVector = transform.position.normalized;
                 float outerVelocity = Vector3.Dot(outerVector, m_input.m_movementVector * speedFactor);
                 if (outerVelocity > 0)
                 {
-                    m_rb.AddForce(- outerVelocity * outerVector, ForceMode.VelocityChange);
+                    m_rb.AddForce(-outerVelocity * outerVector, ForceMode.VelocityChange);
                 }
             }
 
@@ -94,7 +98,7 @@ public class PlayerControl : MonoBehaviour
 
     bool CanMove()
     {
-        return m_damageable.CanPerformActions() && !m_chopper.IsChoppingTree();
+        return m_damageable.CanPerformActions();
     }
 
     bool CanPickupItem()

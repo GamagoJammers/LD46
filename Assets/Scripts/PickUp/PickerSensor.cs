@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PickerSensor : MonoBehaviour
 {
     // Parameters
     public List<string> m_pickableTags;
     public GameObject m_carryingTag;
+    public GameObject m_thrower;
     public bool m_canThrow;
     public bool m_shouldFlagOutline;
 	public bool m_isPlayer;
@@ -13,6 +16,8 @@ public class PickerSensor : MonoBehaviour
 	public Pickable m_selectedPickable;
 
 	public Damageable m_damageable;
+
+    public UnityEvent m_throwEvent;
 
     private List<Pickable> m_sensedPickables;
     private bool m_isCarrying;
@@ -33,7 +38,7 @@ public class PickerSensor : MonoBehaviour
         if (CanPickUp())
         {
             m_isCarrying = true;
-            m_selectedPickable.PickUp(m_carryingTag, m_isPlayer);
+            m_selectedPickable.PickUp(m_carryingTag, m_thrower, m_isPlayer);
         }
     }
 
@@ -54,6 +59,7 @@ public class PickerSensor : MonoBehaviour
             if (m_canThrow)
             {
                 m_selectedPickable.Throw();
+                m_throwEvent.Invoke();
             }
             else
             {
@@ -102,6 +108,11 @@ public class PickerSensor : MonoBehaviour
         m_selectedPickable = returnedPickable;
     }
 
+    private void Awake()
+    {
+        m_throwEvent = new UnityEvent();    
+    }
+
     void Start()
     {
         m_sensedPickables = new List<Pickable>();
@@ -118,6 +129,7 @@ public class PickerSensor : MonoBehaviour
             m_damageable.m_startStunEvent.RemoveListener(Drop);
             m_damageable.m_deathEvent.RemoveListener(Drop);
         }
+        m_throwEvent.RemoveAllListeners();
     }
 
     private void FixedUpdate()
