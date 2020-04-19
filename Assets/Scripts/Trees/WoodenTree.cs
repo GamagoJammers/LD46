@@ -23,6 +23,7 @@ public class WoodenTree : MonoBehaviour
 
 	public Transform logDropPoint;
 	public GameObject logPrefab;
+	public GameObject dedTreeVFX;
 
 	// Start is called before the first frame update
 	void Start()
@@ -49,7 +50,7 @@ public class WoodenTree : MonoBehaviour
 			GameManager.instance.consummables.Add(log.GetComponent<Consummable>());
 		}
 
-		//VFX TREE DIYING
+		Instantiate(dedTreeVFX, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), new Quaternion(0, 0, 0, 0));
 
 		GameManager.instance.treeGenerator.trees.Remove(this);
 		Destroy(this.gameObject);

@@ -6,6 +6,7 @@ public class ChoppableTree : MonoBehaviour
 {
     public float m_maxChopTimer;
     public WoodenTree m_tree;
+    public ParticleSystem chopVFX;
 
     private float m_chopTimer;
     private bool m_flagIsChopped;
@@ -28,11 +29,15 @@ public class ChoppableTree : MonoBehaviour
     public void StartChop()
     {
         m_flagIsChopped = true;
+        if (!chopVFX.isPlaying)
+            chopVFX.Play();
     }
 
     public void StopChop()
     {
         m_flagIsChopped = false;
+        if (chopVFX.isPlaying)
+            chopVFX.Stop();
     }
     
     void Start()
