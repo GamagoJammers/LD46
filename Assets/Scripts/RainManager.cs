@@ -17,6 +17,8 @@ public class RainManager : MonoBehaviour
 
     public ParticleSystem rain;
 
+    public Light light;
+
     public Campfire campfire;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class RainManager : MonoBehaviour
     {
         //Debug.Log(targetTime);
         raining = true;
+        light.color = new Color32(109,177,248,255);
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
         campfire.naturalEstinguishingRate = rate/2;
@@ -54,6 +57,7 @@ public class RainManager : MonoBehaviour
         //Debug.Log(RainTime);
         yield return new WaitForSeconds(RainTime);
         rain.Stop();
+        light.color = new Color32(163,153,255,255);
         campfire.naturalEstinguishingRate = rate;
         timer = 0;
         actualTime = 0;

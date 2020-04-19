@@ -12,6 +12,7 @@ TagManager:
   - stone
   - food
   - camera
+  - Campfire
   layers:
   - Default
   - TransparentFX
