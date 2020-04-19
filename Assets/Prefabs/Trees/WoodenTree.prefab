@@ -4824,6 +4824,7 @@ GameObject:
   - component: {fileID: 397314561}
   - component: {fileID: 370701954104771489}
   - component: {fileID: 6750584787857987338}
+  - component: {fileID: 1925307875220633535}
   m_Layer: 12
   m_Name: WoodenTree
   m_TagString: tree
@@ -4914,6 +4915,22 @@ CapsuleCollider:
   m_Height: 6
   m_Direction: 1
   m_Center: {x: -0.05, y: 2, z: 0}
+--- !u!208 &1925307875220633535
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674473295999981795}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.7, y: 3, z: 0.7}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.05, y: 2, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4760317764351430063
 GameObject:
   m_ObjectHideFlags: 0
