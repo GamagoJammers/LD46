@@ -69,6 +69,11 @@ public class Damageable : MonoBehaviour
         return m_stunTimer > 0;
     }
 
+    public float GetStunnedTimer()
+    {
+        return m_stunTimer;
+    }
+
     public bool CanPerformActions()
     {
         return IsAlive() && !IsStunned();
