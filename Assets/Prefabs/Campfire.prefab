@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 957479655}
   - component: {fileID: 957479654}
   - component: {fileID: 957479653}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 1934407133}
   - component: {fileID: 1934407132}
   - component: {fileID: 1934407131}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cinders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9526,9 +9526,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958604855563140509}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Campfire_VFX
-  m_TagString: Untagged
+  m_TagString: Campfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9559,9 +9559,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4809194146267016079}
   - component: {fileID: 4809194146267016078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light
-  m_TagString: Untagged
+  m_TagString: Campfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9598,10 +9598,10 @@ Light:
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0
     m_NormalBias: 0
     m_NearPlane: 0.1
@@ -9651,9 +9651,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4809194147143832361}
   - component: {fileID: 4809194147143832362}
-  m_Layer: 0
+  - component: {fileID: 4809194147195276386}
+  m_Layer: 9
   m_Name: Campfire
-  m_TagString: Untagged
+  m_TagString: Campfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9673,6 +9674,7 @@ Transform:
   - {fileID: 4809194146267016079}
   - {fileID: 4809194147613841584}
   - {fileID: 2958604855563140509}
+  - {fileID: 8967468594810390961}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9689,7 +9691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vivacity: 100
-  naturalEstinguishingRate: 0.1
+  naturalEstinguishingRate: 0.2
   naturalEstinguishingAmount: 0.5
   fireLight: {fileID: 4809194146267016078}
   lightSpotAngle:
@@ -9711,6 +9713,19 @@ MonoBehaviour:
   cindersParticles: {fileID: 1934407132}
   minCindersEmission: 0
   maxCindersEmission: 2
+--- !u!65 &4809194147195276386
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4809194147143832360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4809194147293161667
 GameObject:
   m_ObjectHideFlags: 0
@@ -9720,9 +9735,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4809194147293161668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CamTarget
-  m_TagString: Untagged
+  m_TagString: Campfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9753,9 +9768,9 @@ GameObject:
   - component: {fileID: 4809194147613841587}
   - component: {fileID: 4809194147613841586}
   - component: {fileID: 4809194147613841585}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Campfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9834,3 +9849,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5677189791488868940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8967468594810390961}
+  - component: {fileID: 7321035067352206599}
+  m_Layer: 14
+  m_Name: ItemCensor
+  m_TagString: Campfire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8967468594810390961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677189791488868940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4809194147143832361}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7321035067352206599
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677189791488868940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 10
+  m_Direction: 1
+  m_Center: {x: 0, y: 3.5, z: 0}

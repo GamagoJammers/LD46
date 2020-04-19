@@ -94,12 +94,15 @@ public class PlayerControl : MonoBehaviour
 
     bool CanChopTree()
     {
-        return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable();
+        return m_damageable.CanPerformActions() && !m_picker.IsCarryingPickable() && m_chopper.CanChopTree();
     }
 
     public void TryChop()
     {
-        // TODO
+        if (CanChopTree())
+        {
+            TryChop();
+        }
     }
 
     public void TryPickUp()

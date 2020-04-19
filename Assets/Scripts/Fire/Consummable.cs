@@ -10,7 +10,7 @@ public class Consummable : MonoBehaviour
 	{
 		if (other.CompareTag("Campfire"))
 		{
-			other.gameObject.GetComponent<Campfire>().RegainVivacity(energy);
+			other.gameObject.GetComponentInParent<Campfire>().RegainVivacity(energy);
 			Destroy(this.gameObject);
 		}
 	}
