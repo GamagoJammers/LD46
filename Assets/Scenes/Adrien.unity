@@ -430,7 +430,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.46513155, y: 0.000000012966192, z: -0.000000010380597, w: 0.8852416}
+  m_LocalRotation: {x: 0.46513158, y: -0.000000025760059, z: 0.000000009967296, w: 0.8852416}
   m_LocalPosition: {x: 0, y: 45, z: -37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -927,7 +927,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016321371}
-  m_LocalRotation: {x: 0.46513155, y: 0.000000012966192, z: -0.000000010380597, w: 0.8852416}
+  m_LocalRotation: {x: 0.46513158, y: -0.000000025760059, z: 0.000000009967296, w: 0.8852416}
   m_LocalPosition: {x: 0, y: 45, z: -37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1189,16 +1189,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RainFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940864593995772078, guid: a2631ab3480cb1d4685e47f213621ac2,
-        type: 3}
-      propertyPath: CollisionModule.plane0
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940864593995772078, guid: a2631ab3480cb1d4685e47f213621ac2,
-        type: 3}
-      propertyPath: SubModule.subEmitters.Array.data[0].emitter
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6940864593995772081, guid: a2631ab3480cb1d4685e47f213621ac2,
         type: 3}
