@@ -385,6 +385,7 @@ MonoBehaviour:
   - stone
   - food
   m_carryingTag: {fileID: 1798347767560499809}
+  m_thrower: {fileID: 1798347766615011117}
   m_canThrow: 1
   m_shouldFlagOutline: 1
   m_isPlayer: 1

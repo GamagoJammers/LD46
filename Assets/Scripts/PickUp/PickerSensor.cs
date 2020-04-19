@@ -8,6 +8,7 @@ public class PickerSensor : MonoBehaviour
     // Parameters
     public List<string> m_pickableTags;
     public GameObject m_carryingTag;
+    public GameObject m_thrower;
     public bool m_canThrow;
     public bool m_shouldFlagOutline;
 	public bool m_isPlayer;
@@ -37,7 +38,7 @@ public class PickerSensor : MonoBehaviour
         if (CanPickUp())
         {
             m_isCarrying = true;
-            m_selectedPickable.PickUp(m_carryingTag, m_isPlayer);
+            m_selectedPickable.PickUp(m_carryingTag, m_thrower, m_isPlayer);
         }
     }
 
