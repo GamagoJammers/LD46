@@ -29,14 +29,14 @@ public class Pickable : MonoBehaviour
         }
     }
 
-    public void Drop()
+    public void Drop( bool _bypassCheck = false )
     {
-        Detach(m_dropImpulse);
+        Detach(m_dropImpulse, _bypassCheck);
     }
 
     public void Throw()
     {
-        Detach(m_throwImpulse);
+        Detach(m_throwImpulse, false);
     }
 
     public void FlagOutline()
@@ -44,9 +44,9 @@ public class Pickable : MonoBehaviour
         m_flagOutline = true;
     }
 
-    void Detach(float _impulse)
+    void Detach(float _impulse, bool _bypassCheck)
     {
-        if (m_pickedUp)
+        if (_bypassCheck || m_pickedUp)
         {
             m_pickedUp = false;
             m_rb.detectCollisions = true;

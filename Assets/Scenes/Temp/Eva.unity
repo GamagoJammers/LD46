@@ -792,5 +792,10 @@ PrefabInstance:
       propertyPath: m_maxAngularSpeed
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 1798347767371775523, guid: 8178eb1e25e98d34abb2c2dd9c1a7841,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemSensor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8178eb1e25e98d34abb2c2dd9c1a7841, type: 3}
