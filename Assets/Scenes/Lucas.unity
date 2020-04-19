@@ -803,7 +803,17 @@ PrefabInstance:
     - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
         type: 3}
       propertyPath: distanceFromCampfire.min
-      value: 10
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: timeBetweenInstantiation.max
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: timeBetweenInstantiation.min
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7671220603307885244, guid: 5c34960bcd265b94788fb5ab417c67f1,
         type: 3}

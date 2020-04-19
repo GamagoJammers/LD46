@@ -4866,11 +4866,11 @@ MonoBehaviour:
   - growthStatus: 0
     stateModel: {fileID: 1466818186277544193}
     logAmount: -1
-    timeToGrow: 2
+    timeToGrow: 3
   - growthStatus: 1
     stateModel: {fileID: 5993380614565193464}
     logAmount: 1
-    timeToGrow: 4
+    timeToGrow: 7
   - growthStatus: 2
     stateModel: {fileID: 1939203260922115260}
     logAmount: 3
@@ -4897,7 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb278d649ed76947b428ddace5866eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxChopTimer: 1
+  m_maxChopTimer: 2
   m_tree: {fileID: 397314561}
   chopVFX: {fileID: 6635894065293449877}
 --- !u!136 &6750584787857987338
