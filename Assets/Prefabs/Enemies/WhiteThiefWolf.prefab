@@ -62,6 +62,7 @@ MonoBehaviour:
   m_carryingTag: {fileID: 5672729626313332093}
   m_canThrow: 0
   m_shouldFlagOutline: 0
+  m_isPlayer: 0
   m_selectedPickable: {fileID: 0}
   m_damageable: {fileID: 5672729627583880176}
 --- !u!1 &964952611

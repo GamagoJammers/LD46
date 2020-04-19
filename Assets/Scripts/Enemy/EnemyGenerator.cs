@@ -34,8 +34,6 @@ public class EnemyGenerator : MonoBehaviour
 
 		if (enemies.Count < maxEnemyNb)
 		{
-
-			Debug.Log("bonjour 2");
 			if (GameManager.instance.logs.Count == 0)
 			{
 				//enemies.Add(Instantiate(blackAttackerWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
@@ -45,7 +43,6 @@ public class EnemyGenerator : MonoBehaviour
 				float randomChance = Random.Range(0.0f, 100.0f);
 				if(randomChance <= thiefWolfChance)
 				{
-					Debug.Log("bonjour");
 					enemies.Add(Instantiate(whiteThiefWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
 				}
 				else if (randomChance <= thiefWolfChance + AttackerWolfChance)

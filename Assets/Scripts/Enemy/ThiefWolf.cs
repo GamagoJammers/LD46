@@ -41,25 +41,41 @@ public class ThiefWolf : MonoBehaviour
 
 	public void UpdateTarget()
 	{
+		bool flee = false;
+
 		if(GameManager.instance.logs.Count != 0)
 		{
+			targetLog = null;
 			float minDist = float.MaxValue;
 			foreach (GameObject log in GameManager.instance.logs)
 			{
-				float distanceFromWolf = (log.transform.position - transform.position).magnitude;
-
-				if (distanceFromWolf < minDist)
+				if(!log.GetComponent<Pickable>().IsPickedButNotByPlayer())
 				{
-					minDist = distanceFromWolf;
-					targetLog = log;
+					float distanceFromWolf = (log.transform.position - transform.position).magnitude;
+
+					if (distanceFromWolf < minDist)
+					{
+						minDist = distanceFromWolf;
+						targetLog = log;
+					}
 				}
 			}
-			agent.SetDestination(targetLog.transform.position);
+			if (targetLog == null)
+				flee = true;
 		}
 		else
 		{
+			flee = true;
+		}
+
+		if(flee)
+		{
 			state = ThiefWolfState.FLEE;
 			agent.SetDestination(transform.position.normalized * (GameManager.instance.zoneRadius + 2.0f));
+		}
+		else
+		{
+			agent.SetDestination(targetLog.transform.position);
 		}
 	}
 
@@ -74,8 +90,11 @@ public class ThiefWolf : MonoBehaviour
 		}
 		else if(state == ThiefWolfState.FLEE && agent.remainingDistance <= 0.2f)
 		{
-			GameManager.instance.logs.Remove(targetLog);
-			Destroy(targetLog.gameObject);
+			if(targetLog != null)
+			{
+				GameManager.instance.logs.Remove(targetLog);
+				Destroy(targetLog.gameObject);
+			}
 			GameManager.instance.enemyGenerator.enemies.Remove(this.gameObject);
 			Destroy(this.gameObject);
 		}
