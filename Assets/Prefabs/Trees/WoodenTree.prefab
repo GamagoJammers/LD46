@@ -4869,7 +4869,7 @@ MonoBehaviour:
   - growthStatus: 0
     stateModel: {fileID: 1466818186277544193}
     logAmount: -1
-    timeToGrow: 10
+    timeToGrow: 8
   - growthStatus: 1
     stateModel: {fileID: 5993380614565193464}
     logAmount: 1
