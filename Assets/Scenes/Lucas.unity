@@ -300,7 +300,7 @@ PrefabInstance:
     - target: {fileID: 4809194147143832362, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
         type: 3}
       propertyPath: naturalEstinguishingRate
-      value: 100
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4809194147195276386, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
         type: 3}
