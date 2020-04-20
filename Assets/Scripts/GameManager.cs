@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 	public EnemyGenerator enemyGenerator;
 
 	public RamNPC ramNPC;
+	public PlayerControl player;
 
 	private void OnDrawGizmosSelected()
 	{
