@@ -13,6 +13,7 @@ public class Damageable : MonoBehaviour
 
 	// Events
 	public UnityEvent m_onDamageEvent;
+	public UnityEvent m_onHealEvent;
 	public UnityEvent m_startStunEvent;
 	public UnityEvent m_deathEvent;
 
@@ -64,6 +65,7 @@ public class Damageable : MonoBehaviour
         if (IsAlive())
         {
             m_healthPoints = Mathf.Min(m_healthPoints + _healthHeal, m_maxHealth);
+			m_onHealEvent.Invoke();
         }
     }
 
@@ -91,6 +93,11 @@ public class Damageable : MonoBehaviour
     //Internal methods
     private void Awake()
     {
+		if (m_onDamageEvent == null)
+		{
+			m_onHealEvent = new UnityEvent();
+		}
+
 		if(m_onDamageEvent == null)
 		{
 			m_onDamageEvent = new UnityEvent();
@@ -109,6 +116,7 @@ public class Damageable : MonoBehaviour
 
     private void OnDisable()
 	{
+		m_onHealEvent.RemoveAllListeners();
 		m_onDamageEvent.RemoveAllListeners();
 		m_startStunEvent.RemoveAllListeners();
 		m_deathEvent.RemoveAllListeners();
