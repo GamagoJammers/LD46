@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 5672729627583880177}
   - component: {fileID: 5672729627583880188}
   - component: {fileID: 5672729627583880176}
+  - component: {fileID: 2269725871484899254}
   m_Layer: 11
   m_Name: WhiteThiefWolf
   m_TagString: enemy
@@ -466,17 +467,35 @@ MonoBehaviour:
   m_canBeStunned: 1
   m_additiveStun: 0
   m_maxStunnedTime: 2
-  m_deathEvent:
+  m_onDamageEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_damageEvent:
+  m_onHealEvent:
     m_PersistentCalls:
       m_Calls: []
   m_startStunEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   m_healthPoints: 0
   m_stunTimer: 0
+--- !u!114 &2269725871484899254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672729627583880189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f71500f40f23c14f9a483638d3d3978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sandwichPrefab: {fileID: 7275843135139412033, guid: 957cf9530ecbec24c8249a896172963c,
+    type: 3}
+  dropChance: 20
 --- !u!1 &6425242230427816562
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +759,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69fd481eab39fc6468a2d8ccaeea9948, type: 3}
+--- !u!4 &1078542497825092705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 69fd481eab39fc6468a2d8ccaeea9948,
+    type: 3}
+  m_PrefabInstance: {fileID: 5444135486595489659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4083807698860115570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 69fd481eab39fc6468a2d8ccaeea9948,
@@ -749,12 +774,6 @@ GameObject:
 --- !u!4 &6646236957017140444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1707243787577406375, guid: 69fd481eab39fc6468a2d8ccaeea9948,
-    type: 3}
-  m_PrefabInstance: {fileID: 5444135486595489659}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1078542497825092705 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 69fd481eab39fc6468a2d8ccaeea9948,
     type: 3}
   m_PrefabInstance: {fileID: 5444135486595489659}
   m_PrefabAsset: {fileID: 0}
