@@ -11,6 +11,7 @@ public struct MinMaxFloat
 
 public static class Tools
 {
+	// ANGLE IN RAD ! COS AND SIN USE RAD !
 	public static Vector2 RotatePosAroundPoint(Vector2 originPoint, Vector2 positionToRotate, float angle)
 	{
 		return new Vector2((positionToRotate.x - originPoint.x) * Mathf.Cos(angle) - (positionToRotate.y - originPoint.y) * Mathf.Sin(angle) + originPoint.x,

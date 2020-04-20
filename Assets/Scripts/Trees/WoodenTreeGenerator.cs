@@ -56,7 +56,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 		{
 			Vector2 pos2d = Tools.RotatePosAroundPoint(Vector2.zero,
 													   new Vector2(0.0f, Random.Range(distanceFromCampfire.min, distanceFromCampfire.max)),
-													   Random.Range(0.0f, 360.0f));
+													   Random.Range(0.0f, 2* Mathf.PI));
 
 			Vector3 position = new Vector3(pos2d.x, 0.0f, pos2d.y);
 
