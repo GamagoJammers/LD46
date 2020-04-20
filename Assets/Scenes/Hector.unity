@@ -2595,12 +2595,12 @@ PrefabInstance:
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: timeBetweenInstantiation.min
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: timeBetweenInstantiation.max
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
@@ -2630,22 +2630,22 @@ PrefabInstance:
     - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: timeBetweenInstantiation.min
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: distanceFromCampfire.min
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: distanceFromCampfire.max
-      value: 23
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: timeBetweenInstantiation.max
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
@@ -2684,14 +2684,44 @@ PrefabInstance:
       objectReference: {fileID: 922176760}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
+      propertyPath: minRainTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: maxRainTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
       propertyPath: VirtualCamera
       value: 
       objectReference: {fileID: 2016321372}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
+      propertyPath: thunderChance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
       propertyPath: thunderLight
       value: 
       objectReference: {fileID: 1157749790}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: thunderLightIntensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: maxRainDuration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: minRainDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8816990616258050759, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: moveWithTransform

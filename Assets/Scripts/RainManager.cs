@@ -46,23 +46,19 @@ public class RainManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!GameManager.instance.isPaused)
+        if (!raining && GameManager.instance.isPaused)
         {
-            if (!raining)
+            if (actualTime >= targetTime)
             {
-                if (actualTime >= targetTime)
-                {
-                    StartCoroutine("Rain");
-                    StartCoroutine("Thunder");
-                }
-                else
-                {
-                    timer += Time.deltaTime;
-                    actualTime = Mathf.RoundToInt(timer % 60);
-                }
+                StartCoroutine("Rain");
+                StartCoroutine("Thunder");
+            }
+            else
+            {
+                timer += Time.deltaTime;
+                actualTime = Mathf.RoundToInt(timer % 60);
             }
         }
-
     }
 
     public IEnumerator Rain()
@@ -94,9 +90,9 @@ public class RainManager : MonoBehaviour
         {
             virtualCameraNoise.m_AmplitudeGain = 5;
             thunderLight.intensity = thunderLightIntensity;
-            woodenTreeGenerator.DestroyOne();
             yield return new WaitForSeconds(1);
             thunderLight.intensity = 0;
+            woodenTreeGenerator.DestroyOne();
             virtualCameraNoise.m_AmplitudeGain = 0;
         }
         thunder = false;
