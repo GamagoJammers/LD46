@@ -39,6 +39,9 @@ public class AttackerWolf : MonoBehaviour
 
 		Vector3 toTargetDirection = (target.transform.position - this.transform.position).normalized;
 		agent.SetDestination(target.transform.position + toTargetDirection * 2.5f);
+		agent.speed = speed.max;
+		state = AttackWolfState.ATTACK;
+		attacker.SetEnableAttack(true);
 	}
 
 	private void Update()
@@ -52,7 +55,6 @@ public class AttackerWolf : MonoBehaviour
 					if (agent.isStopped)
 					{
 						agent.isStopped = false;
-						attacker.SetEnableAttack(true);
 					}
 
 					Act();
@@ -61,7 +63,6 @@ public class AttackerWolf : MonoBehaviour
 				else if (!agent.isStopped)
 				{
 					agent.isStopped = true;
-					attacker.SetEnableAttack(false);
 				}
 			}
 			else

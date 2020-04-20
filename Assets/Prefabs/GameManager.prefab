@@ -32,6 +32,7 @@ Transform:
   - {fileID: 5342105230813650941}
   - {fileID: 1040198977165411773}
   - {fileID: 8816990616258050776}
+  - {fileID: 4764135623366033370}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,6 +55,69 @@ MonoBehaviour:
   enemyGenerator: {fileID: 5342105230813650882}
   ramNPC: {fileID: 0}
   player: {fileID: 0}
+  scriptScoreUI: {fileID: 0}
+  isDeadFire: 0
+--- !u!1 &4838485772778116322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4764135623366033370}
+  - component: {fileID: 5315838312103519385}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4764135623366033370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838485772778116322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619838045164325212}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5315838312103519385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838485772778116322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f78cf3ec1373304ba854980f0ba557d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyGenerator: {fileID: 5342105230813650882}
+  rainManager: {fileID: 7117808358911069968}
+  maxEnemyProgressionRate: 20
+  maxEnemyLimit: 15
+  minEnemyInstantiationProgressionRate: 60
+  minEnemyInstantiationLimit: 1
+  maxEnemyInstantiationProgressionRate: 60
+  maxEnemyInstantiationLimit: 1
+  minRainTimeProgressionRate: 10
+  minRainTimeLimit: 10
+  maxRainTimeProgressionRate: 10
+  maxRainTimeLimit: 10
+  minRainDurationProgressionRate: 60
+  minRainDurationLimit: 10
+  maxRainDurationProgressionRate: 60
+  maxRainDurationLimit: 30
+  thunderChanceRate: 3
+  thunderChanceLimit: 100
 --- !u!1 &7808668201059185124
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,13 +164,16 @@ MonoBehaviour:
   minRainTime: 30
   maxRainTime: 60
   thunderChance: 50
+  thunderLightIntensity: 0
   minRainDuration: 10
   maxRainDuration: 20
   rateAcceleration: 2
   woodenTreeGenerator: {fileID: 6683913328030774911}
   rain: {fileID: 8816990616258050759}
+  thunderLight: {fileID: 0}
   fireLight: {fileID: 0}
   campfire: {fileID: 0}
+  VirtualCamera: {fileID: 0}
 --- !u!1001 &1877677593465408105
 PrefabInstance:
   m_ObjectHideFlags: 0
