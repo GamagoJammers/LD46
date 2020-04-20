@@ -158,4 +158,9 @@ public class RamNPC : MonoBehaviour
 		yield return new WaitForSeconds(chargeCooldown);
 		nextChargeReady = true;
 	}
+
+	public RamNPCState GetState()
+	{
+		return state;
+	}
 }
