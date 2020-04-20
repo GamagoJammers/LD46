@@ -60,10 +60,13 @@ public class DifficultyManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
-        actualTime = Mathf.RoundToInt(timer % 60);
-        EnemyProgression();
-        RainProgression();
+        if(!GameManager.instance.isPaused)
+        {
+            timer += Time.deltaTime;
+            actualTime = Mathf.RoundToInt(timer % 60);
+            EnemyProgression();
+            RainProgression();
+        }
     }
 
     private void EnemyProgression()
