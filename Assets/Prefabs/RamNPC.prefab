@@ -816,6 +816,7 @@ MonoBehaviour:
   wanderingDistanceFromCampfire:
     min: 4
     max: 0
+  stompVFX: {fileID: 2713216583121092215}
 --- !u!114 &3954245296002025354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,6 +998,12 @@ PrefabInstance:
 --- !u!4 &2713216583121092214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7714477557550862825, guid: 78ebd0d0971732b41a87ec978cd4b587,
+    type: 3}
+  m_PrefabInstance: {fileID: 5667811382405066655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2713216583121092215 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7714477557550862824, guid: 78ebd0d0971732b41a87ec978cd4b587,
     type: 3}
   m_PrefabInstance: {fileID: 5667811382405066655}
   m_PrefabAsset: {fileID: 0}

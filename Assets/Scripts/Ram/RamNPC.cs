@@ -23,6 +23,10 @@ public class RamNPC : MonoBehaviour
 	public MinMaxFloat speed;
 	public MinMaxFloat wanderingDistanceFromCampfire;
 
+	[Header("VFX")]
+
+	public ParticleSystem stompVFX;
+
 	private void Start()
 	{
 		wanderingDistanceFromCampfire.max = GameManager.instance.zoneRadius - 1.0f;
@@ -87,6 +91,10 @@ public class RamNPC : MonoBehaviour
 			agent.SetDestination(Tools.RandomPointOnCircle(wanderingDistanceFromCampfire));
 			agent.speed = speed.min;
 			state = RamNPCState.WANDER;
+
+			if (stompVFX.isPlaying)
+				stompVFX.Stop();
+
 			attacker.SetEnableAttack(false);
 		}
 	}
@@ -101,6 +109,10 @@ public class RamNPC : MonoBehaviour
 				target = enemies[Random.Range(0, enemies.Count)];
 				agent.speed = speed.max;
 				state = RamNPCState.CHARGE;
+
+				if (!stompVFX.isPlaying)
+					stompVFX.Play();
+				
 				attacker.SetEnableAttack(true);
 			}
 		}
@@ -118,6 +130,10 @@ public class RamNPC : MonoBehaviour
 		target = givenTarget;
 		agent.speed = speed.max;
 		state = RamNPCState.CHARGE;
+
+		if (!stompVFX.isPlaying)
+			stompVFX.Play();
+
 		attacker.SetEnableAttack(true);
 	}
 
