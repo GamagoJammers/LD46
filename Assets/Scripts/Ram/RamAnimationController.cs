@@ -39,17 +39,20 @@ public class RamAnimationController : MonoBehaviour
 
 	void Update()
 	{
-		m_animator.SetBool("IsWalking", m_ram.agent.speed == m_ram.speed.min);
-		m_animator.SetBool("IsRunning", m_ram.agent.speed == m_ram.speed.max);
-		m_animator.SetBool("IsHitten", m_hitTimer > 0);
-		m_animator.SetBool("IsAttacking", m_attackTimer > 0);
-		if (m_hitTimer > 0)
+		if (!GameManager.instance.isPaused)
 		{
-			m_hitTimer -= Time.deltaTime;
-		}
-		if (m_attackTimer > 0)
-		{
-			m_attackTimer -= Time.deltaTime;
+			m_animator.SetBool("IsWalking", m_ram.agent.speed == m_ram.speed.min);
+			m_animator.SetBool("IsRunning", m_ram.agent.speed == m_ram.speed.max);
+			m_animator.SetBool("IsHitten", m_hitTimer > 0);
+			m_animator.SetBool("IsAttacking", m_attackTimer > 0);
+			if (m_hitTimer > 0)
+			{
+				m_hitTimer -= Time.deltaTime;
+			}
+			if (m_attackTimer > 0)
+			{
+				m_attackTimer -= Time.deltaTime;
+			}
 		}
 	}
 

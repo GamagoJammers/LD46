@@ -46,9 +46,12 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        ProcessMovement();
+		if (!GameManager.instance.isPaused)
+		{
+			ProcessMovement();
 
-        m_flagInteractAction = false;
+			m_flagInteractAction = false;
+		}
     }
 
     void ProcessMovement()

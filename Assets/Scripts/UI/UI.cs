@@ -16,7 +16,6 @@ public class UI : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
-
     }
 
     // Update is called once per frame

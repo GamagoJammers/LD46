@@ -32,17 +32,17 @@ public class WolfSound : MonoBehaviour
     {
         if (m_attacker != null)
         {
-            m_attacker.m_attackEvent.AddListener(Attack);
+            m_attacker.m_attackEvent.RemoveListener(Attack);
         }
 
         if (m_damageable != null)
         {
-            m_damageable.m_onDamageEvent.AddListener(Damage);
+            m_damageable.m_onDamageEvent.RemoveListener(Damage);
         }
 
         if (m_picker != null)
         {
-            m_picker.m_pickEvent.AddListener(Grab);
+            m_picker.m_pickEvent.RemoveListener(Grab);
         }
     }
 

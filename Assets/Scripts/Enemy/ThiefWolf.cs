@@ -209,6 +209,7 @@ public class ThiefWolf : MonoBehaviour
 		yield return new WaitForSeconds(deathClip.averageDuration * 2.0f);
 
 		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
+
 		Destroy(this.gameObject);
 	}
 }

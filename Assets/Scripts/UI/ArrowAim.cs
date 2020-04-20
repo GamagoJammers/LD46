@@ -16,14 +16,14 @@ public class ArrowAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_picker.IsCarryingPickable())
-        {
-            aim.SetActive(true);
-        }
-        else if (!m_picker.IsCarryingPickable())
-        {
-            aim.SetActive(false);
-        }
+		if (m_picker.IsCarryingPickable())
+		{
+			aim.SetActive(true);
+		}
+		else if (!m_picker.IsCarryingPickable())
+		{
+			aim.SetActive(false);
+		}
     }
 
 }

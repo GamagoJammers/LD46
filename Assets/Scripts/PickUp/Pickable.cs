@@ -90,10 +90,13 @@ public class Pickable : MonoBehaviour
 
     void Update()
     {
-        if(m_outline != null)
-        {
-            m_outline.SetActive(m_flagOutline);
-        }
-        m_flagOutline = false;
+		if (!GameManager.instance.isPaused)
+		{
+			if (m_outline != null)
+			{
+				m_outline.SetActive(m_flagOutline);
+			}
+			m_flagOutline = false;
+		}
     }
 }

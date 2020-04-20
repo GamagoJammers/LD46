@@ -50,8 +50,8 @@ MonoBehaviour:
   blackAttackerWolfPrefab: {fileID: 0}
   AttackerWolfChance: 50
   timeBetweenInstantiation:
-    min: 4
-    max: 8
-  zoneOffset: 4
+    min: 5
+    max: 10
+  zoneOffset: 5
   maxEnemyNb: 3
   isActive: 1

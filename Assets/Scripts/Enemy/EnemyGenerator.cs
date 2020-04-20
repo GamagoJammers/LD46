@@ -59,7 +59,10 @@ public class EnemyGenerator : MonoBehaviour
 		while (isActive)
 		{
 			yield return new WaitForSeconds(Random.Range(timeBetweenInstantiation.min, timeBetweenInstantiation.max));
-			TryToInstantiateEnemy();
+			if (!GameManager.instance.isPaused)
+			{
+				TryToInstantiateEnemy();
+			}
 		}
 	}
 }

@@ -49,14 +49,17 @@ public class ChoppableTree : MonoBehaviour
     
     void Update()
     {
-        if (m_flagIsChopped)
-        {
-            m_chopTimer -= Time.deltaTime;
-        }
+		if (!GameManager.instance.isPaused)
+		{
+			if (m_flagIsChopped)
+			{
+				m_chopTimer -= Time.deltaTime;
+			}
 
-        if (m_chopTimer <= 0)
-        {
-            m_tree.Die();
-        }
+			if (m_chopTimer <= 0)
+			{
+				m_tree.Die();
+			}
+		}
     }
 }

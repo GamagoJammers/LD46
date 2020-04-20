@@ -31,7 +31,6 @@ public class AudioSourceControl : MonoBehaviour
         m_audioSource.volume = _volume;
     }
 
-
     void Start()
     {
         SetRawVolume(m_defaultVolume);

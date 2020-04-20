@@ -119,19 +119,26 @@ public class TreeSensor : MonoBehaviour
 
     private void Update()
     {
-        if (m_selectedTree != null && m_selectedTree.IsBeingChopped())
-        {
-            m_progressBar.SetFillAmount(m_selectedTree.GetChopInversionPregression());
-            m_saw.enabled = true;
-        } else
-        {
-            m_saw.enabled = false;
-        }
+		if (!GameManager.instance.isPaused)
+		{
+			if (m_selectedTree != null && m_selectedTree.IsBeingChopped())
+			{
+				m_progressBar.SetFillAmount(m_selectedTree.GetChopInversionPregression());
+				m_saw.enabled = true;
+			}
+			else
+			{
+				m_saw.enabled = false;
+			}
+		}
     }
 
     private void FixedUpdate()
     {
-         SelectTree();
+		if (!GameManager.instance.isPaused)
+		{
+			SelectTree();
+		}
     }
 
     private void OnTriggerEnter(Collider other)

@@ -41,27 +41,30 @@ public class PlayerAnimationController : MonoBehaviour
     }
 
     void Update()
-    {
-        m_animator.SetBool("IsWalking", m_rb.velocity.sqrMagnitude > 0);
-        m_animator.SetBool("IsSawing", m_treeSensor.IsChoppingTree());
-        m_animator.SetBool("IsStun", m_damageable.IsStunned());
-        m_animator.SetBool("IsThrowing", m_throwTimer >0);
-        m_animator.SetBool("IsDown", m_animator.GetCurrentAnimatorStateInfo(0).IsName("Stun"));
-        if (m_throwTimer>0)
-        {
-            m_throwTimer -= Time.deltaTime;
-        }
-        if (m_damageable.IsStunned() && m_damageable.GetStunnedTimer() < m_getUpAnimationClip.averageDuration)
-        {
-            m_animator.SetTrigger("TGetUp");
-        }
+	{
+		if (!GameManager.instance.isPaused)
+		{
+			m_animator.SetBool("IsWalking", m_rb.velocity.sqrMagnitude > 0);
+			m_animator.SetBool("IsSawing", m_treeSensor.IsChoppingTree());
+			m_animator.SetBool("IsStun", m_damageable.IsStunned());
+			m_animator.SetBool("IsThrowing", m_throwTimer > 0);
+			m_animator.SetBool("IsDown", m_animator.GetCurrentAnimatorStateInfo(0).IsName("Stun"));
+			if (m_throwTimer > 0)
+			{
+				m_throwTimer -= Time.deltaTime;
+			}
+			if (m_damageable.IsStunned() && m_damageable.GetStunnedTimer() < m_getUpAnimationClip.averageDuration)
+			{
+				m_animator.SetTrigger("TGetUp");
+			}
 
-        bool isWalking = m_animator.GetCurrentAnimatorStateInfo(0).IsName("Walk");
+			bool isWalking = m_animator.GetCurrentAnimatorStateInfo(0).IsName("Walk");
 
-        if (!stompVFX.isPlaying && isWalking)
-            stompVFX.Play();
-        else if (stompVFX.isPlaying && !isWalking)
-            stompVFX.Stop();
+			if (!stompVFX.isPlaying && isWalking)
+				stompVFX.Play();
+			else if (stompVFX.isPlaying && !isWalking)
+				stompVFX.Stop();
+		}
     }
 
     void Chop()
