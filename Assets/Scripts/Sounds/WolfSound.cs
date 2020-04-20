@@ -21,7 +21,7 @@ public class WolfSound : MonoBehaviour
         m_audioSourceControl.m_audioSource.loop = false;
 
         m_attacker.m_attackEvent.AddListener(Attack);
-        m_damageable.m_damageEvent.AddListener(Damage);
+        m_damageable.m_onDamageEvent.AddListener(Damage);
         if (m_picker != null)
         {
             m_picker.m_pickEvent.AddListener(Grab);
@@ -37,7 +37,7 @@ public class WolfSound : MonoBehaviour
 
         if (m_damageable != null)
         {
-            m_damageable.m_damageEvent.AddListener(Damage);
+            m_damageable.m_onDamageEvent.AddListener(Damage);
         }
 
         if (m_picker != null)
