@@ -12,23 +12,16 @@ public class AttackerWolf : MonoBehaviour
 	public Attacker attacker;
 
 	[Header("Stats")]
-
-	private bool targetPlayer;
 	private GameObject target;
 
 	private void Start()
 	{
+		attacker.m_attackEvent.AddListener(OnAttack);
+
 		if (Random.Range(0.0f, 1.0f) > 0.5f)
-		{
-			targetPlayer = true;
 			target = GameManager.instance.player.gameObject;
-			attacker.m_attackEvent.AddListener(OnPlayerAttack);
-		}
 		else
-		{
-			targetPlayer = false;
 			target = GameManager.instance.ramNPC.gameObject;
-		}
 
 		Vector3 toTargetDirection = (target.transform.position - this.transform.position).normalized;
 		agent.SetDestination(target.transform.position + toTargetDirection * 2.5f);
@@ -43,13 +36,17 @@ public class AttackerWolf : MonoBehaviour
 				if (damageable.CanPerformActions())
 				{
 					if (agent.isStopped)
+					{
 						agent.isStopped = false;
+						attacker.SetEnableAttack(true);
+					}
 
 					Act();
 				}
 				else if (!agent.isStopped)
 				{
 					agent.isStopped = true;
+					attacker.SetEnableAttack(false);
 				}
 			}
 			else
@@ -74,17 +71,19 @@ public class AttackerWolf : MonoBehaviour
 		agent.SetDestination(target.transform.position + toTargetDirection * 2.5f);
 	}
 
-	private void OnPlayerAttack(Damageable damageable)
+	private void OnAttack(Damageable damageable)
 	{
-		if(damageable.gameObject == GameManager.instance.player.gameObject)
+		if (damageable.gameObject == GameManager.instance.player.gameObject)
 		{
-			targetPlayer = false;
 			target = GameManager.instance.ramNPC.gameObject;
-
 			Vector3 toTargetDirection = (target.transform.position - this.transform.position).normalized;
 			agent.SetDestination(target.transform.position + toTargetDirection * 2.5f);
-
-			attacker.m_attackEvent.RemoveListener(OnPlayerAttack);
+		}
+		if (damageable.gameObject == GameManager.instance.ramNPC.gameObject)
+		{
+			target = GameManager.instance.player.gameObject;
+			Vector3 toTargetDirection = (target.transform.position - this.transform.position).normalized;
+			agent.SetDestination(target.transform.position + toTargetDirection * 2.5f);
 		}
 	}
 

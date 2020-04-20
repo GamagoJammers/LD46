@@ -15,6 +15,7 @@ public class ThiefWolf : MonoBehaviour
 
 	public PickerSensor pickSensor;
 	public Damageable damageable;
+	public Attacker attacker;
 
 	private void Start()
 	{
@@ -30,7 +31,10 @@ public class ThiefWolf : MonoBehaviour
 				if (damageable.CanPerformActions())
 				{
 					if (agent.isStopped)
+					{
 						agent.isStopped = false;
+						attacker.SetEnableAttack(true);
+					}
 
 					if (state == ThiefWolfState.CHASELOG)
 						UpdateTarget();
@@ -40,6 +44,7 @@ public class ThiefWolf : MonoBehaviour
 				else if (!agent.isStopped)
 				{
 					agent.isStopped = true;
+					attacker.SetEnableAttack(false);
 				}
 			}
 			else
