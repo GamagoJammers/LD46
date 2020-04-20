@@ -55,6 +55,8 @@ MonoBehaviour:
   enemyGenerator: {fileID: 5342105230813650882}
   ramNPC: {fileID: 0}
   player: {fileID: 0}
+  scriptScoreUI: {fileID: 0}
+  isDeadFire: 0
 --- !u!1 &4838485772778116322
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGenerator: {fileID: 5342105230813650882}
   rainManager: {fileID: 7117808358911069968}
-  maxEnemyProgressionRate: 2
+  maxEnemyProgressionRate: 20
   maxEnemyLimit: 15
   minEnemyInstantiationProgressionRate: 60
   minEnemyInstantiationLimit: 1
