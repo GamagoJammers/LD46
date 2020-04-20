@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7557090692765405716
 Transform:
   m_ObjectHideFlags: 0
@@ -815,7 +815,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 3470786513136376270}
   pauseMenu: {fileID: 3470786513132430675}
+  canvasTuto: {fileID: 0}
   slider: {fileID: 0}
+  goGame: {fileID: 0}
 --- !u!114 &6010054566554410639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8605600dbb2d434abe8199850586cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasTuto: {fileID: 0}
 --- !u!1 &3470786513132430675
 GameObject:
   m_ObjectHideFlags: 0

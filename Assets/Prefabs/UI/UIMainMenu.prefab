@@ -128,8 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
+    type: 3}
+  canvasTuto: {fileID: 163969482152142840}
   slider: {fileID: 0}
+  goGame: {fileID: 8892838849188284444}
 --- !u!1 &163969482152142840
 GameObject:
   m_ObjectHideFlags: 0

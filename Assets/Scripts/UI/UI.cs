@@ -33,7 +33,7 @@ public class UI : MonoBehaviour
 
         CheckPause();
 
-        TutoSkip();
+        
 
     }
 
@@ -69,6 +69,7 @@ public class UI : MonoBehaviour
     public void DisplayTuto()
     {
         canvasTuto.SetActive(true);
+        TutoSkip();
     }
 
     public void TutoSkip()
