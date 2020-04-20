@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGenerator: {fileID: 5342105230813650882}
   rainManager: {fileID: 7117808358911069968}
-  maxEnemyProgressionRate: 2
+  maxEnemyProgressionRate: 20
   maxEnemyLimit: 15
   minEnemyInstantiationProgressionRate: 60
   minEnemyInstantiationLimit: 1

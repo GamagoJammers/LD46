@@ -62,8 +62,7 @@ public class RainManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log(actualTime);
-        if (!raining)
+        if (!raining && GameManager.instance.isPaused)
         {
             if (actualTime >= targetTime)
             {
@@ -80,14 +79,12 @@ public class RainManager : MonoBehaviour
 
     public IEnumerator Rain()
     {
-        //Debug.Log(targetTime);
         raining = true;
         fireLight.color = new Color32(109,100,248,255);
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
         campfire.naturalEstinguishingRate = rate/rateAcceleration;
         rainTime = Random.Range(minRainDuration, maxRainDuration);
-        //Debug.Log(RainTime);
         yield return new WaitForSeconds(rainTime);
         rain.Stop();
         fireLight.color = new Color32(163,153,255,255);

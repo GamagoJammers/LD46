@@ -9858,11 +9858,11 @@ MonoBehaviour:
   naturalEstinguishingAmount: 0.2
   campFireLight: {fileID: 2336035329020976562}
   campFireLightRange:
-    min: 10
+    min: 5
     max: 30
   fireLight: {fileID: 4809194146267016078}
   lightSpotAngle:
-    min: 10
+    min: 5
     max: 80
   lightIntensity:
     min: 1
