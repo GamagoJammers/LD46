@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99a49ee2c4958948919f62e8d5dddcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerAnimator: {fileID: 0}
+  m_playerAnimator: {fileID: 4114275652410800698}
   m_audioSourceControl: {fileID: 102444244337608932}
   m_hitSounds:
   - {fileID: 8300000, guid: 90508f23d87f0c44ba919c27a7c612c6, type: 3}

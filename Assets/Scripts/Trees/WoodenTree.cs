@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum WoodenTreeGrowthStatus { SPROUT=0, SHRUB=1, TREE=2};
 
@@ -28,7 +29,21 @@ public class WoodenTree : MonoBehaviour
 	public GameObject logPrefab;
 	public GameObject dedTreeVFX;
 
-	// Start is called before the first frame update
+	public UnityEvent m_growEvent;
+	public UnityEvent m_dieEvent;
+
+	private void OnAwake()
+	{
+		m_growEvent = new UnityEvent();
+		m_dieEvent = new UnityEvent();
+	}
+
+	private void OnDisable()
+	{
+		m_growEvent.RemoveAllListeners();
+		m_dieEvent.RemoveAllListeners();
+	}
+
 	void Start()
     {
 		actualState = treeStates[baseState];
@@ -38,6 +53,7 @@ public class WoodenTree : MonoBehaviour
 
 	public void Die()
 	{
+		m_dieEvent.Invoke();
 		float generalOffsetAngle = Random.Range(0.0f, 2 * Mathf.PI);
 
 		for(int i=0; i<actualState.logAmount; i++)
@@ -65,6 +81,7 @@ public class WoodenTree : MonoBehaviour
 		while(actualState.growthStatus != WoodenTreeGrowthStatus.TREE)
 		{
 			yield return new WaitForSeconds(actualState.timeToGrow);
+			m_growEvent.Invoke();
 			actualState.stateModel.SetActive(false);
 			actualState = treeStates[(int)actualState.growthStatus + 1];
 			actualState.stateModel.SetActive(true);
