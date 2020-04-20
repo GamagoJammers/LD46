@@ -720,6 +720,7 @@ MonoBehaviour:
   m_chopEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_saw: {fileID: 2013566152992612827}
 --- !u!1001 &2704314031270618926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,6 +1014,12 @@ GameObject:
 --- !u!4 &1291030882255916169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 557fa1028ec360c4a95cbaec0c1dc37c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6093402670414292883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2013566152992612827 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5719996826160596552, guid: 557fa1028ec360c4a95cbaec0c1dc37c,
     type: 3}
   m_PrefabInstance: {fileID: 6093402670414292883}
   m_PrefabAsset: {fileID: 0}

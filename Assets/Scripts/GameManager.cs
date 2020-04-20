@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
 	public EnemyGenerator enemyGenerator;
 
+	public RamNPC ramNPC;
+
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
