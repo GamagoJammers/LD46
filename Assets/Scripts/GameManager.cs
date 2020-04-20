@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 	public RamNPC ramNPC;
 	public PlayerControl player;
 
+	public ScoreUI scriptScoreUI;
+	public bool isDeadFire;
+
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
@@ -35,5 +38,10 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+	}
+
+	public void GameOver()
+	{
+		scriptScoreUI.EndScore();
 	}
 }
