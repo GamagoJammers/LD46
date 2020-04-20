@@ -18,6 +18,7 @@ public class AttackerWolf : MonoBehaviour
 
 	[Header("VFX")]
 	public GameObject dedVFX;
+	public AnimationClip deathClip;
 
 	[HideInInspector]
 	public GameObject target;
@@ -67,20 +68,13 @@ public class AttackerWolf : MonoBehaviour
 			}
 			else
 			{
-				Die();
+				StartCoroutine(DeathCoroutine());
 			}
 		}
 		else if (!agent.isStopped)
 		{
 			agent.isStopped = true;
 		}
-	}
-
-	public void Die()
-	{
-		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
-
-		Destroy(this.gameObject);
 	}
 
 	private void Act()
@@ -151,12 +145,22 @@ public class AttackerWolf : MonoBehaviour
 	{
 		if (agent.remainingDistance <= 0.2f)
 		{
-			Die();
+			Destroy(this.gameObject);
 		}
 	}
 
 	private void OnDestroy()
 	{
 		GameManager.instance.enemyGenerator.enemies.Remove(this.gameObject);
+	}
+
+	IEnumerator DeathCoroutine()
+	{
+		agent.isStopped = true;
+
+		yield return new WaitForSeconds(deathClip.averageDuration * 2.0f);
+
+		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
+		Destroy(this.gameObject);
 	}
 }
