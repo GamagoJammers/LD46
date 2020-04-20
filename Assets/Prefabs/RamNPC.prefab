@@ -694,7 +694,7 @@ MonoBehaviour:
     min: 4
     max: 20
   stompVFX: {fileID: 2713216583121092215}
-  healVFX: {fileID: 0}
+  healVFX: {fileID: 3357842407370981994}
 --- !u!114 &3954245296002025354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_canBeKilled: 1
-  m_maxHealth: 10
+  m_maxHealth: 3
   m_canBeStunned: 0
   m_additiveStun: 0
   m_maxStunnedTime: 0
@@ -1160,6 +1160,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c9433159038c245ba4fc7af5b139ce, type: 3}
+--- !u!198 &3357842407370981994 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6054385303913441297, guid: f6c9433159038c245ba4fc7af5b139ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 8834950569548065403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3357842407370981995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6054385303913441296, guid: f6c9433159038c245ba4fc7af5b139ce,

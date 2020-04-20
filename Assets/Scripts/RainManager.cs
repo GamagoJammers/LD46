@@ -87,7 +87,7 @@ public class RainManager : MonoBehaviour
         rainTime = Random.Range(minRainDuration, maxRainDuration);
         yield return new WaitForSeconds(rainTime);
         rain.Stop();
-        fireLight.color = new Color32(163,153,255,255);
+        fireLight.color = new Color32(106,93,226,255);
         campfire.naturalEstinguishingRate = rate;
         timer = 0;
         actualTime = 0;
