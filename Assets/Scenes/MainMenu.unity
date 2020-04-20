@@ -5218,6 +5218,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e800f75e6ab2934e8f9d2630662b0d5, type: 3}
+--- !u!1 &489355168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1578401982921034417, guid: b1148b895de402d45873df17664db069,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578401983694045297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!135 &523666323
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11056,7 +11062,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 489355168}
     - target: {fileID: 1578401984080455675, guid: b1148b895de402d45873df17664db069,
         type: 3}
       propertyPath: m_AnchoredPosition.x
