@@ -190,7 +190,7 @@ MonoBehaviour:
   m_rb: {fileID: 2569925374640915974}
   m_pickable: {fileID: 5939930606736908017}
   m_attack: {fileID: 2252349255942582862}
-  m_minHitVelocity: 10
+  m_minHitVelocity: 5
 --- !u!114 &4246867519164711456
 MonoBehaviour:
   m_ObjectHideFlags: 0
