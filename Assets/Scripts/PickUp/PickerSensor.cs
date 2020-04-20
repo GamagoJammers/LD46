@@ -17,9 +17,10 @@ public class PickerSensor : MonoBehaviour
 
 	public Damageable m_damageable;
 
-    public UnityEvent m_throwEvent;
+	public UnityEvent m_pickEvent;
+	public UnityEvent m_throwEvent;
 
-    private List<Pickable> m_sensedPickables;
+	private List<Pickable> m_sensedPickables;
     private bool m_isCarrying;
 
 
@@ -39,6 +40,7 @@ public class PickerSensor : MonoBehaviour
         {
             m_isCarrying = true;
             m_selectedPickable.PickUp(m_carryingTag, m_thrower, m_isPlayer);
+			m_pickEvent.Invoke();
         }
     }
 
@@ -115,7 +117,8 @@ public class PickerSensor : MonoBehaviour
 
     private void Awake()
     {
-        m_throwEvent = new UnityEvent();    
+		m_pickEvent = new UnityEvent();
+        m_throwEvent = new UnityEvent();
     }
 
     void Start()
@@ -133,9 +136,10 @@ public class PickerSensor : MonoBehaviour
         {
             m_damageable.m_startStunEvent.RemoveListener(Drop);
             m_damageable.m_deathEvent.RemoveListener(Drop);
-        }
-        m_throwEvent.RemoveAllListeners();
-    }
+		}
+		m_pickEvent.RemoveAllListeners();
+		m_throwEvent.RemoveAllListeners();
+	}
 
     private void FixedUpdate()
     {
