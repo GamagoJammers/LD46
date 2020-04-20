@@ -13,6 +13,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     private float m_throwTimer;
 
+    public ParticleSystem stompVFX;
+
     private void Start()
     {
         m_treeSensor.m_chopEvent.AddListener(Chop);
@@ -53,6 +55,13 @@ public class PlayerAnimationController : MonoBehaviour
         {
             m_animator.SetTrigger("TGetUp");
         }
+
+        bool isWalking = m_animator.GetCurrentAnimatorStateInfo(0).IsName("Walk");
+
+        if (!stompVFX.isPlaying && isWalking)
+            stompVFX.Play();
+        else if (stompVFX.isPlaying && !isWalking)
+            stompVFX.Stop();
     }
 
     void Chop()
