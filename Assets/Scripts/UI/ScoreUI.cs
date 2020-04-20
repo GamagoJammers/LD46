@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
@@ -11,6 +12,8 @@ public class ScoreUI : MonoBehaviour
     public Animation animScore;
     public Text displayScore;
     public Text displayDeathCause;
+    public EventSystem m_eventSys;
+    public GameObject firstSelEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class ScoreUI : MonoBehaviour
         Timer.SetActive(false);
 
         scoreScreen.SetActive(true);
+
+        m_eventSys.SetSelectedGameObject(firstSelEnd);
 
         displayScore.text = scriptTimer.timerText.text.ToString();
 
