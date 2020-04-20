@@ -52,6 +52,8 @@ MonoBehaviour:
   treeGenerator: {fileID: 6683913328030774911}
   logs: []
   enemyGenerator: {fileID: 5342105230813650882}
+  ramNPC: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &7808668201059185124
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +283,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
+        type: 3}
+      propertyPath: blackAttackerWolfPrefab
+      value: 
+      objectReference: {fileID: 943139441205382243, guid: 0c78d3460e23d7b4c842ddfa7603653c,
+        type: 3}
+    - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
+        type: 3}
+      propertyPath: AttackerWolfChance
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
+        type: 3}
+      propertyPath: thiefWolfChance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4495305441898926188, guid: 430d8f2e7b460814b8c0edd96eab4990,
         type: 3}

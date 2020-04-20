@@ -36,7 +36,7 @@ public class EnemyGenerator : MonoBehaviour
 		{
 			if (GameManager.instance.logs.Count == 0)
 			{
-				//enemies.Add(Instantiate(blackAttackerWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
+				enemies.Add(Instantiate(blackAttackerWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
 			}
 			else
 			{

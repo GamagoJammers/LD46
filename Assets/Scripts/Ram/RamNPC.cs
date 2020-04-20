@@ -61,7 +61,7 @@ public class RamNPC : MonoBehaviour
 		if(state == RamNPCState.CHARGE && target != null)
 		{
 			Vector3 toEnemyDirection = (target.transform.position - this.transform.position).normalized;
-			agent.SetDestination(target.transform.position + toEnemyDirection * 5.0f);
+			agent.SetDestination(target.transform.position + toEnemyDirection * 2.5f);
 		}
 	}
 
