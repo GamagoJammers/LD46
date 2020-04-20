@@ -19,6 +19,8 @@ public class WoodenTreeGenerator : MonoBehaviour
 	[HideInInspector]
 	public bool isActive = true;
 
+    private WoodenTree treeToDestroy;
+
 	public void Start()
 	{
 		trees = new List<WoodenTree>();
@@ -52,10 +54,10 @@ public class WoodenTreeGenerator : MonoBehaviour
     {
 		if (trees.Count > 0)
 		{
-			WoodenTree treeToDestroy = trees[Random.Range(0,trees.Count)];
+			treeToDestroy = trees[Random.Range(0,trees.Count)];
 			treeToDestroy.actualState.logAmount = 0;
 			Vector3 position = treeToDestroy.transform.position;
-			treeToDestroy.Die();
+            StartCoroutine("Thunder");
 			return position;
 		} else
 		{
@@ -91,4 +93,12 @@ public class WoodenTreeGenerator : MonoBehaviour
 			TryToInstantiateTree();
 		}
 	}
+    private IEnumerator Thunder()
+    {
+        treeToDestroy.transform.GetChild(6).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        treeToDestroy.Die();
+    }
+    
+
 }

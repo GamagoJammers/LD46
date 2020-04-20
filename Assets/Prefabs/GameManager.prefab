@@ -421,9 +421,9 @@ MonoBehaviour:
   minRainTime: 30
   maxRainTime: 60
   thunderChance: 50
-  thunderLightIntensity: 0
+  thunderLightIntensity: 3
   minRainDuration: 10
-  maxRainDuration: 20
+  maxRainDuration: 15
   rateAcceleration: 2
   woodenTreeGenerator: {fileID: 6683913328030774911}
   rain: {fileID: 8816990616258050759}
@@ -592,6 +592,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: timeBetweenInstantiation.min
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: timeBetweenInstantiation.max
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: maxTreeNb
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: distanceFromCampfire.min
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: distanceFromCampfire.max
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
+        type: 3}
+      propertyPath: startingTreeNb
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7671220603307885244, guid: 5c34960bcd265b94788fb5ab417c67f1,
         type: 3}
       propertyPath: m_Name
@@ -644,6 +674,21 @@ PrefabInstance:
         type: 3}
       propertyPath: thiefWolfChance
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
+        type: 3}
+      propertyPath: maxEnemyNb
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
+        type: 3}
+      propertyPath: timeBetweenInstantiation.max
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
+        type: 3}
+      propertyPath: timeBetweenInstantiation.min
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4495305441898926188, guid: 430d8f2e7b460814b8c0edd96eab4990,
         type: 3}
