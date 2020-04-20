@@ -48,6 +48,7 @@ public class UI : MonoBehaviour
         pauseMenu.SetActive(false);
         GameManager.instance.isPaused = false;
         Time.timeScale = 1;
+        timerText.gameObject.SetActive(true);
     }
 
     public void PauseGame()
@@ -55,6 +56,7 @@ public class UI : MonoBehaviour
         pauseMenu.SetActive(true);
         GameManager.instance.isPaused = true;
         Time.timeScale = 0;
+        timerText.gameObject.SetActive(false);
     }
 
 

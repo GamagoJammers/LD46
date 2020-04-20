@@ -711,18 +711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ded4fa3416747742ad623197c2207f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &767567275 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5832392744469263165, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6824971943196689527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &793886803 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3727830250544760882, guid: e3c9f6f63ce762f4f867707681e6751d,
@@ -966,11 +954,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UInGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3470786512925298723, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
@@ -1257,26 +1240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 645387355698441086, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084200063311621538, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
-        type: 3}
-      propertyPath: timer
-      value: 
-      objectReference: {fileID: 586362266}
     - target: {fileID: 1084200063311621538, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
         type: 3}
       propertyPath: scriptTimer
       value: 
       objectReference: {fileID: 586362266}
-    - target: {fileID: 1084200063311621538, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
-        type: 3}
-      propertyPath: displayDeathCause
-      value: 
-      objectReference: {fileID: 767567275}
     - target: {fileID: 2037585694936825448, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1337,15 +1305,5 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1283237420}
-    - target: {fileID: 7474136076059881364, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
-        type: 3}
-      propertyPath: m_Name
-      value: Rekindlend
-      objectReference: {fileID: 0}
-    - target: {fileID: 8464650350389566383, guid: d5358b862c575ec4ca9abc4ac8ccb00c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5358b862c575ec4ca9abc4ac8ccb00c, type: 3}
