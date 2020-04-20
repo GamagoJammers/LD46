@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class UI : MonoBehaviour
@@ -10,8 +11,8 @@ public class UI : MonoBehaviour
     int seconds;
     public Text timerText;
     public GameObject pauseMenu;
-    public GameObject canvasTuto;
-    public ChangeSceneFromUI goGame;
+    public EventSystem m_eventSys;
+    public GameObject firstSelPause;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,24 +59,10 @@ public class UI : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        m_eventSys.SetSelectedGameObject(firstSelPause);
         GameManager.instance.isPaused = true;
         Time.timeScale = 0;
         timerText.gameObject.SetActive(false);
     }
 
-    public void DisplayTuto()
-    {
-        canvasTuto.SetActive(true);
-        TutoSkip();
-    }
-
-    public void TutoSkip()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canvasTuto.activeSelf)
-        {
-            Debug.Log("ok");
-            canvasTuto.SetActive(false);
-            goGame.LoadGame();
-        }
-    }
 }
