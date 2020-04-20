@@ -8,7 +8,7 @@ public class AudioSourceControl : MonoBehaviour
     public float m_defaultVolume;
     public Vector2 m_rangeVolume;
 
-    AudioSource m_audioSource;
+    public AudioSource m_audioSource;
 
     private void Awake()
     {
