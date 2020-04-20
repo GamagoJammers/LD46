@@ -11,6 +11,7 @@ public class Damageable : MonoBehaviour
     public bool m_additiveStun;
     public float m_maxStunnedTime;
 
+
 	// Events
 	public UnityEvent m_onDamageEvent;
 	public UnityEvent m_startStunEvent;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 163969481896717412}
   - component: {fileID: 163969481896717413}
   - component: {fileID: 8892838849188284444}
-  - component: {fileID: 2224666636998914420}
+  - component: {fileID: 917280939}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8605600dbb2d434abe8199850586cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2224666636998914420
+--- !u!114 &917280939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,14 +124,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 163969481896717434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72133026e79b6234dbba58e3d77d3bfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e07bc0cddb95c64d9ef33b00fd2fa5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  pauseMenu: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
-    type: 3}
   canvasTuto: {fileID: 163969482152142840}
-  slider: {fileID: 0}
   goGame: {fileID: 8892838849188284444}
 --- !u!1 &163969482152142840
 GameObject:
@@ -151,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &163969482152142843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -424,8 +420,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8892838849188284444}
-        m_MethodName: LoadGame
+      - m_Target: {fileID: 917280939}
+        m_MethodName: DisplayTuto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

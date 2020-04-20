@@ -11,12 +11,10 @@ public class UI : MonoBehaviour
     public Text timerText;
     public GameObject pauseMenu;
     public GameObject canvasTuto;
-    public Slider slider;
     public ChangeSceneFromUI goGame;
     // Start is called before the first frame update
     void Start()
     {
-        canvasTuto.SetActive(false);
         pauseMenu.SetActive(false);
 
     }
@@ -80,15 +78,5 @@ public class UI : MonoBehaviour
             canvasTuto.SetActive(false);
             goGame.LoadGame();
         }
-    }
-
-    public void setMaxHealth(int health)
-    {
-        slider.maxValue = health;
-        slider.value = health;
-    }
-    public void setHealth(int health)
-    {
-        slider.value = health;
     }
 }
