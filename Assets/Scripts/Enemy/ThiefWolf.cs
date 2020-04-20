@@ -118,4 +118,9 @@ public class ThiefWolf : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
+
+	private void OnDestroy()
+	{
+		GameManager.instance.enemyGenerator.enemies.Remove(this.gameObject);
+	}
 }

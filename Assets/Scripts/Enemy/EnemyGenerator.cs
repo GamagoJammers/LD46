@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-	[HideInInspector]
+	//[HideInInspector]
 	public List<GameObject> enemies;
 
 	public GameObject whiteThiefWolfPrefab;
