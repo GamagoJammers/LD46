@@ -21,4 +21,5 @@ public class ChangeSceneFromUI : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

@@ -10,11 +10,14 @@ public class UI : MonoBehaviour
     int seconds;
     public Text timerText;
     public GameObject pauseMenu;
+    public GameObject canvasTuto;
     public Slider slider;
+    public ChangeSceneFromUI goGame;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        canvasTuto.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,6 +31,10 @@ public class UI : MonoBehaviour
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 
         CheckPause();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canvasTuto.activeSelf)
+            goGame.LoadGame();
+
     }
 
     private void CheckPause()
@@ -59,6 +66,10 @@ public class UI : MonoBehaviour
         timerText.gameObject.SetActive(false);
     }
 
+    public void DisplayTuto()
+    {
+        canvasTuto.SetActive(true);
+    }
 
     public void setMaxHealth(int health)
     {
