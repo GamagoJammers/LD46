@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  zoneRadius: 26
+  zoneRadius: 30
   treeGenerator: {fileID: 6683913328030774911}
   logs: []
   enemyGenerator: {fileID: 5342105230813650882}
