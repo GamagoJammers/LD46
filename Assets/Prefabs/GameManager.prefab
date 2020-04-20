@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  zoneRadius: 26
+  zoneRadius: 30
   treeGenerator: {fileID: 6683913328030774911}
   logs: []
   enemyGenerator: {fileID: 5342105230813650882}
@@ -101,6 +101,7 @@ MonoBehaviour:
   maxRainTime: 60
   minRainDuration: 10
   maxRainDuration: 20
+  rateAcceleration: 0
   rain: {fileID: 8816990616258050759}
   light: {fileID: 0}
   campfire: {fileID: 0}
