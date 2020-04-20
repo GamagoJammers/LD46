@@ -63,7 +63,7 @@ public class DifficultyManager : MonoBehaviour
         if(!GameManager.instance.isPaused)
         {
             timer += Time.deltaTime;
-            actualTime = Mathf.RoundToInt(timer % 60);
+            actualTime = Mathf.RoundToInt(timer);
             EnemyProgression();
             RainProgression();
         }

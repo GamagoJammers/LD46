@@ -356,21 +356,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGenerator: {fileID: 5342105230813650882}
   rainManager: {fileID: 7117808358911069968}
-  maxEnemyProgressionRate: 30
+  maxEnemyProgressionRate: 45
   maxEnemyLimit: 10
-  minEnemyInstantiationProgressionRate: 30
+  minEnemyInstantiationProgressionRate: 60
   minEnemyInstantiationLimit: 3
-  maxEnemyInstantiationProgressionRate: 30
+  maxEnemyInstantiationProgressionRate: 60
   maxEnemyInstantiationLimit: 6
-  minRainTimeProgressionRate: 10
-  minRainTimeLimit: 20
-  maxRainTimeProgressionRate: 10
-  maxRainTimeLimit: 40
-  minRainDurationProgressionRate: 30
+  minRainTimeProgressionRate: 20
+  minRainTimeLimit: 15
+  maxRainTimeProgressionRate: 20
+  maxRainTimeLimit: 30
+  minRainDurationProgressionRate: 20
   minRainDurationLimit: 15
-  maxRainDurationProgressionRate: 30
+  maxRainDurationProgressionRate: 20
   maxRainDurationLimit: 20
-  thunderChanceRate: 5
+  thunderChanceRate: 4
   thunderChanceLimit: 100
 --- !u!1 &7808668201059185124
 GameObject:
@@ -600,12 +600,12 @@ PrefabInstance:
     - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
         type: 3}
       propertyPath: timeBetweenInstantiation.min
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7671220603307885235, guid: 5c34960bcd265b94788fb5ab417c67f1,
         type: 3}
       propertyPath: timeBetweenInstantiation.max
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7671220603307885244, guid: 5c34960bcd265b94788fb5ab417c67f1,
         type: 3}
