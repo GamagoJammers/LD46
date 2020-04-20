@@ -50,7 +50,6 @@ public class ThiefWolf : MonoBehaviour
 					if (agent.isStopped)
 					{
 						agent.isStopped = false;
-						attacker.SetEnableAttack(true);
 					}
 
 					Act();
@@ -59,7 +58,6 @@ public class ThiefWolf : MonoBehaviour
 				else if (!agent.isStopped)
 				{
 					agent.isStopped = true;
-					attacker.SetEnableAttack(false);
 				}
 			}
 			else
