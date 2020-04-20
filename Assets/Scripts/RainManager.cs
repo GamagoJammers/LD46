@@ -62,7 +62,7 @@ public class RainManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!raining && GameManager.instance.isPaused)
+        if (!raining && !GameManager.instance.isPaused)
         {
             if (actualTime >= targetTime)
             {

@@ -812,7 +812,7 @@ MonoBehaviour:
   nextChargeReady: 1
   chargeCooldown: 10
   speed:
-    min: 7
+    min: 3
     max: 15
   wanderingDistanceFromCampfire:
     min: 4

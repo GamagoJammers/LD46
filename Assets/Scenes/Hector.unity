@@ -2685,12 +2685,12 @@ PrefabInstance:
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: minRainTime
-      value: 30
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: maxRainTime
-      value: 60
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
@@ -2700,7 +2700,7 @@ PrefabInstance:
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: thunderChance
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
@@ -2715,12 +2715,12 @@ PrefabInstance:
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: maxRainDuration
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: minRainDuration
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8816990616258050759, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
