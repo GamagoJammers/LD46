@@ -38,12 +38,16 @@ public class WoodenTree : MonoBehaviour
 
 	public void Die()
 	{
+		float generalOffsetAngle = Random.Range(0.0f, 360.0f);
+		Vector2 originPos = new Vector2(logDropPoint.position.x, logDropPoint.position.z);
+
 		for(int i=0; i<actualState.logAmount; i++)
 		{
-			Vector2 originPos = new Vector2(logDropPoint.position.x, logDropPoint.position.z);
 			Vector2 logPos = originPos + Vector2.right;
-			float angle = Random.Range(0.0f, 360.0f);
-			logPos = Tools.RotatePosAroundPoint(originPos, logPos, angle);
+
+			float deltaAngle = Random.Range(-5.0f, 5.0f);
+			float logAngleOffset = 360.0f * i / (float)(actualState.logAmount);
+			logPos = Tools.RotatePosAroundPoint(originPos, logPos, generalOffsetAngle + logAngleOffset + deltaAngle );
 
 			Vector3 logPosition = new Vector3(logPos.x, logDropPoint.position.y, logPos.y);
 
