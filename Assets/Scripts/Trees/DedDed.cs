@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DedDed : MonoBehaviour
 {
+    public float timeToDed = 1.5f;
     private void OnEnable()
     {
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, timeToDed);
     }
 }
