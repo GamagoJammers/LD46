@@ -5,18 +5,13 @@ using UnityEngine;
 
 public class TestHealth : MonoBehaviour
 {
-    public int health = 10;
-    public int maxHealth = 10;
-    public UI healthbar;
-    // Start is called before the first frame update
-    void Start()
-    {
-        healthbar.setMaxHealth(maxHealth);
-    }
+    public Damageable ramHealth;
+    public Image healthBar;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        healthbar.setHealth(health);
+        healthBar.fillAmount = (float)ramHealth.m_healthPoints / (float)ramHealth.m_maxHealth;
+        transform.LookAt(Camera.main.transform.position);
     }
 }
