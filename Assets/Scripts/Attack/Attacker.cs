@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public class AttackEvent : UnityEvent<Damageable> { }
+
 public class Attacker : MonoBehaviour
 {
     public List<string> m_attackableTags;
@@ -11,12 +13,12 @@ public class Attacker : MonoBehaviour
     public float m_stunDamages;
     public int m_healthDamages;
 
-    public UnityEvent m_attackEvent;
+    public AttackEvent m_attackEvent;
 
 
     public void Attack(Damageable _damageable)
     {
-        m_attackEvent.Invoke();
+        m_attackEvent.Invoke(_damageable);
         _damageable.Damage(m_healthDamages, m_stunDamages);
     }
 
@@ -27,7 +29,7 @@ public class Attacker : MonoBehaviour
 
     void Awake()
     {
-        m_attackEvent = new UnityEvent();
+        m_attackEvent = new AttackEvent();
     }
 
     void OnDisable()

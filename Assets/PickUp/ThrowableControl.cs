@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ThrowableAttackControl : MonoBehaviour
+public class ThrowableControl : MonoBehaviour
 {
     public Rigidbody m_rb;
     public Pickable m_pickable;
@@ -18,7 +18,10 @@ public class ThrowableAttackControl : MonoBehaviour
         {
             Vector3 velocity2D = m_rb.velocity;
             velocity2D.y = 0;
-            m_attack.SetEnableAttack(velocity2D.magnitude > m_minHitVelocity);
-        }
+			bool condition = velocity2D.magnitude > m_minHitVelocity;
+			m_pickable.m_isPickable = !condition;
+			m_attack.SetEnableAttack(condition);
+
+		}
     }
 }
