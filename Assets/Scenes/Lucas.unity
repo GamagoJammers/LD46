@@ -774,7 +774,7 @@ PrefabInstance:
     - target: {fileID: 3954245296002025077, guid: e84c3a06d55150d47a4b02b216e0fe2b,
         type: 3}
       propertyPath: wanderingDistanceFromCampfire.max
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3954245296002025077, guid: e84c3a06d55150d47a4b02b216e0fe2b,
         type: 3}
@@ -991,6 +991,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 56971158, guid: adc42a2e03539ed4691b6a44b2ff95fd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052989755, guid: adc42a2e03539ed4691b6a44b2ff95fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
       propertyPath: m_Name
