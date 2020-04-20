@@ -29,8 +29,10 @@ public class Damageable : MonoBehaviour
             return;
         }
 
+        bool damage = false;
         if (m_canBeKilled)
         {
+            damage = true;
             m_healthPoints = Mathf.Max(m_healthPoints - _healthDamages, 0);
 
             if (!IsAlive())
@@ -48,7 +50,12 @@ public class Damageable : MonoBehaviour
                     m_startStunEvent.Invoke();
                 }
                 m_stunTimer = Mathf.Min(m_stunTimer + _stunDamage, m_maxStunnedTime);
+                damage = true;
             }
+        }
+        if (damage)
+        {
+            m_damageEvent.Invoke();
         }
     }
 

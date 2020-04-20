@@ -186,8 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b6631ff53772c4fa8599d8dadf13b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultVolume: 0.1
+  m_defaultVolume: 0.06
   m_rangeVolume: {x: 0.03, y: 0.3}
+  m_audioSource: {fileID: 0}
 --- !u!1 &1983692297565171618
 GameObject:
   m_ObjectHideFlags: 0
