@@ -586,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5f3b995714918d2408a5a69ed5162946, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ef4cefd42b1cc5489f5e5d0b05d96ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -797,6 +797,8 @@ GameObject:
   - component: {fileID: 6154732254346773250}
   - component: {fileID: 1084200063311621538}
   - component: {fileID: 616125895297315370}
+  - component: {fileID: 1120780668}
+  - component: {fileID: 1120780663}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -897,7 +899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptTimer: {fileID: 0}
+  Timer: {fileID: 0}
   scoreScreen: {fileID: 6761888664193977231}
+  animScore: {fileID: 1120780663}
   displayScore: {fileID: 5097797911318345933}
   displayDeathCause: {fileID: 5832392744469263165}
 --- !u!114 &616125895297315370
@@ -912,3 +916,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8605600dbb2d434abe8199850586cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1120780668
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464650350389566383}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!111 &1120780663
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464650350389566383}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 64509920e829f804cab328352fa90308, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 64509920e829f804cab328352fa90308, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
