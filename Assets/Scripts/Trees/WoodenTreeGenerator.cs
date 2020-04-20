@@ -24,7 +24,7 @@ public class WoodenTreeGenerator : MonoBehaviour
 	public void Start()
 	{
 		trees = new List<WoodenTree>();
-		distanceFromCampfire.max = GameManager.instance.zoneRadius - 2.0f;
+		distanceFromCampfire.max = GameManager.instance.zoneRadius - 5.0f;
 
 		treePrefab.GetComponent<WoodenTree>().baseState = 2;
 		for(int i=0; i<startingTreeNb; i++)

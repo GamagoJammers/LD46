@@ -748,7 +748,7 @@ PrefabInstance:
     - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3470786512925298723, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
@@ -1625,31 +1625,6 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1531163285}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1122820917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6346363941525360240, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
-    type: 3}
-  m_PrefabInstance: {fileID: 4809194147195276384}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1122820920
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1122820917}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c85fa9afde021a44d9769afdded352b4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1128949113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7264820870236547155, guid: 146ddf93a42a5824799957b05c25b20b,
@@ -2611,11 +2586,6 @@ PrefabInstance:
       propertyPath: maxEnemyTimeLimit
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 5315838312103519385, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxRainTimeLimit
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: minTime
@@ -2656,36 +2626,6 @@ PrefabInstance:
       propertyPath: thunderLight
       value: 
       objectReference: {fileID: 1157749790}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: minRainTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxRainTime
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: thunderChance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: minRainDuration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxRainDuration
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: rateAcceleration
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8816990616258050759, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: moveWithTransform
@@ -2724,6 +2664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336035329020976562, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
+        type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4809194146267016077, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
         type: 3}

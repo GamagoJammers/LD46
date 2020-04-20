@@ -71,17 +71,17 @@ public class DifficultyManager : MonoBehaviour
 
     private void EnemyProgression()
     {
-        if (actualTime - actualMaxEnemyProgressionRate == 0 && enemyGenerator.maxEnemyNb > maxEnemyLimit)
+        if (actualTime - actualMaxEnemyProgressionRate == 0 && enemyGenerator.maxEnemyNb < maxEnemyLimit)
         {
             actualMaxEnemyProgressionRate += maxEnemyProgressionRate;
             enemyGenerator.maxEnemyNb += 1;
         }
-        if (actualTime - actualMaxEnemyInstantiationProgressionRate == 0 && enemyGenerator.timeBetweenInstantiation.max < maxEnemyInstantiationLimit)
+        if (actualTime - actualMaxEnemyInstantiationProgressionRate == 0 && enemyGenerator.timeBetweenInstantiation.max > maxEnemyInstantiationLimit)
         {
             actualMaxEnemyInstantiationProgressionRate += maxEnemyInstantiationProgressionRate;
             enemyGenerator.timeBetweenInstantiation.max -= 1;
         }
-        if (actualTime - actualMinEnemyInstantiationProgressionRate == 0 && enemyGenerator.timeBetweenInstantiation.min < minEnemyInstantiationLimit)
+        if (actualTime - actualMinEnemyInstantiationProgressionRate == 0 && enemyGenerator.timeBetweenInstantiation.min > minEnemyInstantiationLimit)
         {
             actualMinEnemyInstantiationProgressionRate += minEnemyInstantiationProgressionRate;
             enemyGenerator.timeBetweenInstantiation.min -= 1;
