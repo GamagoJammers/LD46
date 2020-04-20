@@ -27,9 +27,12 @@ public class RamNPC : MonoBehaviour
 	[Header("VFX")]
 
 	public ParticleSystem stompVFX;
+	public ParticleSystem healVFX;
 
 	private void Start()
 	{
+		damageable.m_onHealEvent.AddListener(HealVFX);
+
 		wanderingDistanceFromCampfire.max = GameManager.instance.zoneRadius - 1.0f;
 
 		agent.SetDestination(Tools.RandomPointOnCircle(wanderingDistanceFromCampfire));
@@ -157,5 +160,12 @@ public class RamNPC : MonoBehaviour
 		nextChargeReady = false;
 		yield return new WaitForSeconds(chargeCooldown);
 		nextChargeReady = true;
+	}
+
+	private void HealVFX()
+	{
+		if (healVFX.isPlaying)
+			healVFX.Stop();
+		healVFX.Play();
 	}
 }
