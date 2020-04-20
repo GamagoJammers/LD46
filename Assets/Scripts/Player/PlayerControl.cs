@@ -118,7 +118,10 @@ public class PlayerControl : MonoBehaviour
 
     public void TryStartChop()
     {
-        m_chopper.TryStartChop();
+        if (CanChopTree())
+        {
+            m_chopper.TryStartChop();
+        }
     }
 
     public void StopChop()

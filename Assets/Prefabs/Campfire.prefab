@@ -9660,6 +9660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_defaultVolume: 1
   m_rangeVolume: {x: 0.6, y: 1}
+  m_audioSource: {fileID: 0}
 --- !u!114 &7739504644386824262
 MonoBehaviour:
   m_ObjectHideFlags: 0
