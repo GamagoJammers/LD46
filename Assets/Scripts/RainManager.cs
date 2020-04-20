@@ -9,6 +9,7 @@ public class RainManager : MonoBehaviour
     public int maxRainTime;
     public int minRainDuration;
     public int maxRainDuration;
+    public int rateAcceleration;
     private int RainTime;
     private int actualTime;
     private int targetTime;
@@ -52,7 +53,7 @@ public class RainManager : MonoBehaviour
         light.color = new Color32(109,177,248,255);
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
-        campfire.naturalEstinguishingRate = rate/2;
+        campfire.naturalEstinguishingRate = rate/rateAcceleration;
         RainTime = Random.Range(minRainDuration, maxRainDuration);
         //Debug.Log(RainTime);
         yield return new WaitForSeconds(RainTime);

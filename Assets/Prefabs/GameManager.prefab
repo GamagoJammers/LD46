@@ -101,6 +101,7 @@ MonoBehaviour:
   maxRainTime: 60
   minRainDuration: 10
   maxRainDuration: 20
+  rateAcceleration: 0
   rain: {fileID: 8816990616258050759}
   light: {fileID: 0}
   campfire: {fileID: 0}
