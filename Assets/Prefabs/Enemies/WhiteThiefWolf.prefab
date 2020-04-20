@@ -60,11 +60,15 @@ MonoBehaviour:
   m_pickableTags:
   - log
   m_carryingTag: {fileID: 5672729626313332093}
+  m_thrower: {fileID: 0}
   m_canThrow: 0
   m_shouldFlagOutline: 0
   m_isPlayer: 0
   m_selectedPickable: {fileID: 0}
   m_damageable: {fileID: 5672729627583880176}
+  m_throwEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &964952611
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,9 +131,6 @@ MonoBehaviour:
   m_enableAttack: 1
   m_stunDamages: 2
   m_healthDamages: 1
-  m_attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5672729626030757661
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +908,7 @@ MonoBehaviour:
   targetLog: {fileID: 0}
   pickSensor: {fileID: 1468053577424468007}
   damageable: {fileID: 5672729627583880176}
+  attacker: {fileID: 964952613}
 --- !u!114 &5672729627583880176
 MonoBehaviour:
   m_ObjectHideFlags: 0
