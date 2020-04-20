@@ -495,7 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sandwichPrefab: {fileID: 7275843135139412033, guid: 957cf9530ecbec24c8249a896172963c,
     type: 3}
-  dropChance: 10
+  dropChance: 15
 --- !u!1 &6425242230427816562
 GameObject:
   m_ObjectHideFlags: 0
