@@ -54,11 +54,9 @@ public class WoodenTreeGenerator : MonoBehaviour
 
 		for (int i = 0; i < maximumTries; i++)
 		{
-			Vector2 pos2d = Tools.RotatePosAroundPoint(Vector2.zero,
-													   new Vector2(0.0f, Random.Range(distanceFromCampfire.min, distanceFromCampfire.max)),
-													   Random.Range(0.0f, 2* Mathf.PI));
-
-			Vector3 position = new Vector3(pos2d.x, 0.0f, pos2d.y);
+			Vector3 position = Tools.RotatePosAroundPoint(Vector3.zero,
+														  Vector3.right * Random.Range(distanceFromCampfire.min, distanceFromCampfire.max),
+														  Random.Range(0.0f, 2* Mathf.PI));
 
 			if (Physics.OverlapSphere(position, minDistanceBetweenTrees, treeMask).Length == 0)
 			{

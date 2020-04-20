@@ -39,17 +39,14 @@ public class WoodenTree : MonoBehaviour
 	public void Die()
 	{
 		float generalOffsetAngle = Random.Range(0.0f, 2 * Mathf.PI);
-		Vector2 originPos = new Vector2(logDropPoint.position.x, logDropPoint.position.z);
 
 		for(int i=0; i<actualState.logAmount; i++)
 		{
-			Vector2 logPos = originPos + Vector2.right;
+			Vector3 logPos = logDropPoint.position + Vector3.right;
 
 			float deltaAngle = Random.Range(-0.25f, 0.25f);
 			float logAngleOffset = 2 * Mathf.PI * i / (float)(actualState.logAmount);
-			logPos = Tools.RotatePosAroundPoint(originPos, logPos, generalOffsetAngle + logAngleOffset + deltaAngle );
-
-			Vector3 logPosition = new Vector3(logPos.x, logDropPoint.position.y, logPos.y);
+			Vector3 logPosition = Tools.RotatePosAroundPoint(logDropPoint.position, logDropPoint.position + Vector3.right, generalOffsetAngle + logAngleOffset + deltaAngle );
 
 			Pickable log = Instantiate(logPrefab, logPosition, Quaternion.LookRotation(logPosition-logDropPoint.position)).GetComponent<Pickable>();
 			log.Drop(true);
