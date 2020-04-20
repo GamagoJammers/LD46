@@ -137,4 +137,9 @@ public class Campfire : MonoBehaviour
 
 		yield return null;
 	}
+
+	public float GetVivacityPercentage()
+	{
+		return (float) ( vivacity )/ 100.0f;
+	}
 }
