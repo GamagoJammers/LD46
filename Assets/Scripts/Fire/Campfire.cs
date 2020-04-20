@@ -44,6 +44,8 @@ public class Campfire : MonoBehaviour
 	public float minCindersEmission;
 	public float maxCindersEmission;
 
+    public ParticleSystem fireSplash;
+
 	private void Start()
 	{
 		actualNaturalExtinguishingCoroutine = StartCoroutine(NaturalEstinguishingCoroutine());
@@ -121,6 +123,8 @@ public class Campfire : MonoBehaviour
 		vivacityAfter = Mathf.Clamp(vivacityAfter, 0.0f, 100.0f);
 		float currentLerpTime = 0.0f;
 		float lerpTime = 0.5f;
+
+        fireSplash.Play();
 
 		if(actualNaturalExtinguishingCoroutine != null)
 		{
