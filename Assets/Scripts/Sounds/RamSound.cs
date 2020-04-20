@@ -13,10 +13,12 @@ public class RamSound : MonoBehaviour
     public List<AudioClip> m_attackSounds;
     public List<AudioClip> m_hitSounds;
     public List<AudioClip> m_chargeSounds;
+    public AudioClip m_healSound;
     public List<AudioClip> m_deathSounds;
 
     public float m_attackVolume;
     public float m_hitVolume;
+    public float m_healVolume;
     public float m_deathVolume;
 
     void Start()
@@ -24,6 +26,7 @@ public class RamSound : MonoBehaviour
         m_attacker.m_attackEvent.AddListener(Attack);
         m_damageable.m_deathEvent.AddListener(Death);
         m_damageable.m_onDamageEvent.AddListener(Damage);
+        m_damageable.m_onHealEvent.AddListener(Heal);
     }
 
     void OnDisable()
@@ -37,6 +40,7 @@ public class RamSound : MonoBehaviour
         {
             m_damageable.m_onDamageEvent.RemoveListener(Damage);
             m_damageable.m_deathEvent.RemoveListener(Death);
+            m_damageable.m_onHealEvent.RemoveListener(Heal);
         }
     }
 
@@ -49,15 +53,21 @@ public class RamSound : MonoBehaviour
         }
 
         bool isCharging = m_ramNPC.GetState() == RamNPC.RamNPCState.CHARGE;
-
         if ((GameManager.instance.isPaused || !isCharging) && m_chargeAudioSource.isPlaying)
         {
             m_chargeAudioSource.Stop();
         }
-         else if (isCharging && !m_chargeAudioSource.isPlaying)
+        else if (isCharging && !m_chargeAudioSource.isPlaying)
         {
             Charge();
         }
+    }
+
+    void Charge()
+    {
+        m_chargeAudioSource.Stop();
+        m_chargeAudioSource.clip = m_attackSounds[Random.Range(0, m_chargeSounds.Count)];
+        m_chargeAudioSource.Play();
     }
 
     void Attack(Damageable _damageable)
@@ -68,13 +78,6 @@ public class RamSound : MonoBehaviour
             m_audioSourceControl.SetLerpedVolume(m_attackVolume);
             m_audioSourceControl.m_audioSource.Play();
         }
-    }
-
-    void Charge()
-    {
-        m_chargeAudioSource.Stop();
-        m_chargeAudioSource.clip = m_attackSounds[Random.Range(0, m_chargeSounds.Count)];
-        m_chargeAudioSource.Play();
     }
 
     void Death()
@@ -95,5 +98,13 @@ public class RamSound : MonoBehaviour
             m_audioSourceControl.SetLerpedVolume(m_hitVolume);
             m_audioSourceControl.m_audioSource.Play();
         }
+    }
+
+    void Heal()
+    {
+        m_audioSourceControl.m_audioSource.Stop();
+        m_audioSourceControl.m_audioSource.clip = m_healSound;
+        m_audioSourceControl.SetLerpedVolume(m_healVolume);
+        m_audioSourceControl.m_audioSource.Play();
     }
 }
