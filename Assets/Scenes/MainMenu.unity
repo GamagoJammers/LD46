@@ -10976,6 +10976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 947667149011122672, guid: b1148b895de402d45873df17664db069,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1578401982503740291, guid: b1148b895de402d45873df17664db069,
         type: 3}
       propertyPath: m_Camera
@@ -11046,6 +11051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578401983634872996, guid: b1148b895de402d45873df17664db069,
+        type: 3}
+      propertyPath: m_FirstSelected
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1578401984080455675, guid: b1148b895de402d45873df17664db069,
         type: 3}

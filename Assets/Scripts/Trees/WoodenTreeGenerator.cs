@@ -48,6 +48,13 @@ public class WoodenTreeGenerator : MonoBehaviour
 		}
 	}
 
+    public void DestroyOne()
+    {
+        WoodenTree treeToDestroy = trees[Random.Range(0,trees.Count)];
+        treeToDestroy.actualState.logAmount = 0;
+        treeToDestroy.Die();
+    }
+
 	private Vector3 GetPossibleTreePosition()
 	{
 		int maximumTries = 10;

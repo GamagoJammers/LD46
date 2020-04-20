@@ -4871,7 +4871,7 @@ MonoBehaviour:
   - growthStatus: 1
     stateModel: {fileID: 5993380614565193464}
     logAmount: 1
-    timeToGrow: 15
+    timeToGrow: 20
   - growthStatus: 2
     stateModel: {fileID: 1939203260922115260}
     logAmount: 3
