@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class RamNPC : MonoBehaviour
 {
-	public enum RamNPCState { CHARGE, WANDER };
+	public enum RamNPCState { WANDER, CHARGE};
 
 	[Header("Component")]
 

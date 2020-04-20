@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class ThiefWolf : MonoBehaviour
 {
-	public enum ThiefWolfState {CHASELOG, FLEE};
+	public enum ThiefWolfState {WANDER, CHASELOG, FLEE};
 
 	public NavMeshAgent agent;
 	ThiefWolfState state;
@@ -16,6 +16,8 @@ public class ThiefWolf : MonoBehaviour
 	public PickerSensor pickSensor;
 	public Damageable damageable;
 	public Attacker attacker;
+
+	public float maxWanderingTime;
 
 	private void Start()
 	{

@@ -908,6 +908,7 @@ MonoBehaviour:
   targetLog: {fileID: 0}
   pickSensor: {fileID: 1468053577424468007}
   damageable: {fileID: 5672729627583880176}
+  attacker: {fileID: 964952613}
 --- !u!114 &5672729627583880176
 MonoBehaviour:
   m_ObjectHideFlags: 0
