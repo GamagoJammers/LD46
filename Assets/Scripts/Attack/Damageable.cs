@@ -55,7 +55,7 @@ public class Damageable : MonoBehaviour
         }
         if (damage)
         {
-            m_damageEvent.Invoke();
+            m_onDamageEvent.Invoke();
         }
     }
 
