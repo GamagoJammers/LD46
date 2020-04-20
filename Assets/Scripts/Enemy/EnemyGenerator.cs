@@ -14,6 +14,7 @@ public class EnemyGenerator : MonoBehaviour
 	public float AttackerWolfChance;
 
 	public MinMaxFloat timeBetweenInstantiation;
+	public float zoneOffset = 4.0f;
 
 	public int maxEnemyNb;
 
@@ -34,21 +35,14 @@ public class EnemyGenerator : MonoBehaviour
 
 		if (enemies.Count < maxEnemyNb)
 		{
-			if (GameManager.instance.logs.Count == 0)
+			float randomChance = Random.Range(0.0f, 100.0f);
+			if(randomChance <= thiefWolfChance)
+			{
+				enemies.Add(Instantiate(whiteThiefWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
+			}
+			else if (randomChance <= thiefWolfChance + AttackerWolfChance)
 			{
 				enemies.Add(Instantiate(blackAttackerWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
-			}
-			else
-			{
-				float randomChance = Random.Range(0.0f, 100.0f);
-				if(randomChance <= thiefWolfChance)
-				{
-					enemies.Add(Instantiate(whiteThiefWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
-				}
-				else if (randomChance <= thiefWolfChance + AttackerWolfChance)
-				{
-					enemies.Add(Instantiate(blackAttackerWolfPrefab, enemyPosition, Quaternion.identity, this.transform));
-				}
 			}
 		}
 	}
@@ -56,7 +50,7 @@ public class EnemyGenerator : MonoBehaviour
 	private Vector3 GetEnemyStartPosition()
 	{
 		return Tools.RotatePosAroundPoint(Vector3.zero,
-										  Vector3.right * (GameManager.instance.zoneRadius + 2.0f),
+										  Vector3.right * (GameManager.instance.zoneRadius + zoneOffset),
 										  Random.Range(0.0f, 2* Mathf.PI));
 	}
 

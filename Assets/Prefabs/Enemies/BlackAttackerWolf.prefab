@@ -386,8 +386,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 943139441205382243}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.3
-  m_Speed: 5
+  m_Radius: 1
+  m_Speed: 6
   m_Acceleration: 1000
   avoidancePriority: 50
   m_AngularSpeed: 1000
@@ -428,7 +428,14 @@ MonoBehaviour:
   agent: {fileID: 943139441205382253}
   damageable: {fileID: 943139441205382254}
   attacker: {fileID: 4877154139131975099}
-  dedVFX: {fileID: 1536416739512935853, guid: 4748dfc9c5f24ba4bbf86f6ae6a79fbf, type: 3}
+  target: {fileID: 0}
+  speed:
+    min: 5
+    max: 7
+  wanderingDistanceFromCampfire:
+    min: 4
+    max: 0
+  maxAttack: 5
 --- !u!114 &943139441205382254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4877154139131975101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 1.33}
+  m_LocalPosition: {x: 0, y: 0.8, z: 1.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 943139441205382252}
@@ -892,7 +899,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4877154139131975099
 MonoBehaviour:

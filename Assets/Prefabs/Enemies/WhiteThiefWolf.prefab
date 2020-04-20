@@ -95,7 +95,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964952611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 1.33}
+  m_LocalPosition: {x: 0, y: 0.8, z: 1.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5672729627583880178}
@@ -112,7 +112,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &964952613
 MonoBehaviour:
@@ -865,7 +865,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5672729627583880189}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.3
+  m_Radius: 1
   m_Speed: 6
   m_Acceleration: 1000
   avoidancePriority: 50
@@ -905,12 +905,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5672729627583880179}
-  targetLog: {fileID: 0}
   pickSensor: {fileID: 1468053577424468007}
   damageable: {fileID: 5672729627583880176}
   attacker: {fileID: 964952613}
-  maxWanderingTime: 0
-  dedVFX: {fileID: 2331353880270936719, guid: d4bf1c05f129df848ba15f24fbe5af52, type: 3}
+  targetLog: {fileID: 0}
+  speed:
+    min: 5
+    max: 7
+  wanderingDistanceFromCampfire:
+    min: 4
+    max: 0
+  currentWanderingTime: 0
+  maxWanderingTime: 10
 --- !u!114 &5672729627583880176
 MonoBehaviour:
   m_ObjectHideFlags: 0
