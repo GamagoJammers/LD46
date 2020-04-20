@@ -31,7 +31,7 @@ public class TreeSound : MonoBehaviour
     void PlayGrowSound()
     {
         m_audioSourceControl.m_audioSource.Stop();
-        m_audioSourceControl.m_audioSource.clip = m_growSounds[Random.Range(0, m_growSounds.Count - 1)];
+        m_audioSourceControl.m_audioSource.clip = m_growSounds[Random.Range(0, m_growSounds.Count)];
         m_audioSourceControl.SetLerpedVolume(m_growVolume);
         m_audioSourceControl.m_audioSource.Play();
     }

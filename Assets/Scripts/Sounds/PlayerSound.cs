@@ -66,7 +66,7 @@ public class PlayerSound : MonoBehaviour
                     {
 
                         m_audioSourceControl.m_audioSource.Stop();
-                        m_audioSourceControl.m_audioSource.clip = m_hitSounds[Random.Range(0, m_hitSounds.Count - 1)];
+                        m_audioSourceControl.m_audioSource.clip = m_hitSounds[Random.Range(0, m_hitSounds.Count)];
                         m_audioSourceControl.m_audioSource.loop = false;
                         m_audioSourceControl.SetLerpedVolume(m_hitVolume);
                         m_audioSourceControl.m_audioSource.Play();
@@ -87,7 +87,7 @@ public class PlayerSound : MonoBehaviour
                 case State.THROWING:
                     {
                         m_audioSourceControl.m_audioSource.Stop();
-                        m_audioSourceControl.m_audioSource.clip = m_throwSounds[Random.Range(0, m_hitSounds.Count - 1)];
+                        m_audioSourceControl.m_audioSource.clip = m_throwSounds[Random.Range(0, m_hitSounds.Count)];
                         m_audioSourceControl.m_audioSource.loop = false;
                         m_audioSourceControl.SetLerpedVolume(m_throwVolume);
                         m_audioSourceControl.m_audioSource.Play();
