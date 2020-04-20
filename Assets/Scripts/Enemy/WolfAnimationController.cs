@@ -17,21 +17,19 @@ public class WolfAnimationController : MonoBehaviour
 
 	private void Start()
 	{
+		if (m_isThief)
+			m_picker.m_pickEvent.AddListener(Pick);
+		m_attacker.m_attackEvent.AddListener(Attack);
+		m_attackTimer = 0.0f;
 		m_damageable.m_startStunEvent.AddListener(Stun);
 		m_damageable.m_deathEvent.AddListener(Die);
-		m_attacker.m_attackEvent.AddListener(Attack);
-		if(m_isThief)
-			m_picker.m_pickEvent.AddListener(Pick);
-		m_attackTimer = 0.0f;
 	}
 
 	private void OnDisable()
 	{
-		if (m_damageable != null)
+		if (m_isThief && m_picker != null)
 		{
-			m_damageable.m_startStunEvent.RemoveListener(Stun);
-			m_damageable.m_deathEvent.RemoveListener(Die);
-
+			m_picker.m_pickEvent.RemoveListener(Pick);
 		}
 
 		if (m_attacker != null)
@@ -39,9 +37,10 @@ public class WolfAnimationController : MonoBehaviour
 			m_attacker.m_attackEvent.RemoveListener(Attack);
 		}
 
-		if(m_isThief && m_picker != null)
+		if (m_damageable != null)
 		{
-			m_picker.m_pickEvent.RemoveListener(Pick);
+			m_damageable.m_startStunEvent.RemoveListener(Stun);
+			m_damageable.m_deathEvent.RemoveListener(Die);
 		}
 	}
 
@@ -69,11 +68,12 @@ public class WolfAnimationController : MonoBehaviour
 			m_animator.SetTrigger("TGetUp");
 		}
 	}
-
-	void Stun()
+	
+	void Pick()
 	{
-		m_animator.SetTrigger("THit");
-		m_animator.SetBool("IsStun", true);
+		m_animator.SetTrigger("TAttack");
+		m_animator.SetBool("IsAttacking", true);
+		m_attackTimer = m_attackAnimationClip.averageDuration;
 	}
 
 	void Attack(Damageable damageable)
@@ -83,11 +83,10 @@ public class WolfAnimationController : MonoBehaviour
 		m_attackTimer = m_attackAnimationClip.averageDuration;
 	}
 
-	void Pick()
+	void Stun()
 	{
-		m_animator.SetTrigger("TAttack");
-		m_animator.SetBool("IsAttacking", true);
-		m_attackTimer = m_attackAnimationClip.averageDuration;
+		m_animator.SetTrigger("THit");
+		m_animator.SetBool("IsStun", true);
 	}
 
 	void Die()
