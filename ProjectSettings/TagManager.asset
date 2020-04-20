@@ -13,6 +13,7 @@ TagManager:
   - food
   - camera
   - Campfire
+  - SoundManager
   layers:
   - Default
   - TransparentFX
