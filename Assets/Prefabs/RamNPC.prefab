@@ -808,8 +808,9 @@ MonoBehaviour:
   agent: {fileID: 3954245296002025079}
   damageable: {fileID: 3954245296002025354}
   attacker: {fileID: 3954245295550123783}
+  target: {fileID: 0}
   nextChargeReady: 1
-  chargeCooldown: 2
+  chargeCooldown: 10
   speed:
     min: 7
     max: 15
