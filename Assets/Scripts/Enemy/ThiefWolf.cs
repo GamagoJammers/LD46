@@ -8,23 +8,35 @@ public class ThiefWolf : MonoBehaviour
 {
 	public enum ThiefWolfState {WANDER, CHASELOG, FLEE};
 
+	[Header("Component")]
+
 	public NavMeshAgent agent;
 	ThiefWolfState state;
-
-	public GameObject targetLog;
-
 	public PickerSensor pickSensor;
 	public Damageable damageable;
 	public Attacker attacker;
 
+	[Header("Stats")]
+
+	[HideInInspector]
+	public GameObject targetLog;
+	public MinMaxFloat speed;
+	public MinMaxFloat wanderingDistanceFromCampfire;
+	private float currentWanderingTime;
 	public float maxWanderingTime;
 
 	private void Start()
 	{
-		state = ThiefWolfState.CHASELOG;
+		wanderingDistanceFromCampfire.max = GameManager.instance.zoneRadius - 2.0f;
+
+		agent.SetDestination(Tools.RandomPointOnCircle(wanderingDistanceFromCampfire));
+		agent.speed = speed.min;
+		state = ThiefWolfState.WANDER;
+		currentWanderingTime = 0.0f;
+		attacker.SetEnableAttack(false);
 	}
 
-	void Update()
+	private void Update()
     {
 		if(!GameManager.instance.isPaused)
 		{
@@ -38,9 +50,7 @@ public class ThiefWolf : MonoBehaviour
 						attacker.SetEnableAttack(true);
 					}
 
-					if (state == ThiefWolfState.CHASELOG)
-						UpdateTarget();
-
+					Act();
 					CheckState();
 				}
 				else if (!agent.isStopped)
@@ -65,17 +75,33 @@ public class ThiefWolf : MonoBehaviour
 		Destroy(this.gameObject);
 	}
 
-	public void UpdateTarget()
+	private void Act()
 	{
-		bool flee = false;
+		switch (state)
+		{
+			case ThiefWolfState.WANDER:
+				WanderAct();
+				break;
+			case ThiefWolfState.CHASELOG:
+				ChaseAct();
+				break;
+		}
+	}
 
-		if(GameManager.instance.logs.Count != 0)
+	private void WanderAct()
+	{
+		currentWanderingTime += Time.deltaTime;
+	}
+
+	private void ChaseAct()
+	{
+		if (GameManager.instance.logs.Count != 0)
 		{
 			targetLog = null;
 			float minDist = float.MaxValue;
 			foreach (GameObject log in GameManager.instance.logs)
 			{
-				if(!log.GetComponent<Pickable>().IsPickedButNotByPlayer())
+				if (!log.GetComponent<Pickable>().IsPickedButNotByPlayer())
 				{
 					float distanceFromWolf = (log.transform.position - transform.position).magnitude;
 
@@ -86,43 +112,80 @@ public class ThiefWolf : MonoBehaviour
 					}
 				}
 			}
-			if (targetLog == null)
-				flee = true;
-		}
-		else
-		{
-			flee = true;
 		}
 
-		if(flee)
-		{
-			state = ThiefWolfState.FLEE;
-			agent.SetDestination(transform.position.normalized * (GameManager.instance.zoneRadius + 2.0f));
-		}
-		else
-		{
+		if(targetLog != null)
 			agent.SetDestination(targetLog.transform.position);
+	}
+
+	private void CheckState()
+	{
+		switch (state)
+		{
+			case ThiefWolfState.WANDER:
+				CheckWanderState();
+				break;
+			case ThiefWolfState.CHASELOG:
+				CheckChaseLogState();
+				break;
+			case ThiefWolfState.FLEE:
+				CheckFleeState();
+				break;
 		}
 	}
 
-	public void CheckState()
+	private void CheckWanderState()
 	{
-		if (state == ThiefWolfState.CHASELOG && pickSensor.m_selectedPickable != null)
+		if (GameManager.instance.logs.Count != 0)
+		{
+			agent.speed = speed.max;
+			state = ThiefWolfState.CHASELOG;
+			attacker.SetEnableAttack(true);
+		}
+		else if(currentWanderingTime >= maxWanderingTime)
+		{
+			agent.SetDestination(transform.position.normalized * (GameManager.instance.zoneRadius + GameManager.instance.enemyGenerator.zoneOffset));
+			agent.speed = speed.max;
+			state = ThiefWolfState.FLEE;
+			attacker.SetEnableAttack(true);
+		}
+		else if (agent.remainingDistance <= 0.1f)
+		{
+			agent.SetDestination(Tools.RandomPointOnCircle(wanderingDistanceFromCampfire));
+		}
+	}
+
+	private void CheckChaseLogState()
+	{
+		if (GameManager.instance.logs.Count == 0 || targetLog == null)
+		{
+			agent.SetDestination(Tools.RandomPointOnCircle(wanderingDistanceFromCampfire));
+			agent.speed = speed.min;
+			state = ThiefWolfState.WANDER;
+			currentWanderingTime = 0.0f;
+			attacker.SetEnableAttack(false);
+		}
+		else if(pickSensor.m_selectedPickable != null)
 		{
 			pickSensor.PickUp();
-			state = ThiefWolfState.FLEE;
 
-			agent.SetDestination(transform.position.normalized * (GameManager.instance.zoneRadius+2.0f));
+			agent.SetDestination(transform.position.normalized * (GameManager.instance.zoneRadius + GameManager.instance.enemyGenerator.zoneOffset));
+			agent.speed = speed.max;
+			state = ThiefWolfState.FLEE;
+			attacker.SetEnableAttack(true);
 		}
-		else if(state == ThiefWolfState.FLEE && agent.remainingDistance <= 0.2f)
+	}
+
+	private void CheckFleeState()
+	{
+		if (agent.remainingDistance <= 0.2f)
 		{
-			if(targetLog != null)
+			if (targetLog != null)
 			{
 				GameManager.instance.logs.Remove(targetLog);
 				Destroy(targetLog.gameObject);
 			}
-			GameManager.instance.enemyGenerator.enemies.Remove(this.gameObject);
-			Destroy(this.gameObject);
+			Die();
 		}
 	}
 

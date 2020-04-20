@@ -16,7 +16,8 @@ public class RamNPC : MonoBehaviour
 
 	[Header("Stats")]
 
-	private GameObject target;
+	[HideInInspector]
+	public GameObject target;
 	public bool nextChargeReady;
 	public float chargeCooldown;
 	public Coroutine currentChargeCooldownCoroutine;
@@ -31,6 +32,7 @@ public class RamNPC : MonoBehaviour
 		agent.speed = speed.min;
 		state = RamNPCState.WANDER;
 		attacker.SetEnableAttack(false);
+		damageable.m_canBeKilled = true;
 	}
 
 	private void Update()
@@ -88,6 +90,7 @@ public class RamNPC : MonoBehaviour
 			agent.speed = speed.min;
 			state = RamNPCState.WANDER;
 			attacker.SetEnableAttack(false);
+			damageable.m_canBeKilled = true;
 		}
 	}
 
@@ -102,6 +105,7 @@ public class RamNPC : MonoBehaviour
 				agent.speed = speed.max;
 				state = RamNPCState.CHARGE;
 				attacker.SetEnableAttack(true);
+				damageable.m_canBeKilled = false;
 			}
 		}
 		if (agent.remainingDistance <= 0.1f)
@@ -119,6 +123,7 @@ public class RamNPC : MonoBehaviour
 		agent.speed = speed.max;
 		state = RamNPCState.CHARGE;
 		attacker.SetEnableAttack(true);
+		damageable.m_canBeKilled = false;
 	}
 
 	IEnumerator ChargeCooldownCoroutine()
