@@ -99,11 +99,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRainTime: 30
   maxRainTime: 60
+  thunderChance: 50
   minRainDuration: 10
   maxRainDuration: 20
   rateAcceleration: 2
+  woodenTreeGenerator: {fileID: 6683913328030774911}
   rain: {fileID: 8816990616258050759}
-  light: {fileID: 0}
+  fireLight: {fileID: 0}
   campfire: {fileID: 0}
 --- !u!1001 &1877677593465408105
 PrefabInstance:
