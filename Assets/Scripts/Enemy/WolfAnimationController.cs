@@ -46,26 +46,29 @@ public class WolfAnimationController : MonoBehaviour
 
 	void Update()
 	{
-		if(m_isThief)
+		if (!GameManager.instance.isPaused)
 		{
-			m_animator.SetBool("IsWalking", m_thiefWolf.agent.speed == m_thiefWolf.speed.min);
-			m_animator.SetBool("IsRunning", m_thiefWolf.agent.speed == m_thiefWolf.speed.max);
-		}
-		else
-		{
-			m_animator.SetBool("IsWalking", m_attackerWolf.agent.velocity.sqrMagnitude > 0 && m_attackerWolf.agent.speed == m_attackerWolf.speed.min);
-			m_animator.SetBool("IsRunning", m_attackerWolf.agent.velocity.sqrMagnitude > 0 && m_attackerWolf.agent.speed == m_attackerWolf.speed.max);
-		}
-		m_animator.SetBool("IsStun", m_damageable.IsStunned());
-		m_animator.SetBool("IsAttacking", m_attackTimer > 0);
-		m_animator.SetBool("IsDown", m_animator.GetCurrentAnimatorStateInfo(0).IsName("Stun"));
-		if (m_attackTimer > 0)
-		{
-			m_attackTimer -= Time.deltaTime;
-		}
-		if (m_damageable.IsStunned() && m_damageable.GetStunnedTimer() < m_getUpAnimationClip.averageDuration)
-		{
-			m_animator.SetTrigger("TGetUp");
+			if (m_isThief)
+			{
+				m_animator.SetBool("IsWalking", m_thiefWolf.agent.speed == m_thiefWolf.speed.min);
+				m_animator.SetBool("IsRunning", m_thiefWolf.agent.speed == m_thiefWolf.speed.max);
+			}
+			else
+			{
+				m_animator.SetBool("IsWalking", m_attackerWolf.agent.velocity.sqrMagnitude > 0 && m_attackerWolf.agent.speed == m_attackerWolf.speed.min);
+				m_animator.SetBool("IsRunning", m_attackerWolf.agent.velocity.sqrMagnitude > 0 && m_attackerWolf.agent.speed == m_attackerWolf.speed.max);
+			}
+			m_animator.SetBool("IsStun", m_damageable.IsStunned());
+			m_animator.SetBool("IsAttacking", m_attackTimer > 0);
+			m_animator.SetBool("IsDown", m_animator.GetCurrentAnimatorStateInfo(0).IsName("Stun"));
+			if (m_attackTimer > 0)
+			{
+				m_attackTimer -= Time.deltaTime;
+			}
+			if (m_damageable.IsStunned() && m_damageable.GetStunnedTimer() < m_getUpAnimationClip.averageDuration)
+			{
+				m_animator.SetTrigger("TGetUp");
+			}
 		}
 	}
 	

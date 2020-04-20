@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class ChangeSceneFromUI : MonoBehaviour
 {
-
-    private void Update()
-    {
-        
-    }
     public void LoadGame()
     {
         SceneManager.LoadScene("GameScene");

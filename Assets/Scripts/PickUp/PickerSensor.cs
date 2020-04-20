@@ -142,25 +142,31 @@ public class PickerSensor : MonoBehaviour
 	}
 
     private void FixedUpdate()
-    {
-        // Fix state
-        if(m_isCarrying && m_selectedPickable == null)
-        {
-            m_isCarrying = false;
-        }
+	{
+		if (!GameManager.instance.isPaused)
+		{
+			// Fix state
+			if (m_isCarrying && m_selectedPickable == null)
+			{
+				m_isCarrying = false;
+			}
 
-        if (!m_isCarrying)
-        {
-            SelectPickable();
-        }
+			if (!m_isCarrying)
+			{
+				SelectPickable();
+			}
+		}
     }
 
     private void Update()
     {
-        if (m_shouldFlagOutline && CanPickUp())
-        {
-            m_selectedPickable.FlagOutline();
-        }
+		if (!GameManager.instance.isPaused)
+		{
+			if (m_shouldFlagOutline && CanPickUp())
+			{
+				m_selectedPickable.FlagOutline();
+			}
+		}
     }
 
     private void OnTriggerEnter(Collider other)

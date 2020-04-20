@@ -14,9 +14,12 @@ public class FakeGravity : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!m_rb.isKinematic )
-        {
-            m_rb.AddForce(m_fakeGravity * Vector3.down, ForceMode.Acceleration);
-        }
+		if (!GameManager.instance.isPaused)
+		{
+			if (!m_rb.isKinematic)
+			{
+				m_rb.AddForce(m_fakeGravity * Vector3.down, ForceMode.Acceleration);
+			}
+		}
     }
 }

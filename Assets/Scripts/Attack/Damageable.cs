@@ -93,7 +93,7 @@ public class Damageable : MonoBehaviour
     //Internal methods
     private void Awake()
     {
-		if (m_onDamageEvent == null)
+		if (m_onHealEvent == null)
 		{
 			m_onHealEvent = new UnityEvent();
 		}
@@ -130,14 +130,17 @@ public class Damageable : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!IsAlive())
-        {
-            return;
-        }
+		if(!GameManager.instance.isPaused)
+		{
+			if (!IsAlive())
+			{
+				return;
+			}
 
-        if (IsStunned())
-        {
-            m_stunTimer = Mathf.Max(0, m_stunTimer - Time.deltaTime);
-        }
+			if (IsStunned())
+			{
+				m_stunTimer = Mathf.Max(0, m_stunTimer - Time.deltaTime);
+			}
+		}
     }
 }

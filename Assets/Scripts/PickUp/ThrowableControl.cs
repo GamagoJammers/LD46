@@ -10,18 +10,21 @@ public class ThrowableControl : MonoBehaviour
 
     void Update()
     {
-        if (m_pickable.IsPickedUp())
-        {
-            m_attack.SetEnableAttack(false);
-        }
-        else
-        {
-            Vector3 velocity2D = m_rb.velocity;
-            velocity2D.y = 0;
-			bool condition = velocity2D.magnitude > m_minHitVelocity;
-			m_pickable.m_isPickable = !condition;
-			m_attack.SetEnableAttack(condition);
+		if (!GameManager.instance.isPaused)
+		{
+			if (m_pickable.IsPickedUp())
+			{
+				m_attack.SetEnableAttack(false);
+			}
+			else
+			{
+				Vector3 velocity2D = m_rb.velocity;
+				velocity2D.y = 0;
+				bool condition = velocity2D.magnitude > m_minHitVelocity;
+				m_pickable.m_isPickable = !condition;
+				m_attack.SetEnableAttack(condition);
 
+			}
 		}
     }
 }
