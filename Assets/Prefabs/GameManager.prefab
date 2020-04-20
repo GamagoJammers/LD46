@@ -293,12 +293,12 @@ PrefabInstance:
     - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
         type: 3}
       propertyPath: AttackerWolfChance
-      value: 80
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4495305441898926163, guid: 430d8f2e7b460814b8c0edd96eab4990,
         type: 3}
       propertyPath: thiefWolfChance
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4495305441898926188, guid: 430d8f2e7b460814b8c0edd96eab4990,
         type: 3}
