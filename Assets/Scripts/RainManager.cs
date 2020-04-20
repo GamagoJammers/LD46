@@ -7,14 +7,18 @@ public class RainManager : MonoBehaviour
     private float timer;
     public int minRainTime;
     public int maxRainTime;
+    public int thunderChance;
     public int minRainDuration;
     public int maxRainDuration;
     public int rateAcceleration;
-    private int RainTime;
+    private int rainTime;
     private int actualTime;
     private int targetTime;
     private float rate;
     private bool raining = false;
+    private bool thunder = false;
+
+    public WoodenTreeGenerator woodenTreeGenerator;
 
     public ParticleSystem rain;
 
@@ -37,6 +41,7 @@ public class RainManager : MonoBehaviour
             if (actualTime >= targetTime)
             {
                 StartCoroutine("Rain");
+                StartCoroutine("Thunder");
             }
             else
             {
@@ -54,9 +59,9 @@ public class RainManager : MonoBehaviour
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
         campfire.naturalEstinguishingRate = rate/rateAcceleration;
-        RainTime = Random.Range(minRainDuration, maxRainDuration);
+        rainTime = Random.Range(minRainDuration, maxRainDuration);
         //Debug.Log(RainTime);
-        yield return new WaitForSeconds(RainTime);
+        yield return new WaitForSeconds(rainTime);
         rain.Stop();
         fireLight.color = new Color32(163,153,255,255);
         campfire.naturalEstinguishingRate = rate;
@@ -64,5 +69,19 @@ public class RainManager : MonoBehaviour
         actualTime = 0;
         targetTime = Random.Range(minRainTime, maxRainTime);
         raining = false;
+    }
+
+    public IEnumerator Thunder()
+    {
+        if(Random.Range(1,100) <= thunderChance)
+        {
+            thunder = true;
+        }
+        yield return new WaitForSeconds(Random.Range(1,rainTime-1));
+        if (thunder)
+        {
+            woodenTreeGenerator.DestroyOne();
+        }
+        thunder = false;
     }
 }
