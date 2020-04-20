@@ -71,7 +71,7 @@ public class DifficultyManager : MonoBehaviour
 
     private void EnemyProgression()
     {
-        if (actualTime - actualMaxEnemyProgressionRate == 0 && enemyGenerator.maxEnemyNb < maxEnemyLimit)
+        if (actualTime - actualMaxEnemyProgressionRate == 0 && enemyGenerator.maxEnemyNb > maxEnemyLimit)
         {
             actualMaxEnemyProgressionRate += maxEnemyProgressionRate;
             enemyGenerator.maxEnemyNb += 1;
@@ -81,7 +81,7 @@ public class DifficultyManager : MonoBehaviour
             actualMaxEnemyInstantiationProgressionRate += maxEnemyInstantiationProgressionRate;
             enemyGenerator.timeBetweenInstantiation.max -= 1;
         }
-        if (actualTime - actualMinEnemyInstantiationProgressionRate == 0 && enemyGenerator.timeBetweenInstantiation.min > minEnemyInstantiationLimit)
+        if (actualTime - actualMinEnemyInstantiationProgressionRate == 0 && enemyGenerator.timeBetweenInstantiation.min < minEnemyInstantiationLimit)
         {
             actualMinEnemyInstantiationProgressionRate += minEnemyInstantiationProgressionRate;
             enemyGenerator.timeBetweenInstantiation.min -= 1;
@@ -95,12 +95,12 @@ public class DifficultyManager : MonoBehaviour
             actualMinRainDurationProgressionRate += minRainDurationProgressionRate;
             rainManager.minRainDuration += 1;
         }
-        if (actualTime - actualMaxRainDurationProgressionRate == 0 && maxRainDurationLimit < rainManager.maxRainDuration)
+        if (actualTime - actualMaxRainDurationProgressionRate == 0 && maxRainDurationLimit > rainManager.maxRainDuration)
         {
             actualMaxRainDurationProgressionRate += maxRainDurationProgressionRate;
             rainManager.maxRainDuration += 1;
         }
-        if (actualTime - actualMinRainTimeProgressionRate == 0 && minRainTimeLimit > rainManager.minRainTime)
+        if (actualTime - actualMinRainTimeProgressionRate == 0 && minRainTimeLimit < rainManager.minRainTime)
         {
             actualMinRainTimeProgressionRate += minRainTimeProgressionRate;
             rainManager.minRainTime -= 1;

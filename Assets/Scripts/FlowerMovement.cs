@@ -10,7 +10,6 @@ public class FlowerMovement : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        Debug.Log("Yes");
     }
 
     // Update is called once per frame
@@ -23,7 +22,6 @@ public class FlowerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("player"))
         {
-            Debug.Log("Double Yes");
             animator.SetTrigger("Move");
         }
     }
