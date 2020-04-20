@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class RainManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RainManager : MonoBehaviour
     public int minRainTime;
     public int maxRainTime;
     public int thunderChance;
+    public int thunderLightIntensity;
     public int minRainDuration;
     public int maxRainDuration;
     public int rateAcceleration;
@@ -22,12 +24,21 @@ public class RainManager : MonoBehaviour
 
     public ParticleSystem rain;
 
+    public Light thunderLight;
+
     public Light fireLight;
 
     public Campfire campfire;
+
+    public CinemachineVirtualCamera VirtualCamera;
+    private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
     // Start is called before the first frame update
     void Start()
     {
+        if(VirtualCamera != null)
+        {
+            virtualCameraNoise = VirtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+        }
         rain.Stop();
         targetTime = Random.Range(minRainTime, maxRainTime);
     }
@@ -55,7 +66,7 @@ public class RainManager : MonoBehaviour
     {
         //Debug.Log(targetTime);
         raining = true;
-        fireLight.color = new Color32(109,177,248,255);
+        fireLight.color = new Color32(109,100,248,255);
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
         campfire.naturalEstinguishingRate = rate/rateAcceleration;
@@ -80,7 +91,12 @@ public class RainManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1,rainTime-1));
         if (thunder)
         {
+            virtualCameraNoise.m_AmplitudeGain = 5;
+            thunderLight.intensity = thunderLightIntensity;
+            yield return new WaitForSeconds(1);
+            thunderLight.intensity = 0;
             woodenTreeGenerator.DestroyOne();
+            virtualCameraNoise.m_AmplitudeGain = 0;
         }
         thunder = false;
     }
