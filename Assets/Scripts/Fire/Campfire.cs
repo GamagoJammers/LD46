@@ -84,6 +84,8 @@ public class Campfire : MonoBehaviour
 			yield return new WaitForSeconds(naturalEstinguishingRate);
 			vivacity -= naturalEstinguishingAmount;
 		}
+		GameManager.instance.isDeadFire = true;
+		GameManager.instance.GameOver();
 		//gameover
 	}
 

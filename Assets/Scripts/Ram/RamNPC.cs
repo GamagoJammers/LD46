@@ -43,17 +43,27 @@ public class RamNPC : MonoBehaviour
 	{
 		if (!GameManager.instance.isPaused)
 		{
-			if (damageable.CanPerformActions())
+			if (damageable.IsAlive())
 			{
-				if (agent.isStopped)
-					agent.isStopped = false;
+				if (damageable.CanPerformActions())
+				{
+					if (agent.isStopped)
+					{
+						agent.isStopped = false;
+					}
 
-				Act();
-				CheckState();
+					Act();
+					CheckState();
+				}
+				else if (!agent.isStopped)
+				{
+					agent.isStopped = true;
+				}
 			}
-			else if (!agent.isStopped)
+			else
 			{
-				agent.isStopped = true;
+				GameManager.instance.isDeadFire = false;
+				GameManager.instance.GameOver();
 			}
 		}
 		else if (!agent.isStopped)

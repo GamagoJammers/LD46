@@ -5,27 +5,29 @@ using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
 {
-    public UI timer;
+    public UI scriptTimer;
     public GameObject scoreScreen;
-    public Text scoreText;
+    public Text displayScore;
+    public Text displayDeathCause;
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            EndScore();
-        }
+
     }
 
     public void EndScore()
     {
         scoreScreen.SetActive(true);
-        scoreText.text = timer.timerText.ToString();
+        displayScore.text = scriptTimer.timerText.text.ToString();
+        if (GameManager.instance.isDeadFire)
+            displayDeathCause.text = "Your fire is extinguished, throw more logs into it!";
+        else if (!GameManager.instance.isDeadFire)
+            displayDeathCause.text = "Your ram is dead, try and feed him more sandwiches!";
     }
 }
