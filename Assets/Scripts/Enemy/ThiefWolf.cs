@@ -19,6 +19,9 @@ public class ThiefWolf : MonoBehaviour
 
 	public float maxWanderingTime;
 
+	[Header("VFX")]
+	public GameObject dedVFX;
+
 	private void Start()
 	{
 		state = ThiefWolfState.CHASELOG;
@@ -62,6 +65,8 @@ public class ThiefWolf : MonoBehaviour
 
 	public void Die()
 	{
+		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
+
 		Destroy(this.gameObject);
 	}
 

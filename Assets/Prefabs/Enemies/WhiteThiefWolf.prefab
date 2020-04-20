@@ -909,6 +909,8 @@ MonoBehaviour:
   pickSensor: {fileID: 1468053577424468007}
   damageable: {fileID: 5672729627583880176}
   attacker: {fileID: 964952613}
+  maxWanderingTime: 0
+  dedVFX: {fileID: 2331353880270936719, guid: d4bf1c05f129df848ba15f24fbe5af52, type: 3}
 --- !u!114 &5672729627583880176
 MonoBehaviour:
   m_ObjectHideFlags: 0

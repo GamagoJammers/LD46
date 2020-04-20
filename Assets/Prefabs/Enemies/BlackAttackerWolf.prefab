@@ -428,6 +428,7 @@ MonoBehaviour:
   agent: {fileID: 943139441205382253}
   damageable: {fileID: 943139441205382254}
   attacker: {fileID: 4877154139131975099}
+  dedVFX: {fileID: 1536416739512935853, guid: 4748dfc9c5f24ba4bbf86f6ae6a79fbf, type: 3}
 --- !u!114 &943139441205382254
 MonoBehaviour:
   m_ObjectHideFlags: 0

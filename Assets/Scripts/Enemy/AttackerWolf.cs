@@ -14,6 +14,9 @@ public class AttackerWolf : MonoBehaviour
 	[Header("Stats")]
 	private GameObject target;
 
+	[Header("VFX")]
+	public GameObject dedVFX;
+
 	private void Start()
 	{
 		attacker.m_attackEvent.AddListener(OnAttack);
@@ -62,6 +65,8 @@ public class AttackerWolf : MonoBehaviour
 
 	public void Die()
 	{
+		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
+
 		Destroy(this.gameObject);
 	}
 
