@@ -612,12 +612,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackableTags:
   - enemy
+  - player
   m_enableAttack: 1
   m_stunDamages: 2
   m_healthDamages: 1
-  m_attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3954245295888639680
 GameObject:
   m_ObjectHideFlags: 0
