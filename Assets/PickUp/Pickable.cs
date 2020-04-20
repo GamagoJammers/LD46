@@ -2,21 +2,29 @@
 
 public class Pickable : MonoBehaviour
 {
-    public float m_dropImpulse;
+	[HideInInspector]
+	public bool m_isPickable = true;
+
+	public float m_dropImpulse;
     public float m_throwImpulse;
     public Rigidbody m_rb;
     public GameObject m_outline;
 
-    private bool m_pickedUp;
+	private bool m_pickedUp;
     private bool m_playerPickedUp;
     private bool m_flagOutline;
+	
+	public bool IsPickable()
+	{
+		return m_isPickable;
+	}
 
-    public bool IsPickedUp()
-    {
-        return m_pickedUp;
-    }
+	public bool IsPickedUp()
+	{
+		return m_pickedUp;
+	}
 
-    public bool IsPickedButNotByPlayer()
+	public bool IsPickedButNotByPlayer()
     {
         return m_pickedUp && !m_playerPickedUp;
     }

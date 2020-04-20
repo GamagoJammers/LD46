@@ -75,9 +75,14 @@ public class PickerSensor : MonoBehaviour
             {
                 toDelete.Add(i);
                 continue;
-            }
+			}
 
-            if (m_sensedPickables[i].IsPickedUp())
+			if (!m_sensedPickables[i].IsPickable())
+			{
+				continue;
+			}
+
+			if (m_sensedPickables[i].IsPickedUp())
             {
                 continue;
             }

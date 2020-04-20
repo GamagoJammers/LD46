@@ -55,11 +55,9 @@ public class EnemyGenerator : MonoBehaviour
 
 	private Vector3 GetEnemyStartPosition()
 	{
-		Vector2 pos2d = Tools.RotatePosAroundPoint(Vector2.zero,
-													new Vector2(0.0f, GameManager.instance.zoneRadius + 2.0f),
-													Random.Range(0.0f, 360.0f));
-
-		return new Vector3(pos2d.x, 0.0f, pos2d.y);
+		return Tools.RotatePosAroundPoint(Vector3.zero,
+										  Vector3.right*(GameManager.instance.zoneRadius + 2.0f),
+										  Random.Range(0.0f, 360.0f));
 	}
 
 	private IEnumerator EnemyGenerationCoroutine()

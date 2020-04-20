@@ -11,9 +11,26 @@ public struct MinMaxFloat
 
 public static class Tools
 {
-	public static Vector2 RotatePosAroundPoint(Vector2 originPoint, Vector2 positionToRotate, float angle)
+	public static Vector3 RotatePosAroundPoint(Vector3 originPoint, Vector3 positionToRotate, float angle)
 	{
-		return new Vector2((positionToRotate.x - originPoint.x) * Mathf.Cos(angle) - (positionToRotate.y - originPoint.y) * Mathf.Sin(angle) + originPoint.x,
-						   (positionToRotate.x - originPoint.x) * Mathf.Sin(angle) + (positionToRotate.y - originPoint.y) * Mathf.Cos(angle) + originPoint.y);
+		return new Vector3((positionToRotate.x - originPoint.x) * Mathf.Cos(angle) - (positionToRotate.z - originPoint.z) * Mathf.Sin(angle) + originPoint.x, originPoint.y,
+						   (positionToRotate.x - originPoint.x) * Mathf.Sin(angle) + (positionToRotate.z - originPoint.z) * Mathf.Cos(angle) + originPoint.z);
+	}
+
+	public static Vector3 RandomPointOnCircle(MinMaxFloat distanceFromCenter)
+	{
+		int maximumTries = 10;
+
+		for(int i=0; i<maximumTries; i++)
+		{
+			Vector2 point = Random.insideUnitCircle * distanceFromCenter.max;
+
+			if(point.magnitude > distanceFromCenter.min)
+			{
+				return new Vector3(point.x, 0.0f, point.y);
+			}
+		}
+
+		return Vector3.zero;
 	}
 }

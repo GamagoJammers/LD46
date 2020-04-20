@@ -40,12 +40,7 @@ public class WoodenTree : MonoBehaviour
 	{
 		for(int i=0; i<actualState.logAmount; i++)
 		{
-			Vector2 originPos = new Vector2(logDropPoint.position.x, logDropPoint.position.z);
-			Vector2 logPos = originPos + Vector2.right;
-			float angle = Random.Range(0.0f, 360.0f);
-			logPos = Tools.RotatePosAroundPoint(originPos, logPos, angle);
-
-			Vector3 logPosition = new Vector3(logPos.x, logDropPoint.position.y, logPos.y);
+			Vector3 logPosition = Tools.RotatePosAroundPoint(logDropPoint.position, logDropPoint.position + Vector3.right, Random.Range(0.0f, 360.0f));
 
 			Pickable log = Instantiate(logPrefab, logPosition, Quaternion.LookRotation(logPosition-logDropPoint.position)).GetComponent<Pickable>();
 			log.Drop(true);

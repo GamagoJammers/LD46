@@ -23,21 +23,40 @@ public class ThiefWolf : MonoBehaviour
 
 	void Update()
     {
-		if(damageable.CanPerformActions())
+		if(!GameManager.instance.isPaused)
 		{
-			if (agent.isStopped)
-				agent.isStopped = false;
+			if(damageable.IsAlive())
+			{
+				if (damageable.CanPerformActions())
+				{
+					if (agent.isStopped)
+						agent.isStopped = false;
 
-			if(state == ThiefWolfState.CHASELOG)
-				UpdateTarget();
+					if (state == ThiefWolfState.CHASELOG)
+						UpdateTarget();
 
-			checkState();
+					CheckState();
+				}
+				else if (!agent.isStopped)
+				{
+					agent.isStopped = true;
+				}
+			}
+			else
+			{
+				Die();
+			}
 		}
-		else
+		else if (!agent.isStopped)
 		{
 			agent.isStopped = true;
 		}
     }
+
+	public void Die()
+	{
+		Destroy(this.gameObject);
+	}
 
 	public void UpdateTarget()
 	{
@@ -79,7 +98,7 @@ public class ThiefWolf : MonoBehaviour
 		}
 	}
 
-	public void checkState()
+	public void CheckState()
 	{
 		if (state == ThiefWolfState.CHASELOG && pickSensor.m_selectedPickable != null)
 		{
