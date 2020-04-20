@@ -577,7 +577,7 @@ MonoBehaviour:
   - player
   - ram
   m_enableAttack: 1
-  m_stunDamages: 2.5
+  m_stunDamages: 2
   m_healthDamages: 1
 --- !u!1001 &8322257421030881284
 PrefabInstance:

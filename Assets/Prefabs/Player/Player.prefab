@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266a8feb4836296498b076b4252ae91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aim: {fileID: 8163104160002171280}
+  aim: {fileID: 1727120651184259826}
   m_picker: {fileID: 2806937598916228413}
 --- !u!1 &1798347767284623636
 GameObject:
@@ -392,6 +392,9 @@ MonoBehaviour:
   m_isPlayer: 1
   m_selectedPickable: {fileID: 0}
   m_damageable: {fileID: 1798347766615011116}
+  m_pickEvent:
+    m_PersistentCalls:
+      m_Calls: []
   m_throwEvent:
     m_PersistentCalls:
       m_Calls: []
