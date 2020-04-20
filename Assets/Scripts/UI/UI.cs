@@ -16,8 +16,9 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canvasTuto.SetActive(false);
         pauseMenu.SetActive(false);
-        canvasTuto.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -32,8 +33,7 @@ public class UI : MonoBehaviour
 
         CheckPause();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canvasTuto.activeSelf)
-            goGame.LoadGame();
+        TutoSkip();
 
     }
 
@@ -69,6 +69,16 @@ public class UI : MonoBehaviour
     public void DisplayTuto()
     {
         canvasTuto.SetActive(true);
+    }
+
+    public void TutoSkip()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canvasTuto.activeSelf)
+        {
+            Debug.Log("ok");
+            canvasTuto.SetActive(false);
+            goGame.LoadGame();
+        }
     }
 
     public void setMaxHealth(int health)
