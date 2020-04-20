@@ -2399,11 +2399,6 @@ PrefabInstance:
       propertyPath: speed.min
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 3954245296002025077, guid: e84c3a06d55150d47a4b02b216e0fe2b,
-        type: 3}
-      propertyPath: chargeCooldown
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3954245296002025078, guid: e84c3a06d55150d47a4b02b216e0fe2b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2570,6 +2565,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838485772778116322, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315838312103519385, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: minEnemyTimeLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315838312103519385, guid: d7b09af4859463a4a950c6a2545d8d30,
+        type: 3}
+      propertyPath: maxEnemyTimeLimit
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}

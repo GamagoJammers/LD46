@@ -6,6 +6,7 @@ using UnityEngine;
 public class ScoreUI : MonoBehaviour
 {
     public UI scriptTimer;
+    public GameObject Timer;
     public GameObject scoreScreen;
     public Text displayScore;
     public Text displayDeathCause;
@@ -23,7 +24,9 @@ public class ScoreUI : MonoBehaviour
 
     public void EndScore()
     {
+        Time.timeScale = 0.0f;
         scoreScreen.SetActive(true);
+        Timer.SetActive(false);
         displayScore.text = scriptTimer.timerText.text.ToString();
         if (GameManager.instance.isDeadFire)
             displayDeathCause.text = "Your fire is extinguished, throw more logs into it!";
