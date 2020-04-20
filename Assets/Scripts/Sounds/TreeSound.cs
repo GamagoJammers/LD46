@@ -12,7 +12,7 @@ public class TreeSound : MonoBehaviour
     public float m_growVolume;
     public float m_dieVolume;
 
-    void Start()
+    void Awake()
     {
         m_woodenTree.m_growEvent.AddListener(PlayGrowSound);
         m_woodenTree.m_dieEvent.AddListener(PlayDieSound);

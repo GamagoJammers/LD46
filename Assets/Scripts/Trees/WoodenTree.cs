@@ -49,6 +49,10 @@ public class WoodenTree : MonoBehaviour
 		actualState = treeStates[baseState];
 		actualState.stateModel.SetActive(true);
 		StartCoroutine(GrowCoroutine());
+		if(actualState.growthStatus == WoodenTreeGrowthStatus.SPROUT)
+		{
+			m_growEvent.Invoke();
+		}
 	}
 
 	public void Die()

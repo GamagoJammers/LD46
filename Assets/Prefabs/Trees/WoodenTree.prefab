@@ -5013,7 +5013,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5110,8 +5110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b6631ff53772c4fa8599d8dadf13b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultVolume: 1
-  m_rangeVolume: {x: 0, y: 1}
+  m_defaultVolume: 0.4
+  m_rangeVolume: {x: 0, y: 0.4}
   m_audioSource: {fileID: 2498641247494219296}
 --- !u!114 &2053393959298601572
 MonoBehaviour:
@@ -5134,7 +5134,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbffe8fc496198c499f1466cde63d0b5, type: 3}
   m_dieSound: {fileID: 8300000, guid: 0d1acd572a87fda43bae0bf46c04b9d2, type: 3}
   m_growVolume: 1
-  m_dieVolume: 0.2
+  m_dieVolume: 0.3
 --- !u!111 &1658758909
 Animation:
   m_ObjectHideFlags: 0
