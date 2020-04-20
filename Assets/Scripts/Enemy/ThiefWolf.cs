@@ -58,6 +58,7 @@ public class ThiefWolf : MonoBehaviour
 				}
 				else if (!agent.isStopped)
 				{
+					targetLog = null;
 					agent.isStopped = true;
 				}
 			}
