@@ -129,7 +129,7 @@ MonoBehaviour:
   m_attackableTags:
   - player
   m_enableAttack: 1
-  m_stunDamages: 2
+  m_stunDamages: 1.5
   m_healthDamages: 1
 --- !u!1 &5672729626030757661
 GameObject:
@@ -909,6 +909,7 @@ MonoBehaviour:
   pickSensor: {fileID: 1468053577424468007}
   damageable: {fileID: 5672729627583880176}
   attacker: {fileID: 964952613}
+  maxWanderingTime: 0
 --- !u!114 &5672729627583880176
 MonoBehaviour:
   m_ObjectHideFlags: 0

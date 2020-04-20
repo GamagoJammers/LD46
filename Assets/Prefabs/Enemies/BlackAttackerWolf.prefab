@@ -909,5 +909,5 @@ MonoBehaviour:
   - player
   - ram
   m_enableAttack: 1
-  m_stunDamages: 2
+  m_stunDamages: 2.5
   m_healthDamages: 1
