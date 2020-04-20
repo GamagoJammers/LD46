@@ -5187,6 +5187,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 33.647003, y: -20.3, z: 0}
+--- !u!1 &1069039056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1578401984080455672, guid: b1148b895de402d45873df17664db069,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578401983694045297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!199 &1187388728
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -10595,6 +10601,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 947667149011122672, guid: b1148b895de402d45873df17664db069,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1578401982503740291, guid: b1148b895de402d45873df17664db069,
         type: 3}
       propertyPath: m_Camera
@@ -10666,6 +10677,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 1578401983634872996, guid: b1148b895de402d45873df17664db069,
+        type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 1069039056}
     - target: {fileID: 1578401984080455675, guid: b1148b895de402d45873df17664db069,
         type: 3}
       propertyPath: m_AnchoredPosition.x
