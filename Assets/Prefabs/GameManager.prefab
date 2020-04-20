@@ -95,11 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b7c51baa83af54ead0598d17cff8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 20
-  maxTime: 50
-  minRainTime: 2
-  maxRainTime: 5
+  minRainTime: 30
+  maxRainTime: 60
+  minRainDuration: 10
+  maxRainDuration: 20
   rain: {fileID: 8816990616258050759}
+  light: {fileID: 0}
   campfire: {fileID: 0}
 --- !u!1001 &1877677593465408105
 PrefabInstance:

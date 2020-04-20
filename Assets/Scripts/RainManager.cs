@@ -5,10 +5,10 @@ using UnityEngine;
 public class RainManager : MonoBehaviour
 {
     private float timer;
-    public int minTime;
-    public int maxTime;
     public int minRainTime;
     public int maxRainTime;
+    public int minRainDuration;
+    public int maxRainDuration;
     private int RainTime;
     private int actualTime;
     private int targetTime;
@@ -24,7 +24,7 @@ public class RainManager : MonoBehaviour
     void Start()
     {
         rain.Stop();
-        targetTime = Random.Range(minTime, maxTime);
+        targetTime = Random.Range(minRainTime, maxRainTime);
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class RainManager : MonoBehaviour
         rain.Play();
         rate = campfire.naturalEstinguishingRate;
         campfire.naturalEstinguishingRate = rate/2;
-        RainTime = Random.Range(minRainTime, maxRainTime);
+        RainTime = Random.Range(minRainDuration, maxRainDuration);
         //Debug.Log(RainTime);
         yield return new WaitForSeconds(RainTime);
         rain.Stop();
@@ -61,7 +61,7 @@ public class RainManager : MonoBehaviour
         campfire.naturalEstinguishingRate = rate;
         timer = 0;
         actualTime = 0;
-        targetTime = Random.Range(minTime, maxTime);
+        targetTime = Random.Range(minRainTime, maxRainTime);
         raining = false;
     }
 }
