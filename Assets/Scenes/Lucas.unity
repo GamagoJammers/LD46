@@ -556,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: maxEnemyNb
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
@@ -571,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: timeBetweenInstantiation.max
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
