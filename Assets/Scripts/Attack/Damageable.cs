@@ -11,9 +11,10 @@ public class Damageable : MonoBehaviour
     public bool m_additiveStun;
     public float m_maxStunnedTime;
 
-    // Event
-    public UnityEvent m_deathEvent;
-    public UnityEvent m_startStunEvent;
+	// Events
+	public UnityEvent m_onDamageEvent;
+	public UnityEvent m_startStunEvent;
+	public UnityEvent m_deathEvent;
 
     // State
     public int m_healthPoints;
@@ -83,21 +84,27 @@ public class Damageable : MonoBehaviour
     //Internal methods
     private void Awake()
     {
-        if (m_deathEvent == null)
-        {
-            m_deathEvent = new UnityEvent();
-        }
+		if(m_onDamageEvent == null)
+		{
+			m_onDamageEvent = new UnityEvent();
+		}
 
         if (m_startStunEvent == null)
         {
             m_startStunEvent = new UnityEvent();
-        }
-    }
+		}
+
+		if (m_deathEvent == null)
+		{
+			m_deathEvent = new UnityEvent();
+		}
+	}
 
     private void OnDisable()
-    {
-        m_deathEvent.RemoveAllListeners();
-        m_startStunEvent.RemoveAllListeners();
+	{
+		m_onDamageEvent.RemoveAllListeners();
+		m_startStunEvent.RemoveAllListeners();
+		m_deathEvent.RemoveAllListeners();
     }
 
     void Start()
