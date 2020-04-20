@@ -13,6 +13,7 @@ public class Damageable : MonoBehaviour
 
     // Event
     public UnityEvent m_deathEvent;
+    public UnityEvent m_damageEvent;
     public UnityEvent m_startStunEvent;
 
     // State
@@ -28,8 +29,10 @@ public class Damageable : MonoBehaviour
             return;
         }
 
+        bool damage = false;
         if (m_canBeKilled)
         {
+            damage = true;
             m_healthPoints = Mathf.Max(m_healthPoints - _healthDamages, 0);
 
             if (!IsAlive())
@@ -47,7 +50,12 @@ public class Damageable : MonoBehaviour
                     m_startStunEvent.Invoke();
                 }
                 m_stunTimer = Mathf.Min(m_stunTimer + _stunDamage, m_maxStunnedTime);
+                damage = true;
             }
+        }
+        if (damage)
+        {
+            m_damageEvent.Invoke();
         }
     }
 
@@ -92,12 +100,18 @@ public class Damageable : MonoBehaviour
         {
             m_startStunEvent = new UnityEvent();
         }
+
+        if (m_damageEvent == null)
+        {
+            m_damageEvent = new UnityEvent();
+        }
     }
 
     private void OnDisable()
     {
         m_deathEvent.RemoveAllListeners();
         m_startStunEvent.RemoveAllListeners();
+        m_damageEvent.RemoveAllListeners();
     }
 
     void Start()
