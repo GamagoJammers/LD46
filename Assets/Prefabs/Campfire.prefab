@@ -9695,7 +9695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vivacity: 100
   naturalEstinguishingRate: 0.1
-  naturalEstinguishingAmount: 0.3
+  naturalEstinguishingAmount: 0.2
   campFireLight: {fileID: 2336035329020976562}
   campFireLightRange:
     min: 10
