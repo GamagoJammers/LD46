@@ -1569,98 +1569,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 819665197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1157749789
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1157749791}
-  - component: {fileID: 1157749790}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1157749790
+--- !u!108 &1157749790 stripped
 Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8479350820369327670, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
+    type: 3}
+  m_PrefabInstance: {fileID: 4809194147195276384}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157749789}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 0.8349056, g: 0.9450151, b: 1, a: 1}
-  m_Intensity: 0
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 1
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0
-    m_NearPlane: 0.1
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1157749791
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157749789}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 5.36, y: 2.06, z: 11.94}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1181852811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2405,11 +2319,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3954245296002025077, guid: e84c3a06d55150d47a4b02b216e0fe2b,
-        type: 3}
-      propertyPath: speed.min
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3954245296002025078, guid: e84c3a06d55150d47a4b02b216e0fe2b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2592,66 +2501,6 @@ PrefabInstance:
       propertyPath: maxEnemyTimeLimit
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: timeBetweenInstantiation.min
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: timeBetweenInstantiation.max
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: thiefWolfChance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxEnemyNb
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342105230813650882, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: AttackerWolfChance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: startingTreeNb
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxTreeNb
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: timeBetweenInstantiation.min
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: distanceFromCampfire.min
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: distanceFromCampfire.max
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: timeBetweenInstantiation.max
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6683913328030774911, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: minDistanceBetweenTrees
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: minTime
@@ -2684,44 +2533,14 @@ PrefabInstance:
       objectReference: {fileID: 922176760}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
-      propertyPath: minRainTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxRainTime
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
       propertyPath: VirtualCamera
       value: 
       objectReference: {fileID: 2016321372}
     - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
-      propertyPath: thunderChance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
       propertyPath: thunderLight
       value: 
       objectReference: {fileID: 1157749790}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: thunderLightIntensity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: maxRainDuration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117808358911069968, guid: d7b09af4859463a4a950c6a2545d8d30,
-        type: 3}
-      propertyPath: minRainDuration
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8816990616258050759, guid: d7b09af4859463a4a950c6a2545d8d30,
         type: 3}
       propertyPath: moveWithTransform
@@ -2752,6 +2571,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4599469425017970, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62, type: 3}
+      propertyPath: m_Name
+      value: RainLight
+      objectReference: {fileID: 0}
     - target: {fileID: 1952112360717289406, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2846,6 +2669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346363941525360240, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
+        type: 3}
+      propertyPath: m_Name
+      value: FireLight
       objectReference: {fileID: 0}
     - target: {fileID: 7739504644386824262, guid: 4704ece9faf1bfc44ac0cb7b4bc07f62,
         type: 3}
