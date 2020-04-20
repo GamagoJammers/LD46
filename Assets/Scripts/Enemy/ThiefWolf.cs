@@ -27,6 +27,7 @@ public class ThiefWolf : MonoBehaviour
 
 	[Header("VFX")]
 	public GameObject dedVFX;
+	public AnimationClip deathClip;
 
 	private void Start()
 	{
@@ -62,7 +63,7 @@ public class ThiefWolf : MonoBehaviour
 			}
 			else
 			{
-				Die();
+				StartCoroutine(DeathCoroutine());
 			}
 		}
 		else if (!agent.isStopped)
@@ -70,13 +71,6 @@ public class ThiefWolf : MonoBehaviour
 			agent.isStopped = true;
 		}
     }
-
-	public void Die()
-	{
-		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
-
-		Destroy(this.gameObject);
-	}
 
 	private void Act()
 	{
@@ -98,27 +92,36 @@ public class ThiefWolf : MonoBehaviour
 
 	private void ChaseAct()
 	{
+		targetLog = TryToGetNearestLog();
+
+		if(targetLog != null)
+			agent.SetDestination(targetLog.transform.position);
+	}
+
+	private GameObject TryToGetNearestLog()
+	{
+		GameObject nearestLog = null;
 		if (GameManager.instance.logs.Count != 0)
 		{
-			targetLog = null;
 			float minDist = float.MaxValue;
 			foreach (GameObject log in GameManager.instance.logs)
 			{
-				if (!log.GetComponent<Pickable>().IsPickedButNotByPlayer())
+				if(log != null)
 				{
-					float distanceFromWolf = (log.transform.position - transform.position).magnitude;
-
-					if (distanceFromWolf < minDist)
+					if (!log.GetComponent<Pickable>().IsPickedButNotByPlayer())
 					{
-						minDist = distanceFromWolf;
-						targetLog = log;
+						float distanceFromWolf = (log.transform.position - transform.position).magnitude;
+
+						if (distanceFromWolf < minDist)
+						{
+							minDist = distanceFromWolf;
+							nearestLog = log;
+						}
 					}
 				}
 			}
 		}
-
-		if(targetLog != null)
-			agent.SetDestination(targetLog.transform.position);
+		return nearestLog;
 	}
 
 	private void CheckState()
@@ -139,8 +142,10 @@ public class ThiefWolf : MonoBehaviour
 
 	private void CheckWanderState()
 	{
-		if (GameManager.instance.logs.Count != 0)
+		targetLog = TryToGetNearestLog();
+		if (targetLog != null)
 		{
+			agent.SetDestination(targetLog.transform.position);
 			agent.speed = speed.max;
 			state = ThiefWolfState.CHASELOG;
 			attacker.SetEnableAttack(true);
@@ -188,12 +193,22 @@ public class ThiefWolf : MonoBehaviour
 				GameManager.instance.logs.Remove(targetLog);
 				Destroy(targetLog.gameObject);
 			}
-			Die();
+			Destroy(this.gameObject);
 		}
 	}
 
 	private void OnDestroy()
 	{
 		GameManager.instance.enemyGenerator.enemies.Remove(this.gameObject);
+	}
+
+	IEnumerator DeathCoroutine()
+	{
+		agent.isStopped = true;
+
+		yield return new WaitForSeconds(deathClip.averageDuration * 2.0f);
+
+		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
+		Destroy(this.gameObject);
 	}
 }

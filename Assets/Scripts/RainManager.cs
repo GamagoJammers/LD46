@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
+
+public class ThunderEvent : UnityEvent<Vector3> { }
 
 public class RainManager : MonoBehaviour
 {
@@ -32,6 +35,19 @@ public class RainManager : MonoBehaviour
 
     public CinemachineVirtualCamera VirtualCamera;
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
+
+    public ThunderEvent m_thunderEvent;
+
+    private void Awake()
+    {
+        m_thunderEvent = new ThunderEvent();   
+    }
+
+    private void OnDisable()
+    {
+        m_thunderEvent.RemoveAllListeners();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,11 +106,17 @@ public class RainManager : MonoBehaviour
         {
             virtualCameraNoise.m_AmplitudeGain = 5;
             thunderLight.intensity = thunderLightIntensity;
+            Vector3 position = woodenTreeGenerator.DestroyOne();
+            m_thunderEvent.Invoke(position);
             yield return new WaitForSeconds(1);
             thunderLight.intensity = 0;
-            woodenTreeGenerator.DestroyOne();
             virtualCameraNoise.m_AmplitudeGain = 0;
         }
         thunder = false;
+    }
+
+    public bool IsRaining()
+    {
+        return raining;
     }
 }

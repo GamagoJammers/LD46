@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
 	public void GameOver()
 	{
+		isPaused = true;
 		scriptScoreUI.EndScore();
 	}
 }

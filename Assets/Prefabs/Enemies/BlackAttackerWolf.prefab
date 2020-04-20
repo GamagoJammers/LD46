@@ -178,6 +178,8 @@ MonoBehaviour:
   damageable: {fileID: 943139441205382254}
   attacker: {fileID: 4877154139131975099}
   dedVFX: {fileID: 1536416739512935853, guid: 4748dfc9c5f24ba4bbf86f6ae6a79fbf, type: 3}
+  deathClip: {fileID: -4630339522487117836, guid: 69fd481eab39fc6468a2d8ccaeea9948,
+    type: 3}
   target: {fileID: 0}
   speed:
     min: 5

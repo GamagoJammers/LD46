@@ -9660,6 +9660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_defaultVolume: 1
   m_rangeVolume: {x: 0.6, y: 1}
+  m_audioSource: {fileID: 0}
 --- !u!114 &7739504644386824262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9674,7 +9675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_volumeStartToDecreaseAt: 0.5
   m_campfireSound: {fileID: 3642072389920978918}
-  m_campfire: {fileID: 0}
+  m_campfire: {fileID: 4809194147143832362}
 --- !u!1 &3987146403231200533
 GameObject:
   m_ObjectHideFlags: 0
@@ -9857,11 +9858,11 @@ MonoBehaviour:
   naturalEstinguishingAmount: 0.2
   campFireLight: {fileID: 2336035329020976562}
   campFireLightRange:
-    min: 10
+    min: 5
     max: 30
   fireLight: {fileID: 4809194146267016078}
   lightSpotAngle:
-    min: 10
+    min: 5
     max: 80
   lightIntensity:
     min: 1

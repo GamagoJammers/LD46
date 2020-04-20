@@ -48,11 +48,20 @@ public class WoodenTreeGenerator : MonoBehaviour
 		}
 	}
 
-    public void DestroyOne()
+    public Vector3 DestroyOne()
     {
-        WoodenTree treeToDestroy = trees[Random.Range(0,trees.Count)];
-        treeToDestroy.actualState.logAmount = 0;
-        treeToDestroy.Die();
+		if (trees.Count > 0)
+		{
+			WoodenTree treeToDestroy = trees[Random.Range(0,trees.Count)];
+			treeToDestroy.actualState.logAmount = 0;
+			Vector3 position = treeToDestroy.transform.position;
+			treeToDestroy.Die();
+			return position;
+		} else
+		{
+			return Vector3.zero;
+		}
+
     }
 
 	private Vector3 GetPossibleTreePosition()
