@@ -46,11 +46,13 @@ MonoBehaviour:
   enemies: []
   whiteThiefWolfPrefab: {fileID: 5672729627583880189, guid: 91806eb66dde4fb499114c2dd511923a,
     type: 3}
-  thiefWolfChance: 100
-  blackAttackerWolfPrefab: {fileID: 0}
-  AttackerWolfChance: 0
+  thiefWolfChance: 50
+  blackAttackerWolfPrefab: {fileID: 943139441205382243, guid: 0c78d3460e23d7b4c842ddfa7603653c,
+    type: 3}
+  AttackerWolfChance: 50
   timeBetweenInstantiation:
     min: 2
     max: 3
+  zoneOffset: 4
   maxEnemyNb: 10
   isActive: 1

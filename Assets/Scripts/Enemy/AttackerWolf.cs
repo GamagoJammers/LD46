@@ -16,9 +16,6 @@ public class AttackerWolf : MonoBehaviour
 
 	[Header("Stats")]
 
-	[Header("VFX")]
-	public GameObject dedVFX;
-	public AnimationClip deathClip;
 
 	[HideInInspector]
 	public GameObject target;
@@ -27,6 +24,10 @@ public class AttackerWolf : MonoBehaviour
 	private int currentAttackNb = 0;
 	public int maxAttack;
 	
+	[Header("VFX")]
+	public GameObject dedVFX;
+	public AnimationClip deathClip;
+
 	private void Start()
 	{
 		wanderingDistanceFromCampfire.max = GameManager.instance.zoneRadius - 2.0f;
@@ -161,6 +162,7 @@ public class AttackerWolf : MonoBehaviour
 		yield return new WaitForSeconds(deathClip.averageDuration * 2.0f);
 
 		Instantiate(dedVFX, transform.position, new Quaternion(0, 0, 0, 0));
+
 		Destroy(this.gameObject);
 	}
 }
