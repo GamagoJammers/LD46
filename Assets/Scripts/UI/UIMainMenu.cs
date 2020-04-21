@@ -23,7 +23,7 @@ public class UIMainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && canvasTuto.activeSelf && canPass)
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton0)) && canvasTuto.activeSelf && canPass)
         {
             goGame.LoadGame();
         }
