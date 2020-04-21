@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForFire: 1
-  energy: 12
+  energy: 13
 --- !u!1001 &3900067865266621969
 PrefabInstance:
   m_ObjectHideFlags: 0
