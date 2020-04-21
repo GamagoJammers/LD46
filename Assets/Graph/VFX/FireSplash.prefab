@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5742025454661371439}
   - component: {fileID: 5078517270017697248}
   m_Layer: 9
-  m_Name: Fire
+  m_Name: FireSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4745,7 +4745,7 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
-  m_EnableGPUInstancing: 1
+  m_EnableGPUInstancing: 0
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
