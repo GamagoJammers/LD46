@@ -33,6 +33,12 @@ public class UIMainMenu : MonoBehaviour
     public void DisplayTuto()
     {
         canvasTuto.SetActive(true);
+        StartCoroutine(WaitToPass());
+    }
+
+    IEnumerator WaitToPass()
+    {
+        yield return new WaitForSeconds(2);
         canPass = true;
     }
 }
