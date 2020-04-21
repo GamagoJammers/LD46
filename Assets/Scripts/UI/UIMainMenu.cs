@@ -11,7 +11,7 @@ public class UIMainMenu : MonoBehaviour
     public ChangeSceneFromUI goGame;
     public EventSystem m_eventSys;
     public GameObject firstSelMainMenu;
-    bool canPass =false;
+    bool canPass = false;
 
     void Start()
     {
