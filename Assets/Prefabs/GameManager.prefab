@@ -370,7 +370,7 @@ MonoBehaviour:
   minRainDurationLimit: 15
   maxRainDurationProgressionRate: 20
   maxRainDurationLimit: 20
-  thunderChanceRate: 4
+  thunderChanceRate: 2
   thunderChanceLimit: 100
 --- !u!1 &7808668201059185124
 GameObject:
@@ -419,8 +419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRainTime: 30
-  maxRainTime: 60
-  thunderChance: 50
+  maxRainTime: 50
+  thunderChance: 0
   thunderLightIntensity: 3
   minRainDuration: 10
   maxRainDuration: 15
