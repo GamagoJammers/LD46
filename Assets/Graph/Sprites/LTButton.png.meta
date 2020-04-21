@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -683850983390991930
     second: LTButton_1
+  - first:
+      213: -19695671751159392
+    second: LTButton_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +125,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 340
+        width: 330
         height: 260
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,9 +144,9 @@ TextureImporter:
       name: LTButton_1
       rect:
         serializedVersion: 2
-        x: 340
+        x: 330
         y: 0
-        width: 340
+        width: 330
         height: 260
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,7 +164,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 449159bd934efb745a691a17277bb8d4
+    spriteID: eed08cfd1cfa71d45a143969bdf562b1
     internalID: 0
     vertices: []
     indices: 
