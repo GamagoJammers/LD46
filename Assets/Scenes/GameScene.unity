@@ -4882,6 +4882,7 @@ GameObject:
   - component: {fileID: 1637763561}
   - component: {fileID: 1637763560}
   - component: {fileID: 1637763559}
+  - component: {fileID: 1637763562}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4937,6 +4938,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1637763562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637763558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8bcf194a0fde4a40b1cdb9dcbeae803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1639700230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4948,19 +4961,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2052989755, guid: adc42a2e03539ed4691b6a44b2ff95fd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}
       propertyPath: m_Name
       value: UInGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3172376289781439072, guid: adc42a2e03539ed4691b6a44b2ff95fd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3470786512925298723, guid: adc42a2e03539ed4691b6a44b2ff95fd,
         type: 3}

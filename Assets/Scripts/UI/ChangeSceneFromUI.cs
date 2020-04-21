@@ -7,8 +7,9 @@ using UnityEngine;
 public class ChangeSceneFromUI : MonoBehaviour
 {
     public void LoadGame()
-    {
-        SceneManager.LoadScene("GameScene");
+	{
+		Time.timeScale = 1.0f;
+		SceneManager.LoadScene("GameScene");
     }
 
     public void LoadMenu()

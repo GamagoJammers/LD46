@@ -22,7 +22,6 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Timer += Time.deltaTime;
         seconds = (int)(Timer % 60);
         minutes = (int)(Timer / 60);
@@ -30,9 +29,6 @@ public class UI : MonoBehaviour
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 
         CheckPause();
-
-        
-
     }
 
     private void CheckPause()
