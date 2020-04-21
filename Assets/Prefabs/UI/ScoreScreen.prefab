@@ -825,7 +825,7 @@ MonoBehaviour:
   displayScore: {fileID: 5097797911318345933}
   displayDeathCause: {fileID: 5832392744469263165}
   m_eventSys: {fileID: 0}
-  firstSelEnd: {fileID: 0}
+  firstSelEnd: {fileID: 5538271536863004836}
 --- !u!114 &616125895297315370
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -815,7 +815,7 @@ MonoBehaviour:
   timerText: {fileID: 3470786513136376270}
   pauseMenu: {fileID: 3470786513132430675}
   m_eventSys: {fileID: 0}
-  firstSelPause: {fileID: 0}
+  firstSelPause: {fileID: 3470786513727199214}
 --- !u!114 &6010054566554410639
 MonoBehaviour:
   m_ObjectHideFlags: 0
