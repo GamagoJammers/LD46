@@ -17,10 +17,8 @@ public class UIMainMenu : MonoBehaviour
     {
         canvasTuto.SetActive(false);
         m_eventSys.SetSelectedGameObject(firstSelMainMenu);
-    
     }
-
-    // Update is called once per frame
+	
     void Update()
     {
         if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton0)) && canvasTuto.activeSelf && canPass)
@@ -29,10 +27,15 @@ public class UIMainMenu : MonoBehaviour
         }
     }
 
-
     public void DisplayTuto()
     {
         canvasTuto.SetActive(true);
+        StartCoroutine(WaitToPass());
+    }
+
+    IEnumerator WaitToPass()
+    {
+        yield return new WaitForSeconds(2);
         canPass = true;
     }
 }
