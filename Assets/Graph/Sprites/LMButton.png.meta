@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b904d3bb528f8264da57b16755e47097
+guid: e2c3feb8eb85ffa47b485f267a282a99
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,84 +8,6 @@ TextureImporter:
   - first:
       213: 7403553660889553213
     second: LMButton_1
-  - first:
-      213: 2173283451578199570
-    second: LMButton_2
-  - first:
-      213: -8593846228741710676
-    second: LMButton_3
-  - first:
-      213: -221338002262359753
-    second: LMButton_4
-  - first:
-      213: 4888793217876966313
-    second: LMButton_5
-  - first:
-      213: -7250548369388675709
-    second: LMButton_6
-  - first:
-      213: 6751245320383810244
-    second: LMButton_7
-  - first:
-      213: 5972136672747819592
-    second: LMButton_8
-  - first:
-      213: 2868993321258917670
-    second: LMButton_9
-  - first:
-      213: -6342081517334855771
-    second: LMButton_10
-  - first:
-      213: 6739581049327964454
-    second: LMButton_11
-  - first:
-      213: -5804340338390316635
-    second: LMButton_12
-  - first:
-      213: 1748654962480883432
-    second: LMButton_13
-  - first:
-      213: -2312055769868823883
-    second: LMButton_14
-  - first:
-      213: 2259162951128606640
-    second: LMButton_15
-  - first:
-      213: -8528336026898959044
-    second: LMButton_16
-  - first:
-      213: -7049022380024403590
-    second: LMButton_17
-  - first:
-      213: -8300465358570358041
-    second: LMButton_18
-  - first:
-      213: -4183753174118362755
-    second: LMButton_19
-  - first:
-      213: 2530820385994601786
-    second: LMButton_20
-  - first:
-      213: -3593492390294290169
-    second: LMButton_21
-  - first:
-      213: 8435374090425654116
-    second: LMButton_22
-  - first:
-      213: 7118868862794028972
-    second: LMButton_23
-  - first:
-      213: -7142212478244776148
-    second: LMButton_24
-  - first:
-      213: 2440908106327934898
-    second: LMButton_25
-  - first:
-      213: 9221465906273496721
-    second: LMButton_26
-  - first:
-      213: 5614888259435791700
-    second: LMButton_27
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -116,7 +38,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -200,7 +122,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 220
+        width: 230
         height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -219,9 +141,9 @@ TextureImporter:
       name: LMButton_1
       rect:
         serializedVersion: 2
-        x: 220
+        x: 230
         y: 0
-        width: 220
+        width: 230
         height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -239,7 +161,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 764c1f92a692ea6409b4355d40df4191
+    spriteID: b4a397f888d1d11448a69c7ac0d8a28d
     internalID: 0
     vertices: []
     indices: 

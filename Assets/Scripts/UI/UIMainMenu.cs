@@ -11,7 +11,7 @@ public class UIMainMenu : MonoBehaviour
     public ChangeSceneFromUI goGame;
     public EventSystem m_eventSys;
     public GameObject firstSelMainMenu;
-    bool canPass =false;
+    bool canPass = false;
 
     void Start()
     {
@@ -30,6 +30,12 @@ public class UIMainMenu : MonoBehaviour
     public void DisplayTuto()
     {
         canvasTuto.SetActive(true);
+        StartCoroutine(WaitToPass());
+    }
+
+    IEnumerator WaitToPass()
+    {
+        yield return new WaitForSeconds(2);
         canPass = true;
     }
 }

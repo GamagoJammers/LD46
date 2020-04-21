@@ -34,7 +34,7 @@ public class UI : MonoBehaviour
     private void CheckPause()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             if (GameManager.instance.isPaused)
                 ResumeGame();
